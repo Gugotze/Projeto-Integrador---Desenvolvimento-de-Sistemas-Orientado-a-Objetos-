@@ -11,19 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class venda {
+public class estoque {
     
-    private int codvenda;
-    private int cod_cliente;
     private int cod_produto;
-    private int cod_filial;
     private int quantidade;
-    private double valor_Total;
 
-    
+      
     @Override
     public String toString() {
-        return "venda{" + "codvenda=" + codvenda + ", cod_cliente=" + cod_cliente + ", cod_produto=" + cod_produto + ", cod_filial=" + cod_filial + ", quantidade=" + quantidade + ", valor_Total=" + valor_Total + '}';
+        return "estoque{" + "cod_produto=" + cod_produto + ", quantidade=" + quantidade + '}';
     }
     
     
