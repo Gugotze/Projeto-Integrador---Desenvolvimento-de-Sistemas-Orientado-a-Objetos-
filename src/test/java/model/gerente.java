@@ -14,48 +14,19 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class gerente {
+public class gerente extends funcionario {
     
-    private int codgerente;
-    private String nome;
-    private String cpf;
-    private String sexo;
-    private Date datanascimento;
-    private int telefone;
-    private String email;
-    private String cep;
-    private String endereco;
-    private String bairro;
-    private int numero;
-    private String complemento;
-    private String cidade;
-    private String estado;
-    private String login;
-    private String senha;
+    
 
     public gerente(int codgerente, String nome, String cpf, String sexo, Date datanascimento, int telefone, String email, String cep, String endereco, String bairro, int numero, String cidade, String estado, String login, String senha) {
-        this.codgerente = codgerente;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.sexo = sexo;
-        this.datanascimento = datanascimento;
-        this.telefone = telefone;
-        this.email = email;
-        this.cep = cep;
-        this.endereco = endereco;
-        this.bairro = bairro;
-        this.numero = numero;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.login = login;
-        this.senha = senha;
+        super(codgerente,nome,cpf,sexo,datanascimento,telefone, email,cep,endereco,bairro,numero,cidade,estado,login,senha);
     }
 
     
     
     @Override
     public String toString() {
-        return "gerente{" + "codgerente=" + codgerente + ", nome=" + nome + ", cpf=" + cpf + ", sexo=" + sexo + ", datanascimento=" + datanascimento + ", telefone=" + telefone + ", email=" + email + ", cep=" + cep + ", endereco=" + endereco + ", bairro=" + bairro + ", numero=" + numero + ", complemento=" + complemento + ", cidade=" + cidade + ", estado=" + estado + ", login=" + login + ", senha=" + senha + '}';
+        return super.toString();
     }
   
     
