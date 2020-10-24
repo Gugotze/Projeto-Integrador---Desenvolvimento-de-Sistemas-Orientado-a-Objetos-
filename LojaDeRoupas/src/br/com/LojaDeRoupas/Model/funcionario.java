@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class funcionario {
+public abstract class funcionario {
     
     private int codfuncionario;
     private String nome;
@@ -29,8 +29,8 @@ public class funcionario {
     private String complemento;
     private String cidade;
     private String estado;
-    private String login;
-    private String senha;
+    protected String login;
+    protected String senha;
 
     public funcionario(int codfuncionario, String nome, String cpf, String sexo, Date datanascimento, int telefone, String email, String cep, String endereco, String bairro, int numero, String cidade, String estado, String login, String senha) {
         this.codfuncionario = codfuncionario;
@@ -50,6 +50,9 @@ public class funcionario {
         this.senha = senha;
     }
 
+
+    public abstract boolean Logar(String user, String password);
+    
        
     @Override
     public String toString() {

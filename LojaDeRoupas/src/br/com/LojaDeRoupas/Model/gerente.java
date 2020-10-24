@@ -10,6 +10,7 @@ import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -24,10 +25,22 @@ public class gerente extends funcionario {
 
     
     
+    
+    @Override
+	public boolean Logar(String user, String password) {
+    	
+    	return user.equals(login) && user.equals(senha);
+	
+	}
+    
     @Override
     public String toString() {
         return super.toString();
     }
+
+
+
+	
   
     
     
