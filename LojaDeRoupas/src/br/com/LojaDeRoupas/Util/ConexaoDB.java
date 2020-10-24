@@ -14,16 +14,13 @@ public class ConexaoDB {
 			return connection;
 		else {
 			try {
+				
 				Properties prop = new Properties();
 
 				String user = "root";
-				String password = "root";
+				String password = "1234";
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lojaderoupas", user, password);// Para
-										/* teste*/																				// quem
-																														// for
-																														// usar
-																														// MySql
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lojaderoupas", user, password);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
