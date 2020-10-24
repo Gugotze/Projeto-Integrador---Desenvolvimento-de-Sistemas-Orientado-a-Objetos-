@@ -21,11 +21,11 @@ public class ConexaoDB {
             try {
                 Properties prop = new Properties();
                 
-                String user = "postgres";
-                String password = "123456";
+                String user = "root";
+                String password = "1234";
                 Class.forName("com.mysql.jdbc.Driver"); // Para quem for usar MySql
                // Class.forName("org.postgresql.Driver");// Para quem for usar Postgres
-               connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lojaderoupas", "root", "1234");// Para quem for usar MySql
+               connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lojaderoupas", user, password);// Para quem for usar MySql
                 //connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/userdb",user, password);// Para quem for usar Postgres
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
