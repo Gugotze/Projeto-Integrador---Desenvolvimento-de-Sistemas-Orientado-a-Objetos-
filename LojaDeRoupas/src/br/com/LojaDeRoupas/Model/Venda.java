@@ -19,19 +19,20 @@ public class Venda {
     private double desconto;
     private double valor_Total;
 
-   
-    public Venda () {
-    	
+    public Venda(){
+        
     }
-    
+
     public Venda (int codvenda) {
     	this.codvenda=codvenda;
     }
     
-    public Venda(int codvenda, Date data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade, double desconto,
-			double valor_Total) {
+    
+    
+    public Venda(int codvenda, Date data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade,
+			double desconto, double valor_Total) {
 		
-    	this.codvenda=codvenda;
+		this.codvenda = codvenda;
 		this.data_venda = data_venda;
 		this.cod_cliente = cod_cliente;
 		this.cod_produto = cod_produto;
@@ -40,9 +41,6 @@ public class Venda {
 		this.desconto = desconto;
 		this.valor_Total = valor_Total;
 	}
-
-    
-
 
 	public int getCodvenda() {
 		return codvenda;
