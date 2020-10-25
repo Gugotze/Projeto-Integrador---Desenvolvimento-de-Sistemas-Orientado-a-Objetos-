@@ -17,6 +17,9 @@ public class produto {
     private int _quantidade;
     private double _valorCompra;
     private double _valorVenda;
+    
+    public produto() {	
+	}
 
     @Override
     public String toString() {
