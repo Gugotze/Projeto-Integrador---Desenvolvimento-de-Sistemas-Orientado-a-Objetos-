@@ -8,6 +8,34 @@ import java.util.Properties;
 public class ConexaoDB {
 
 	private static Connection connection = null;
+        private String url;
+	private String user;
+	private String password;
+	
+	
+	public ConexaoDB(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+        
+            protected void connect() throws SQLException {
+        if (connection == null || connection.isClosed()) {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                throw new SQLException(e);
+            }
+            connection = DriverManager.getConnection(
+                                        url, user, password);
+        }
+    }
+     
+    protected void disconnect() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
+    }
 
 	public static Connection getConnection() {
 		if (connection != null)

@@ -9,16 +9,7 @@ import br.com.LojaDeRoupas.Util.ConexaoDB;
 
 public class ClienteDao {
 
-	private String url;
-	private String user;
-	private String password;
 	
-	
-	public ClienteDao(String url, String user, String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
-    }
 	
 	
     public void inserirCliente(Cliente cliente) throws SQLException {
