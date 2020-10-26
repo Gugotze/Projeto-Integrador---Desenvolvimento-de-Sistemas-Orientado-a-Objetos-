@@ -45,7 +45,7 @@ public class ConexaoDB {
 				Properties prop = new Properties();
 
 				String user = "root";
-				String password = "root";
+				String password = "1234";
 				Class.forName("com.mysql.jdbc.Driver");
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lojaderoupas", user, password);
 				

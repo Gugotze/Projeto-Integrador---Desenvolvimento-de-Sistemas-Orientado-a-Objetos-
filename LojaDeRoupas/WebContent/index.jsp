@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello word</h1>
+<h1>Menu</h1>
+<a href="ClienteForm.jsp"> Cadastrar Cliente</a><br/>
+<a href="ConsultarVenda.jsp"> Consulta de Vendas</a>
 </body>
 </html>
