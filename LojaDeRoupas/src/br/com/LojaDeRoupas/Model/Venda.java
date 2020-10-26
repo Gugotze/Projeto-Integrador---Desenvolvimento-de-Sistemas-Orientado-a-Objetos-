@@ -26,6 +26,17 @@ public class Venda {
     public Venda (int codvenda) {
     	this.codvenda=codvenda;
     }
+
+    public Venda(String data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade, double desconto, double valor_Total) {
+        this.data_venda = data_venda;
+        this.cod_cliente = cod_cliente;
+        this.cod_produto = cod_produto;
+        this.cod_filial = cod_filial;
+        this.quantidade = quantidade;
+        this.desconto = desconto;
+        this.valor_Total = valor_Total;
+    }
+    
     
     
     

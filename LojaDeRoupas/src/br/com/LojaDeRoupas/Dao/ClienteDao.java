@@ -10,41 +10,14 @@ import java.sql.DriverManager;
 
 public class ClienteDao {
 
-private String jdbcURL;
-    private String jdbcUsername;
-    private String jdbcPassword;
-    private Connection jdbcConnection;
-	
-    public ClienteDao(String jdbcURL, String jdbcUsername, String jdbcPassword) {
-        this.jdbcURL = jdbcURL;
-        this.jdbcUsername = jdbcUsername;
-        this.jdbcPassword = jdbcPassword;
-    }
-     
-    protected void connect() throws SQLException {
-        if (jdbcConnection == null || jdbcConnection.isClosed()) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                throw new SQLException(e);
-            }
-            jdbcConnection = DriverManager.getConnection(
-                                        jdbcURL, jdbcUsername, jdbcPassword);
-        }
-    }
-     
-    protected void disconnect() throws SQLException {
-        if (jdbcConnection != null && !jdbcConnection.isClosed()) {
-            jdbcConnection.close();
-        }
-    }
-	
-    public void inserirCliente(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO CLIENTE (NOME, CPF, SEXO , DATANASCIMENTO , TELEFONE , EMAIL , CEP , ENDERECO , BAIRRO , NUMERO , COMPLEMENTO , CIDADE , ESTADO)"
-        								+ " VALUES( ?,?,?,?,?,?,?,?,?,?,?,?,? ) ";
+
+    public static void inserirCliente(Cliente cliente) throws SQLException {
+      
 
     try {
-	        Connection con = ConexaoDB.getConnection();
+ String sql = "INSERT INTO CLIENTE (NOME, CPF, SEXO , DATANASCIMENTO , TELEFONE , EMAIL , CEP , ENDERECO , BAIRRO , NUMERO , COMPLEMENTO , CIDADE , ESTADO )"
+        								+ " VALUES( ?,?,?,?,?,?,?,?,?,?,?,?,? ) ";	
+        Connection con = ConexaoDB.getConnection();
 	         
 	        PreparedStatement statement = con.prepareStatement(sql);
 	        statement.setString(1, cliente.getNomeCliente());
