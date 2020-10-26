@@ -27,7 +27,7 @@ public class vendaDAO{
     private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ?)";
  
     
-    public List<Venda> consultarVenda() throws SQLException{
+    public static List<Venda> consultarVenda() throws SQLException{
     	List <Venda> listaVenda =  new ArrayList<>();
     	
     	try {
