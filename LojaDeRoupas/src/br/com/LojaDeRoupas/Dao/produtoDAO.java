@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.ServletException;
+
 import br.com.LojaDeRoupas.Model.Venda;
 import br.com.LojaDeRoupas.Model.produto;
 import br.com.LojaDeRoupas.Util.ConexaoDB;
@@ -18,25 +20,20 @@ public class produtoDAO {
     private static final String INSERIR_PRODUTO = "DELETE FROM PRODUTO WHERE COD_PRODUTO= ? ";
  
     
-    public List<produto> consultarProduto() throws SQLException{
+    public static List<produto> consultarProduto() throws SQLException, ServletException{
     	List <produto> listaProdutos =  new ArrayList<>();
+    	
+    	System.out.println("Estou na consulta");
     	
     	String sqlConsulta = "SELECT * FROM PRODUTO ";
     	
-    	try(Connection con = ConexaoDB.getConnection();
+    	try {
+    		
+    		Connection con = ConexaoDB.getConnection();
     		PreparedStatement ps = con.prepareStatement(sqlConsulta);
-    		ResultSet rs = ps.executeQuery();) {
+    		ResultSet rs = ps.executeQuery();
     	
     	while(rs.next()) {
-    		/*COD_FILIAL INT (10) NOT NULL,
-    		CODPRODUTO INT (10) NOT NULL,
-    		NOME VARCHAR (100) NOT NULL,
-    		TIPO VARCHAR (30) NOT NULL,
-    		QUANTIDADE INT (10) NOT NULL,
-    		VALOR_COMPRA NUMERIC (10,2) NOT NULL,
-    		VALOR_VENDA NUMERIC (10,2) NOT NULL*/
-    		//fazer código aqui 
-    		
     		int codVenda = rs.getInt("COD_FILIAL");
     		int codProduto = rs.getInt("CODPRODUTO");
     		String nome = rs.getString("NOME");
@@ -44,14 +41,15 @@ public class produtoDAO {
     		int quantidade = rs.getInt("QUANTIDADE");
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
-    	
+    		
+    		System.out.println(codVenda +" "+codProduto+" "+nome);
 			
 		listaProdutos.add(new produto(codVenda,codProduto,nome,tipo,quantidade,valorCompra,valorVenda));
 			
     	}
     	
     	}catch (SQLException e) {
-    		e.getMessage();
+    		throw new ServletException(e.getMessage());
 		}
     	return listaProdutos;
     }
