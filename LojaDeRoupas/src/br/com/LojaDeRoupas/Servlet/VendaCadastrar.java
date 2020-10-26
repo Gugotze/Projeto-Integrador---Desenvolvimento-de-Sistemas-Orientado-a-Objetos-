@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author gusta
  */
 
-public class VendaServlet extends HttpServlet {
+public class VendaCadastrar extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -50,7 +50,7 @@ public class VendaServlet extends HttpServlet {
             vendaDAO.inserirVenda(venda);
             response.sendRedirect("ConsultarVenda.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
             
         }
            
@@ -69,7 +69,7 @@ public class VendaServlet extends HttpServlet {
                     .getRequestDispatcher("/ConsultarVenda.jsp");
             requestDispatcher.forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

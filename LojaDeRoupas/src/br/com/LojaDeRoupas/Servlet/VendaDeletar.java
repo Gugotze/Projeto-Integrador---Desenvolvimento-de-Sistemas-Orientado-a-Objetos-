@@ -32,7 +32,7 @@ public class VendaDeletar extends HttpServlet {
            vendaDAO.deletarVenda(codvenda);
            response.getWriter().print(true);
        } catch (ClassNotFoundException | SQLException ex) {
-           Logger.getLogger(VendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
            response.getWriter().print(false);
        } 
         
