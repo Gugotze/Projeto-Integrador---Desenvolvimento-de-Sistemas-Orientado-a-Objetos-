@@ -24,7 +24,7 @@ public class vendaDAO{
     private static final String CONSULTAR_VENDA = "SELECT * FROM VENDA ";
     private static final String GET_VENDA = "SELECT * FROM VENDA WHERE CODVENDA= ? ";
     private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE CODVENDA = ? ";
-    private static final String INSERIR_VENDA = "INSERT INTO VENDA VALUES (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ?)";
  
     
     public List<Venda> consultarVenda() throws SQLException{

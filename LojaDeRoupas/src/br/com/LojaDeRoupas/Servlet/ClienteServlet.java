@@ -26,27 +26,20 @@ public class ClienteServlet extends HttpServlet {
 private ConexaoDB conexaoDB;
 private ClienteDao  clienteDao;
 	
-@Override
-public void init(ServletConfig config) throws ServletException {
-        String url = getServletContext().getInitParameter("url");
-        String user = getServletContext().getInitParameter("user");
-        String password = getServletContext().getInitParameter("password");
+public void init() {
+        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
+        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
+        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
  
-        conexaoDB = new ConexaoDB(url, user, password);
+        clienteDao = new ClienteDao(jdbcURL, jdbcUsername, jdbcPassword);
  
     }
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ClienteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+ 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getServletPath();
@@ -79,10 +72,7 @@ public void init(ServletConfig config) throws ServletException {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
-    }
+
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
