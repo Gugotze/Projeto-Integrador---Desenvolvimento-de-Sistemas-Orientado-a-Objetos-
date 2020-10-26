@@ -9,6 +9,7 @@
 <body>
 <h1>Menu</h1>
 <a href="ClienteForm.jsp"> Cadastrar Cliente</a><br/>
-<a href="ConsultarVenda.jsp"> Consulta de Vendas</a>
+<a href="ConsultarVenda.jsp"> Consulta de Vendas</a><br/>
+<a href="RealizarVenda.jsp">Realizar Venda</a>
 </body>
 </html>
