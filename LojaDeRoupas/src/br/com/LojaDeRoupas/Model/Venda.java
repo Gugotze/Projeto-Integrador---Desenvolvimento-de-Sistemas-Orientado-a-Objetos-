@@ -11,7 +11,7 @@ import java.util.Date;
 public class Venda {
     
     private int codvenda;
-    private Date data_venda;
+    private String data_venda;
     private int cod_cliente;
     private int cod_produto;
     private int cod_filial;
@@ -29,7 +29,7 @@ public class Venda {
     
     
     
-    public Venda(int codvenda, Date data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade,
+    public Venda(int codvenda, String data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade,
 			double desconto, double valor_Total) {
 		
 		this.codvenda = codvenda;
@@ -50,11 +50,11 @@ public class Venda {
 		this.codvenda = codvenda;
 	}
 
-	public Date getData_venda() {
+	public String getData_venda() {
 		return data_venda;
 	}
 
-	public void setData_venda(Date data_venda) {
+	public void setData_venda(String data_venda) {
 		this.data_venda = data_venda;
 	}
 
