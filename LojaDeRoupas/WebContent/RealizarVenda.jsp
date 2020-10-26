@@ -33,13 +33,13 @@
             <tr>
                 <th>Data: </th>
                 <td>
-                    <input type="text" name="title" size="45" value="<c:out value='${venda.data_venda}' />" />
+                    <input type="text" name="data_venda" size="45" value="<c:out value='${venda.data_venda}' />" />
                 </td>
             </tr>
             <tr>
                 <th>Cod.Cliente: </th>
                 <td>
-                    <input type="text" name="author" size="45" value="<c:out value='${venda.cod_cliente}' />" />
+                    <input type="text" name="cod_cliente" size="45" value="<c:out value='${venda.cod_cliente}' />" />
                 </td>
             </tr>
             <tr>
@@ -52,26 +52,26 @@
             <tr>
                 <th>Cod.Filial: </th>
                 <td>
-                    <input type="text" name="title" size="45" value="<c:out value='${venda.cod_filial}' />" />
+                    <input type="text" name="cod_filial" size="45" value="<c:out value='${venda.cod_filial}' />" />
                 </td>
             </tr>
             <tr>
                 <th>Quantidade: </th>
                 <td>
-                    <input type="text" name="author" size="45" value="<c:out value='${venda.quantidade}' />" />
+                    <input type="text" name="quantidade" size="45" value="<c:out value='${venda.quantidade}' />" />
                 </td>
             </tr>
             <tr>
                 <th>Desconto: </th>
                 <td>
-                    <input type="text" name="price" size="5" value="<c:out value='${Venda.desconto}' />" />
+                    <input type="text" name="desconto" size="5" value="<c:out value='${Venda.desconto}' />" />
                 </td>
             </tr>
             
             <tr>
                 <th>Valor Total: </th>
                 <td>
-                    <input type="text" name="title" size="45" value="<c:out value='${venda.valor_Total}' />" />
+                    <input type="text" name="valor_Total" size="45" value="<c:out value='${venda.valor_Total}' />" />
                 </td>
             </tr>
             

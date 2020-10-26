@@ -39,7 +39,7 @@ public class vendaDAO{
     	
     	while(rs.next()) {
     		int codvenda = rs.getInt("CODVENDA");
-    		Date data_venda = rs.getDate("DATA_VENDA");
+    		String data_venda = rs.getString("DATA_VENDA");
 			int cod_cliente = rs.getInt("COD_CLIENTE");
 			int cod_produto = rs.getInt("COD_PRODUTO");
 			int cod_filial = rs.getInt("COD_FILIAL");
@@ -95,7 +95,7 @@ public class vendaDAO{
     		Connection con = ConexaoDB.getConnection();
     		String query = UPDATE_VENDA;
     		PreparedStatement ps = con.prepareStatement(query);
-    		ps.setDate(1, (java.sql.Date) venda.getData_venda());
+    		ps.setString(1, venda.getData_venda());
         	ps.setInt(2, venda.getCod_cliente());
         	ps.setInt(3, venda.getCod_produto());
         	ps.setInt(4, venda.getCod_filial());
@@ -119,7 +119,7 @@ public class vendaDAO{
     	Connection con = ConexaoDB.getConnection();
     	String query= INSERIR_VENDA;
     	PreparedStatement ps = con.prepareStatement(query);
-    	ps.setDate(1, (java.sql.Date) venda.getData_venda());
+    	ps.setString(1, venda.getData_venda());
     	ps.setInt(2, venda.getCod_cliente());
     	ps.setInt(3, venda.getCod_produto());
     	ps.setInt(4, venda.getCod_filial());
