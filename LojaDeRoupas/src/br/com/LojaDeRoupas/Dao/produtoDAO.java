@@ -20,7 +20,9 @@ public class produtoDAO {
     private static final String INSERIR_PRODUTO = "DELETE FROM PRODUTO WHERE COD_PRODUTO= ? ";
  
     
-    public static List<produto> consultarProduto() throws SQLException, ServletException{
+
+
+	public static List<produto> consultarProduto() throws SQLException, ServletException{
     	List <produto> listaProdutos =  new ArrayList<>();
     	
     	System.out.println("Estou na consulta");
@@ -54,25 +56,30 @@ public class produtoDAO {
     	return listaProdutos;
     }
     
-    public void inserirProduto(produto produto) throws SQLException{
-    	
+    public static void inserirProduto(produto produto) throws SQLException, ServletException{
+    	System.out.println("vou inserir");
     	String sqlInsert = "insert into PRODUTO(COD_FILIAL,CODPRODUTO,NOME,TIPO,QUANTIDADE,VALOR_COMPRA,VALOR_VENDA) values(?,?,?,?,?,?,?)";
     	
-    	try(Connection con = ConexaoDB.getConnection();
+    	try {
+    		Connection con = ConexaoDB.getConnection();
     		PreparedStatement ps = con.prepareStatement(sqlInsert);
-    		) {
-    		
+    		System.out.println("fiz conexao");
     		ps.setInt(1, produto.get_codFilial());
     		ps.setInt(2, produto.get_codProduto());
     		ps.setString(3, produto.get_nome());
-    		ps.setInt(4, produto.get_quantidade());
-    		ps.setDouble(5, produto.get_valorCompra());
-    		ps.setDouble(6, produto.get_valorVenda());
+    		ps.setString(4, produto.get_tipo());
+    		ps.setInt(5, produto.get_quantidade());
+    		ps.setDouble(6, produto.get_valorCompra());
+    		ps.setDouble(7, produto.get_valorVenda());
+    		System.out.println("vou executar");
+    		System.out.println(ps);
+    		
     		ps.execute();
     		
     	}catch (SQLException e) {
-			String erro = e.getMessage();
+    		throw new ServletException(e.getMessage());
 		}
+    	System.out.println("executei");
     }
     
     public void atualizarProduto(produto produto) throws SQLException {

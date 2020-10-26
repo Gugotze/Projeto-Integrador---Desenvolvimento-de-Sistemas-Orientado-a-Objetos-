@@ -25,6 +25,7 @@ public class produto {
     	this._codFilial = codFilial;
     	this._codProduto = codProduto;
     	this._nome = nome;
+    	this._tipo = tipo;
     	this._quantidade = quantidade;
     	this._valorCompra = valorCompra;
     	this._valorVenda = valorVenda;

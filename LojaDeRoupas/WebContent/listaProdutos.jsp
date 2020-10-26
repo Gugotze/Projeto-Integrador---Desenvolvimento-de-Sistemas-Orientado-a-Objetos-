@@ -10,6 +10,7 @@
 <body>
 	<center>
 		<h1>Clientes</h1>
+		<button><a href="cadastrarProduto.jsp" > Adicionar novo cliente</a></button>
 	</center>
 	<div align="center">
 		<table border="1" cellpadding="8">
