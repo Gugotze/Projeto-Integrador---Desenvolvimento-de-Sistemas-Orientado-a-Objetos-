@@ -41,7 +41,7 @@ private String jdbcURL;
 	
     public void inserirCliente(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO CLIENTE (NOME, CPF, SEXO , DATANASCIMENTO , TELEFONE , EMAIL , CEP , ENDERECO , BAIRRO , NUMERO , COMPLEMENTO , CIDADE , ESTADO)"
-        								+ " VALUES(?,?,?,?,?,?,?,?,?) ";
+        								+ " VALUES( ?,?,?,?,?,?,?,?,?,?,?,?,? ) ";
 
     try {
 	        Connection con = ConexaoDB.getConnection();
@@ -51,12 +51,12 @@ private String jdbcURL;
 	        statement.setString(2, cliente.getCpfCliente());
 	        statement.setString(3, cliente.getSexoCliente());
 	        statement.setString(4, cliente.getDataNascimento());
-	        statement.setString(5, cliente.getTelefone());
+	        statement.setInt(5, cliente.getTelefone());
 	        statement.setString(6, cliente.getEmail());
 	        statement.setString(7, cliente.getCep());
 	        statement.setString(8, cliente.getEndereco());
 	        statement.setString(9, cliente.getBairro());
-	        statement.setString(10, cliente.getNumero());
+	        statement.setInt(10, cliente.getNumero());
 	        statement.setString(11, cliente.getComplemento());
 	        statement.setString(12, cliente.getCidade());
 	        statement.setString(13, cliente.getEstado());

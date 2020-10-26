@@ -103,12 +103,12 @@ public void init() {
 	    	String cpfCliente = request.getParameter("cpfCliente");
 	    	String sexoCliente = request.getParameter("sexoCliente");
 	    	String dataNascimento = request.getParameter("dataNascimento");
-	    	String telefone = request.getParameter("telefone");
+	    	int telefone = (Integer) request.getAttribute("telefone");
 	    	String email = request.getParameter("email");
 	    	String cep = request.getParameter("cep");
 	    	String endereco = request.getParameter("endereco");
 	    	String bairro = request.getParameter("bairro");
-	    	String numero = request.getParameter("numero");
+	    	int numero = (Integer)request.getAttribute("numero");
 	    	String complemento = request.getParameter("complemento");
 	    	String cidade = request.getParameter("cidade");
 	    	String estado = request.getParameter("estado");
