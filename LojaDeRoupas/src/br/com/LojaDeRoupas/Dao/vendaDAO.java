@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.Statement;
 
 import br.com.LojaDeRoupas.Model.Venda;
 import br.com.LojaDeRoupas.Util.ConexaoDB;

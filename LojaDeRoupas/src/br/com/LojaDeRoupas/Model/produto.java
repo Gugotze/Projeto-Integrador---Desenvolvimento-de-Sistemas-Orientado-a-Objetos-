@@ -38,6 +38,62 @@ public class produto {
         return "produto{" + "_codFilial=" + _codFilial + ", _codProduto=" + _codProduto + ", _nome=" + _nome + ", _tipo=" + _tipo + ", _quantidade=" + _quantidade + ", _valorCompra=" + _valorCompra + ", _valorVenda=" + _valorVenda + '}';
     }
 
+	public int get_codFilial() {
+		return _codFilial;
+	}
+
+	public void set_codFilial(int _codFilial) {
+		this._codFilial = _codFilial;
+	}
+
+	public int get_codProduto() {
+		return _codProduto;
+	}
+
+	public void set_codProduto(int _codProduto) {
+		this._codProduto = _codProduto;
+	}
+
+	public String get_nome() {
+		return _nome;
+	}
+
+	public void set_nome(String _nome) {
+		this._nome = _nome;
+	}
+
+	public String get_tipo() {
+		return _tipo;
+	}
+
+	public void set_tipo(String _tipo) {
+		this._tipo = _tipo;
+	}
+
+	public int get_quantidade() {
+		return _quantidade;
+	}
+
+	public void set_quantidade(int _quantidade) {
+		this._quantidade = _quantidade;
+	}
+
+	public double get_valorCompra() {
+		return _valorCompra;
+	}
+
+	public void set_valorCompra(double _valorCompra) {
+		this._valorCompra = _valorCompra;
+	}
+
+	public double get_valorVenda() {
+		return _valorVenda;
+	}
+
+	public void set_valorVenda(double _valorVenda) {
+		this._valorVenda = _valorVenda;
+	}
+
   
     
   

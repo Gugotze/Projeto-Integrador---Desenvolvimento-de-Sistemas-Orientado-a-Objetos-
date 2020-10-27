@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import br.com.LojaDeRoupas.Util.ConexaoDB;
 import br.com.LojaDeRoupas.Model.produto;
 import br.com.LojaDeRoupas.Dao.produtoDAO;
 
