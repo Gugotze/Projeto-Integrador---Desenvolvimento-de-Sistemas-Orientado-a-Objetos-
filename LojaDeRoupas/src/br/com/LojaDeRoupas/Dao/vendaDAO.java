@@ -1,16 +1,17 @@
 package br.com.LojaDeRoupas.Dao;
 
+import br.com.LojaDeRoupas.Servlet.ServletBD;
+import br.com.LojaDeRoupas.Util.ConexaoDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import br.com.LojaDeRoupas.Model.Venda;
-import br.com.LojaDeRoupas.Util.ConexaoDB;
+
 
 
 /**
@@ -23,11 +24,11 @@ public class vendaDAO{
     private static final String CONSULTAR_VENDA = "SELECT * FROM VENDA ";
     private static final String GET_VENDA = "SELECT * FROM VENDA WHERE CODVENDA= ? ";
     private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE CODVENDA = ? ";
-    private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ? ) ";
  
     
-    public static List<Venda> consultarVenda() throws SQLException{
-    	List <Venda> listaVenda =  new ArrayList<>();
+    public static List<Venda> consultarVenda() {
+    	List <Venda> listaVenda =  new ArrayList<Venda>();
     	
     	try {
     	
@@ -37,26 +38,29 @@ public class vendaDAO{
     	ResultSet rs = ps.executeQuery();
     	
     	while(rs.next()) {
-    		int codvenda = rs.getInt("CODVENDA");
-    		String data_venda = rs.getString("DATA_VENDA");
-			int cod_cliente = rs.getInt("COD_CLIENTE");
-			int cod_produto = rs.getInt("COD_PRODUTO");
-			int cod_filial = rs.getInt("COD_FILIAL");
-			int quantidade = rs.getInt("QUANTIDADE");
+    		Integer codvenda = rs.getInt("CODVENDA");
+    		String data_venda =  rs.getString("DATA_VENDA");
+			Integer cod_cliente = rs.getInt("COD_CLIENTE");
+			Integer cod_produto = rs.getInt("COD_PRODUTO");
+			Integer cod_filial = rs.getInt("COD_FILIAL");
+			Integer quantidade = rs.getInt("QUANTIDADE");
 			double desconto = rs.getDouble("DESCONTO");
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
+			
+			System.out.println(codvenda+" "+data_venda+" "+cod_cliente);
 			
 		listaVenda.add(new Venda(codvenda, data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total));
 			
     	}
     	
-    	}catch (SQLException e) {
-    		e.printStackTrace();
+    	}catch (SQLException ex) {
+    		  Logger.getLogger(ServletBD.class.getName()).
+              log(Level.SEVERE, null, ex);
 		}
     	return listaVenda;
     }
     
-    public static Venda getVenda (int codvenda) throws SQLException, ClassNotFoundException{
+    public static Venda getVenda (int codvenda) {
     	
     	Venda venda = new Venda();
     	try {
@@ -70,14 +74,15 @@ public class vendaDAO{
     		ResultSet rs = ps.executeQuery();
     		
     		if(rs.next()) {
-    			Date data_venda = rs.getDate("DATA_VENDA");
-    			int cod_cliente = rs.getInt("COD_CLIENTE");
-    			int cod_produto = rs.getInt("COD_PRODUTO");
-    			int cod_filial = rs.getInt("COD_FILIAL");
-    			int quantidade = rs.getInt("QUANTIDADE");
+    			String data_venda = rs.getString("DATA_VENDA");
+    			Integer cod_cliente = rs.getInt("COD_CLIENTE");
+    			Integer cod_produto = rs.getInt("COD_PRODUTO");
+    			Integer cod_filial = rs.getInt("COD_FILIAL");
+    			Integer quantidade = rs.getInt("QUANTIDADE");
     			double desconto = rs.getDouble("DESCONTO");
     			double valor_Total  = rs.getDouble("VALOR_TOTAL");
     			
+    			venda = new Venda(data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
     			
     		}
     		
@@ -90,7 +95,7 @@ public class vendaDAO{
     
     public static void updateVenda (Venda venda) throws SQLException, ClassNotFoundException{
     	
-    	try {
+    	
     		Connection con = ConexaoDB.getConnection();
     		String query = UPDATE_VENDA;
     		PreparedStatement ps = con.prepareStatement(query);
@@ -105,10 +110,7 @@ public class vendaDAO{
         	ps.execute();
         	
     		
-    	}catch (SQLException e) {
-    		e.printStackTrace();
-		}
-    
+    	    
     	
     }
     

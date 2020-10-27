@@ -2,15 +2,17 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Consultar Vendas</title>
 </head>
 <body>
 	<center>
 		<h1>Relatório de Vendas</h1>
-		<h2>
-			<a href='/new'>Alterar Venda</a> <a href='list'>Listar Vendas</a>
-		</h2>
+		<button class="btn btn-primary" ><a href="RealizarVenda.jsp" style="color: white;"> Realizar Nova Venda</a></button>
+		<br>
+		<br>
+		<br>
 	</center>
 	<div align="center">
 		<table border="1" cellpadding="8">
@@ -29,16 +31,16 @@
 			</tr>
 			<c:forEach var="Venda" items="${listaVenda}">
 				<tr>
-					<td><c:out value="${Venda.codvenda}" /></td>
-					<td><c:out value="${Venda.data_venda}" /></td>
-					<td><c:out value="${Venda.cod_cliente}" /></td>
-					<td><c:out value="${Venda.cod_produto}" /></td>
-					<td><c:out value="${Venda.cod_filial}" /></td>
-					<td><c:out value="${Venda.quantidade}" /></td>
-					<td><c:out value="${Venda.desconto}" /></td>
-					<td><c:out value="${Venda.valor_Total}" /></td>
-					<td><a href="/edit?id=<c:out value='${Venda.codvenda}' />">Alterar</a>
-						<a href="/delete?id=<c:out value='${Venda.codvenda}' />">Deletar</a>
+					<td>${Venda.codvenda}</td>
+					<td>${Venda.data_venda}</td>
+					<td>${Venda.cod_cliente}</td>
+					<td>${Venda.cod_produto}</td>
+					<td>${Venda.cod_filial}</td>
+					<td>${Venda.quantidade}</td>
+					<td>${Venda.desconto}</td>
+					<td>${Venda.valor_Total}</td>
+					<td><a href="/VendaAlterar?id=${Venda.codvenda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="/VendaDeletar?id=${venda.codvenda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 					</td>
 				</tr>
 			</c:forEach>

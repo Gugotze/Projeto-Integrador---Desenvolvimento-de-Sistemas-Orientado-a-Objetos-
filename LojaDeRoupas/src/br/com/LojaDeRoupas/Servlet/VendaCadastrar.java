@@ -10,22 +10,14 @@ import br.com.LojaDeRoupas.Model.Venda;
 import br.com.LojaDeRoupas.Util.Utils;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author gusta
- */
 
 public class VendaCadastrar extends HttpServlet {
 
@@ -35,18 +27,18 @@ public class VendaCadastrar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String data_venda = request.getParameter("data_venda");
-        String cod_clienteStr = request.getParameter("cod_cliente");
-        int cod_cliente = Integer.parseInt(cod_clienteStr);
-        String cod_produtoStr = request.getParameter("cod_produto");
-        int cod_produto = Integer.parseInt(cod_produtoStr);
-        String cod_filialStr = request.getParameter("cod_filial");
-        int cod_filial = Integer.parseInt(cod_filialStr);
-        String quantidadeStr = request.getParameter("quantidade");
-        int quantidade = Integer.parseInt(quantidadeStr);
-        String descontoStr= request.getParameter("desconto");
-        Double desconto = Double.parseDouble(descontoStr);
-        String valor_TotalStr = request.getParameter("valor_Total");
-        Double valor_Total = Double.parseDouble(valor_TotalStr);
+       
+        Integer cod_cliente = Integer.parseInt(request.getParameter("cod_cliente"));
+        
+        Integer cod_produto = Integer.parseInt(request.getParameter("cod_produto"));
+        
+       Integer cod_filial = Integer.parseInt(request.getParameter("cod_filial"));
+       
+        Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
+ 
+        Double desconto = Double.parseDouble(request.getParameter("desconto"));
+       
+        Double valor_Total = Double.parseDouble(request.getParameter("valor_Total"));
         
         Venda venda = new Venda(data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
          

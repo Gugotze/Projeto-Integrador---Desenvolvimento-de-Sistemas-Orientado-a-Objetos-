@@ -10,12 +10,12 @@ import java.util.Date;
 
 public class Venda {
     
-    private int codvenda;
+    private Integer codvenda;
     private String data_venda;
-    private int cod_cliente;
-    private int cod_produto;
-    private int cod_filial;
-    private int quantidade;
+    private Integer cod_cliente;
+    private Integer cod_produto;
+    private Integer cod_filial;
+    private Integer quantidade;
     private double desconto;
     private double valor_Total;
 
@@ -23,11 +23,11 @@ public class Venda {
         
     }
 
-    public Venda (int codvenda) {
+    public Venda (Integer codvenda) {
     	this.codvenda=codvenda;
     }
 
-    public Venda(String data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade, double desconto, double valor_Total) {
+    public Venda(String data_venda, Integer cod_cliente, Integer cod_produto, Integer cod_filial, Integer quantidade, double desconto, double valor_Total) {
         this.data_venda = data_venda;
         this.cod_cliente = cod_cliente;
         this.cod_produto = cod_produto;
@@ -40,7 +40,7 @@ public class Venda {
     
     
     
-    public Venda(int codvenda, String data_venda, int cod_cliente, int cod_produto, int cod_filial, int quantidade,
+    public Venda(Integer codvenda, String data_venda, Integer cod_cliente, Integer cod_produto, Integer cod_filial, Integer quantidade,
 			double desconto, double valor_Total) {
 		
 		this.codvenda = codvenda;
@@ -57,7 +57,7 @@ public class Venda {
 		return codvenda;
 	}
 
-	public void setCodvenda(int codvenda) {
+	public void setCodvenda(Integer codvenda) {
 		this.codvenda = codvenda;
 	}
 
@@ -73,7 +73,7 @@ public class Venda {
 		return cod_cliente;
 	}
 
-	public void setCod_cliente(int cod_cliente) {
+	public void setCod_cliente(Integer cod_cliente) {
 		this.cod_cliente = cod_cliente;
 	}
 
@@ -81,7 +81,7 @@ public class Venda {
 		return cod_produto;
 	}
 
-	public void setCod_produto(int cod_produto) {
+	public void setCod_produto(Integer cod_produto) {
 		this.cod_produto = cod_produto;
 	}
 
@@ -89,7 +89,7 @@ public class Venda {
 		return cod_filial;
 	}
 
-	public void setCod_filial(int cod_filial) {
+	public void setCod_filial(Integer cod_filial) {
 		this.cod_filial = cod_filial;
 	}
 
@@ -97,7 +97,7 @@ public class Venda {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
