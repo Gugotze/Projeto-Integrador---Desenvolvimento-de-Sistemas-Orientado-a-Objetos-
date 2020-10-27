@@ -132,9 +132,10 @@ public class vendaDAO{
     	ps.setInt(5, venda.getQuantidade());
     	ps.setDouble(6, venda.getDesconto());
     	ps.setDouble(7, venda.getValor_Total());
+    	System.out.println("INSERT VENDA----->" + ps);
     	ps.execute();
     	}catch (SQLException e) {
-			e.printStackTrace();
+			System.out.print(e.getMessage());
 		}
     }
 	
