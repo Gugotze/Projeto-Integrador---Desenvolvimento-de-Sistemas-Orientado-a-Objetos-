@@ -3,14 +3,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<%@include file="header.jsp" %>
 <head>
-<meta charset="UTF-8">
-<title>Clientes</title>
+
+<title>Produtos</title>
 </head>
 <body>
 	<center>
-		<h1>Clientes</h1>
-		<button><a href="cadastrarProduto.jsp" > Adicionar novo cliente</a></button>
+		<h1>Produtos</h1>
+		<button class="btn btn-primary" ><a href="cadastrarProduto.jsp" style="color: white;"> Adicionar novo cliente</a></button>
+		<br>
+		<br>
+		<br>
+		
 	</center>
 	<div align="center">
 		<table border="1" cellpadding="8">
@@ -22,6 +27,8 @@
 				<th>Quantidade</th>
 				<th>Valor compra</th>
 				<th>Valor venda</th>
+				<th>Editar</th>
+				<th>Deletar</th>
 			</tr>
 			<c:forEach items="${produtos}" var="produto">
 				<tr>
@@ -32,8 +39,8 @@
 					<td>${produto._quantidade}</td>
 					<td>${produto._valorCompra}</td>
 					<td>${produto._valorVenda}</td>
-					<td><a href="/editarProduto?id=${produto._codProduto}">Alterar</a></td>
-					<td><a href="/deletarProduto?id=${produto._codProduto}">Deletar</a></td>
+					<td><a href="/editarProduto?id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="/deletarProduto?id=${produto._codProduto}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 				</tr>
 			</c:forEach>
 		</table>
