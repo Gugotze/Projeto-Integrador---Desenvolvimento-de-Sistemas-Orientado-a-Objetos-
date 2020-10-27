@@ -6,52 +6,19 @@
     <%@include file="header.jsp" %>
 
         <head>
-        <script type="text/javascript" src="jquery-1.2.6.pack.js"></script>
-<script type="text/javascript" src="jquery.maskedinput-1.1.4.pack.js"/></script>
+        <meta charset="UTF-8">
+            <title>Cadastrar Cliente</title>
+            
             <script lang="text/javascript">
-                $(document).ready(function() {
-                    var $campo = $('#cep');
-                    $campo.mask('00000-000', {
-                        reverse: true
-                    });
-                });
-                
-                
             	$(document).ready( function () {
             		
             		$('#telefone').mask('(00) 00000-0000');
             		    
             		} );
-                
-                
-                <!--    $(document).ready(function mask(o, f) {
-                    setTimeout(function() {
-                        var $v = $("#telefone");
-                        if ($v != o.value) {
-                            o.value = $v;
-                        }
-                    }, 1);
-                });
-
-                $(document).ready(function telefone($v) {
-                    var $r = $v.replace(/\D/g, "");
-                    $r = $r.replace(/^0/, "");
-                    if ($r.length > 10) {
-                    	$r = $r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-                    } else if ($r.length > 5) {
-                    	$r = $r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-                    } else if ($r.length > 2) {
-                    	$r = $r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-                    } else {
-                    	$r = $r.replace(/^(\d*)/, "($1");
-                    }
-                    return $r;
-                }); -->
             </script>
 
 
-            <meta charset="UTF-8">
-            <title>Cadastrar Cliente</title>
+            
         </head>
         <div class="container">
             <h1>Cadastro</h1>
@@ -71,7 +38,7 @@
                         <label for="sexo">Sexo</label>
                         <select name="sexo" id="sexo" class="form-control">
                         <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
+                        <option value="F">Feminino</option>
                     </select>
                     </div>
                 </div>
