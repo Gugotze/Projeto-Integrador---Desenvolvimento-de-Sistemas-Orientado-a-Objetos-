@@ -11,7 +11,7 @@
 <body>
 	<center>
 		<h1>Produtos</h1>
-		<button class="btn btn-primary" ><a href="cadastrarProduto.jsp" style="color: white;"> Adicionar novo cliente</a></button>
+		<button class="btn btn-primary" ><a href="cadastrarProduto.jsp" style="color: white;"> Adicionar novo produto</a></button>
 		<br>
 		<br>
 		<br>
