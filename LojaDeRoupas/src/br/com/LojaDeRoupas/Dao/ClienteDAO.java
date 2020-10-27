@@ -25,12 +25,12 @@ public class ClienteDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-            	Integer codCliente = rs.getInt("codcliente");
+            	Integer ID_CLIENTE = rs.getInt("CODCLIENTE");
             	String nome = rs.getString("nome");
             	String cpf = rs.getString("cpf");
             	String sexo = rs.getString("sexo");
             	String dataNascimento = rs.getString("dataNascimento");
-            	Integer telefone = Integer.parseInt(rs.getString("telefone"));
+            	String telefone = rs.getString("telefone");
             	String email = rs.getString("email");
             	String cep = rs.getString("cep");
             	String endereco = rs.getString("endereco");
@@ -40,7 +40,7 @@ public class ClienteDAO {
             	String cidade = rs.getString("cidade");
             	String estado = rs.getString("estado");
                
-            	listaClientes.add(new Cliente(codCliente,nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,
+            	listaClientes.add(new Cliente(ID_CLIENTE,nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,
         				cidade,estado));
             }
         } catch (SQLException ex) {
@@ -61,7 +61,7 @@ public class ClienteDAO {
         statement.setString(2, cliente.getCpfCliente());
         statement.setString(3, cliente.getSexoCliente());
         statement.setString(4, cliente.getDataNascimento());
-        statement.setInt(5, cliente.getTelefone());
+        statement.setString(5, cliente.getTelefone());
         statement.setString(6, cliente.getEmail());
         statement.setString(7, cliente.getCep());
         statement.setString(8, cliente.getEndereco());
@@ -75,12 +75,12 @@ public class ClienteDAO {
     
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConnection();
-        String query = "UPDATE lojaderoupas.cliente SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
+        String query = "UPDATE lojaroupas.cliente SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
         ps.setString(2, cliente.getSexoCliente());
         ps.setString(3, cliente.getDataNascimento());
-        ps.setInt(4, cliente.getTelefone());
+        ps.setString(4, cliente.getTelefone());
         ps.setString(5, cliente.getEmail());
         ps.setString(6, cliente.getCep());
         ps.setString(7, cliente.getEndereco());
@@ -110,11 +110,11 @@ public class ClienteDAO {
             ps.setString(1, cpf);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-            	Integer codCliente = rs.getInt("codcliente");
+            	Integer CODCLIENTE = rs.getInt("CODCLIENTE");
             	String nome = rs.getString("nome");
             	String sexo = rs.getString("sexo");
             	String dataNascimento = rs.getString("dataNascimento");
-            	Integer telefone = Integer.parseInt(rs.getString("telefone"));
+            	String telefone = rs.getString("telefone");
             	String email = rs.getString("email");
             	String cep = rs.getString("cep");
             	String endereco = rs.getString("endereco");
@@ -124,7 +124,7 @@ public class ClienteDAO {
             	String cidade = rs.getString("cidade");
             	String estado = rs.getString("estado");
             	
-                cliente = new Cliente(codCliente,nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,
+                cliente = new Cliente(CODCLIENTE,nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,
         				cidade,estado);
             }
         } catch (SQLException ex) {

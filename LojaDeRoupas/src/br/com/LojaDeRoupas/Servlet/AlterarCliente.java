@@ -50,7 +50,7 @@ public class AlterarCliente extends HttpServlet {
     	String cpf = request.getParameter("cpf");
     	String sexo = request.getParameter("sexo");
     	String dataNascimento = request.getParameter("dataNascimento");
-    	Integer telefone = Integer.parseInt(request.getParameter("telefone"));
+    	String telefone = request.getParameter("telefone");
     	String email = request.getParameter("email");
     	String cep = request.getParameter("cep");
     	String endereco = request.getParameter("endereco");

@@ -7,12 +7,12 @@ import lombok.Setter;
 @Setter
 public class Cliente {
     
-	private Integer codcliente;
+	private Integer ID_CLIENTE;
 	private String nome;
 	private String cpf;
 	private String sexo;
 	private String dataNascimento;
-	private Integer telefone;
+	private String telefone;
 	private String email;
 	private String cep;
 	private String endereco;
@@ -25,7 +25,7 @@ public class Cliente {
 	
  
 
-    public Cliente(String nomeCliente, String cpfCliente, String sexoCliente, String dataNascimento, Integer telefone,
+    public Cliente(String nomeCliente, String cpfCliente, String sexoCliente, String dataNascimento, String telefone,
 			String email, String cep, String endereco, String bairro, Integer numero, String complemento, String cidade,
 			String estado) {
 		this.nome = nomeCliente;
@@ -45,10 +45,10 @@ public class Cliente {
     
     
 
-public Cliente(Integer codcliente, String nome, String cpf, String sexo, String dataNascimento, Integer telefone,
+public Cliente(Integer ID_CLIENTE, String nome, String cpf, String sexo, String dataNascimento, String telefone,
 			String email, String cep, String endereco, String bairro, Integer numero, String complemento, String cidade,
 			String estado) {
-		this.codcliente = codcliente;
+		this.ID_CLIENTE = ID_CLIENTE;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.sexo = sexo;
@@ -104,11 +104,11 @@ public void setDataNascimento(String dataNascimento) {
 	this.dataNascimento = dataNascimento;
 }
 
-public Integer getTelefone() {
+public String getTelefone() {
 	return telefone;
 }
 
-public void setTelefone(Integer telefone) {
+public void setTelefone(String telefone) {
 	this.telefone = telefone;
 }
 
@@ -179,13 +179,13 @@ public void setEstado(String estado) {
 
 
 public Integer getCodcliente() {
-	return codcliente;
+	return ID_CLIENTE;
 }
 
 
 
 public void setCodcliente(Integer codcliente) {
-	this.codcliente = codcliente;
+	this.ID_CLIENTE = codcliente;
 }
 
 

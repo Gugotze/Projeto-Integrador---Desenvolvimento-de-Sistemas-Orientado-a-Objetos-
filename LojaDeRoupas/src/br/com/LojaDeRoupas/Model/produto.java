@@ -2,12 +2,12 @@ package br.com.LojaDeRoupas.Model;
 
 
 
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-
 public class produto {
     
     private int _codFilial;
@@ -103,6 +103,14 @@ public class produto {
 
 	public void set_valorVenda(double _valorVenda) {
 		this._valorVenda = _valorVenda;
+	}
+
+	public String get_filial() {
+		return _filial;
+	}
+
+	public void set_filial(String _filial) {
+		this._filial = _filial;
 	}
 
   
