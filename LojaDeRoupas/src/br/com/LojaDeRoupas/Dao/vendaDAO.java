@@ -57,7 +57,7 @@ public class vendaDAO{
     	return listaVenda;
     }
     
-    public Venda getVenda (int codvenda) throws SQLException{
+    public static Venda getVenda (int codvenda) throws SQLException, ClassNotFoundException{
     	
     	Venda venda = new Venda();
     	try {
