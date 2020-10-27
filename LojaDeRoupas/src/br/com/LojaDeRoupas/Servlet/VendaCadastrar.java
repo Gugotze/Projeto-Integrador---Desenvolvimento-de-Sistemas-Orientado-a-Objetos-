@@ -7,6 +7,8 @@ package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.vendaDAO;
 import br.com.LojaDeRoupas.Model.Venda;
+import br.com.LojaDeRoupas.Util.Utils;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -27,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class VendaCadastrar extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+	
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,30 +52,14 @@ public class VendaCadastrar extends HttpServlet {
          
            try {
             vendaDAO.inserirVenda(venda);
-            response.sendRedirect("ConsultarVenda.jsp");
+            response.sendRedirect("sucesso.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
-            
+            Utils.mostrarTelaErro(ex, request, response);
         }
            
            
          }
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        try {
-            List<Venda> listaVenda = vendaDAO.consultarVenda();
-            request.setAttribute("listaVenda", listaVenda);
-            
-            RequestDispatcher requestDispatcher = getServletContext()
-                    .getRequestDispatcher("/ConsultarVenda.jsp");
-            requestDispatcher.forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
    
         
