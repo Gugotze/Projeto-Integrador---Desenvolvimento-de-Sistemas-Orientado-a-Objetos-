@@ -53,5 +53,10 @@ public class insereProdutos extends HttpServlet {
 		
 		response.sendRedirect("listaProdutos");
 	}
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
 
 }
