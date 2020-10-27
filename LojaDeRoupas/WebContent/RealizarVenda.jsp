@@ -9,7 +9,7 @@
     </head>
     <body class="container">
         <h1>Venda</h1>
-        <form action="VendaCadastrar" method="POST">
+        <form action="/LojaDeRoupas/VendaCadastrar" method="POST">
             <p>Data</p>
             <input name="data_venda" class="form-control" required="true"/><br/>
             <p>Cod.Cliente</p>
