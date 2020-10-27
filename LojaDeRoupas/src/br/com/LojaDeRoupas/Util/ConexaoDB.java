@@ -47,7 +47,7 @@ public class ConexaoDB {
 				String user = "root";
                 String password = "root";
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LOJADEROUPAS?useTimezone=true&serverTimezone=UTC&useSSL=false", user, password);
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LOJAROUPAS?useTimezone=true&serverTimezone=UTC&useSSL=false", user, password);
 				
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
