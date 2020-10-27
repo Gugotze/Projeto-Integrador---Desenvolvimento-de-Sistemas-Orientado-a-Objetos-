@@ -7,13 +7,11 @@
 <head>
 <title>Produtos</title>
 
-<script lang="text/javascript">
+
             
-            
+<script>   
 $(document).ready( function () {
-	
-	
-	
+
 	
 	var table = $('#minhaTabela').DataTable({
 		 aoColumns : [
