@@ -6,6 +6,44 @@
 <%@include file="header.jsp" %>
 <head>
 <title>Consultar Vendas</title>
+<script lang="text/javascript">
+            
+$(document).ready( function () {
+	 $('#minhaTabela tfoot th').each( function () {
+	        var title = $(this).text();
+	        $(this).html( '<input type="text" placeholder="Procurar por '+title+'" />' );
+	    } );
+	 
+	    // DataTable
+	    var table = $('#minhaTabela').DataTable({
+	    	
+	    	"language": {
+	    	    "search": "Buscar:",
+	    	    "sZeroRecords": "Nenhum item encontrado",
+	    	    "lengthMenu": "Mostrar _MENU_ linhas",
+	    	    "info": "Mostrando página _PAGE_ de _PAGES_",
+	    	  },
+	    	
+	        initComplete: function () {
+	            
+	            this.api().columns().every( function () {
+	                var that = this;
+	 
+	                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+	                    if ( that.search() !== this.value ) {
+	                        that
+	                            .search( this.value )
+	                            .draw();
+	                    }
+	                } );
+	            } );
+	        }
+	    });
+    
+} );
+        </script>
+    </head>
+
 </head>
 <body>
 	<center>
@@ -15,11 +53,9 @@
 		<br>
 		<br>
 	</center>
-	<div align="center">
-		<table border="1" cellpadding="8">
-			<caption>
-				<h2>Relatório de Vendas</h2>
-			</caption>
+	<div>
+		<table id="minhaTabela" class="display">
+			<thead>
 			<tr>
 				<th>Cod.Venda</th>
 				<th>Data</th>
@@ -29,8 +65,12 @@
 				<th>Quantidade</th>
 				<th>Desconto</th>
 				<th>Valor Total</th>
+				<th>Editar</th>
+				<th>Apagar</th>
 			</tr>
-			<c:forEach var="venda" items="${listaVendas}">
+			<thead>
+			<tbody>
+			<c:forEach var="venda" items="${listaVendas}"> 
 				<tr>
 					<td>${venda.codvenda}</td>
 					<td>${venda.data_venda}</td>
@@ -42,9 +82,25 @@
 					<td>${venda.valor_Total}</td>
 					<td><a href="/VendaAlterar?id=${Venda.codvenda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="/VendaDeletar?id=${venda.codvenda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-					</td>
+			
 				</tr>
+			
 			</c:forEach>
+			</tbody>
+			<tfoot>
+            <tr>
+                <th>Cod.Venda</th>
+                <th>Data</th>
+                <th>Cod.Cliente</th>
+                <th>Cod.Produto</th>
+                <th>Cod.Filial</th>
+                <th>Quantidade</th>
+                <th>Desconto</th>
+                <th>Valor total</th> 
+                <th style="Display: none;"></th> 
+                <th style="Display: none;"></th>      
+            </tr>
+        </tfoot>
 		</table>
 	</div>
 </body>
