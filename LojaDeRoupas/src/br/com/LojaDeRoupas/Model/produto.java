@@ -17,13 +17,24 @@ public class produto {
     private int _quantidade;
     private double _valorCompra;
     private double _valorVenda;
+    private String _filial;
     
     public produto() {	
 	}
     
-    public produto(int codFilial, int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
-    	this._codFilial = codFilial;
+    public produto(int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String filial) {
+    	//this._codFilial = codFilial;
     	this._codProduto = codProduto;
+    	this._nome = nome;
+    	this._tipo = tipo;
+    	this._quantidade = quantidade;
+    	this._valorCompra = valorCompra;
+    	this._valorVenda = valorVenda;
+    	this._filial = filial;
+    }
+    
+    public produto(int codFilial, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
+    	this._codFilial = codFilial;
     	this._nome = nome;
     	this._tipo = tipo;
     	this._quantidade = quantidade;

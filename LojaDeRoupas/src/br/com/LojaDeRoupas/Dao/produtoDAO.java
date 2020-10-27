@@ -13,19 +13,13 @@ import br.com.LojaDeRoupas.Model.produto;
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 
 public class produtoDAO {
-	private static final String DELETAR_PRODUTO = "DELETE FROM PRODUTO WHERE COD_PRODUTO= ? ";
-    
-    private static final String INSERIR_PRODUTO = "DELETE FROM PRODUTO WHERE COD_PRODUTO= ? ";
- 
-    
-
 
 	public static List<produto> consultarProduto() throws SQLException, ServletException{
     	List <produto> listaProdutos =  new ArrayList<>();
     	
     	System.out.println("Estou na consulta");
     	
-    	String sqlConsulta = "SELECT * FROM PRODUTO ";
+    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL;";
     	
     	try {
     		
@@ -34,17 +28,15 @@ public class produtoDAO {
     		ResultSet rs = ps.executeQuery();
     	
     	while(rs.next()) {
-    		int codVenda = rs.getInt("COD_FILIAL");
-    		int codProduto = rs.getInt("CODPRODUTO");
+    		int codProduto = rs.getInt("ID_PRODUTO");
     		String nome = rs.getString("NOME");
     		String tipo = rs.getString("TIPO");
     		int quantidade = rs.getInt("QUANTIDADE");
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
-    		
-    		System.out.println(codVenda +" "+codProduto+" "+nome);
+    		String filial = rs.getString("ESTADO");
 			
-		listaProdutos.add(new produto(codVenda,codProduto,nome,tipo,quantidade,valorCompra,valorVenda));
+		listaProdutos.add(new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial));
 			
     	}
     	
@@ -55,24 +47,26 @@ public class produtoDAO {
     }
     
     public static void inserirProduto(produto produto) throws SQLException, ServletException{
-    	System.out.println("vou inserir");
-    	String sqlInsert = "insert into PRODUTO(COD_FILIAL,CODPRODUTO,NOME,TIPO,QUANTIDADE,VALOR_COMPRA,VALOR_VENDA) values(?,?,?,?,?,?,?)";
+    	System.out.println("inserirProduto");
+    	String sqlInsert = "insert into PRODUTO(ID_PRODUTO,COD_FILIAL,NOME,TIPO,VALOR_COMPRA,VALOR_VENDA) values(DEFAULT,?,?,?,?,?)";
+    	String sqlInsertEstoque = "insert into ESTOQUE(ID_ESTOQUE,COD_PRODUTO_FK,QUANTIDADE) values(DEFAULT,LAST_INSERT_ID(),?)";
     	
     	try {
     		Connection con = ConexaoDB.getConnection();
-    		PreparedStatement ps = con.prepareStatement(sqlInsert);
-    		System.out.println("fiz conexao");
-    		ps.setInt(1, produto.get_codFilial());
-    		ps.setInt(2, produto.get_codProduto());
-    		ps.setString(3, produto.get_nome());
-    		ps.setString(4, produto.get_tipo());
-    		ps.setInt(5, produto.get_quantidade());
-    		ps.setDouble(6, produto.get_valorCompra());
-    		ps.setDouble(7, produto.get_valorVenda());
-    		System.out.println("vou executar");
-    		System.out.println(ps);
+    		PreparedStatement insertProduto = con.prepareStatement(sqlInsert);
+    		PreparedStatement insertEstoque = con.prepareStatement(sqlInsertEstoque);
+    		insertProduto.setInt(1, produto.get_codFilial());
+    		insertProduto.setString(2, produto.get_nome());
+    		insertProduto.setString(3, produto.get_tipo());
+    		insertProduto.setDouble(4, produto.get_valorCompra());
+    		insertProduto.setDouble(5, produto.get_valorVenda());
+    		System.out.println("INSERT DO PRODUTO---->"+insertProduto);
+    		/*        Insert do estoque                        */
+    		insertEstoque.setInt(1, produto.get_quantidade());
+    		System.out.println("INSERT DO ESTOQUE---->"+insertEstoque);
     		
-    		ps.execute();
+    		insertProduto.execute();
+    		insertEstoque.execute();
     		
     	}catch (SQLException e) {
     		throw new ServletException(e.getMessage());

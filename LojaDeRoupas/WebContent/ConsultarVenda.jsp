@@ -17,6 +17,8 @@ $(document).ready( function () {
 	    // DataTable
 	    var table = $('#minhaTabela').DataTable({
 	    	
+	    	
+	    	
 	    	"language": {
 	    	    "search": "Buscar:",
 	    	    "sZeroRecords": "Nenhum item encontrado",

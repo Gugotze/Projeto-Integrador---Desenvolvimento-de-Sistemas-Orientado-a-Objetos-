@@ -24,22 +24,20 @@ public class insereProdutos extends HttpServlet {
 		try {
 			System.out.println("vou 1");
 		String codFilial = request.getParameter("codFilial");
-		String codProduto = request.getParameter("codProduto");
 		String nome = request.getParameter("nome");
 		String tipo = request.getParameter("tipoProduto");
 		String quantidade = request.getParameter("quantidade");
 		String valorCompra = request.getParameter("valorCompra");
 		String valorVenda = request.getParameter("valorVenda");
-		System.out.println("vou 2"+codFilial+" "+codProduto+" "+nome+" "+tipo+" "+quantidade+" "+valorCompra+" "+valorVenda);
+		System.out.println("vou 2"+codFilial+" "+nome+" "+tipo+" "+quantidade+" "+valorCompra+" "+valorVenda);
 		
 		Integer idFilial = Integer.valueOf(codFilial);
-		Integer idProduto = Integer.valueOf(codProduto);
 		Integer quantidadeC = Integer.valueOf(quantidade);
 		System.out.println("vou 3");
 		double valorCompraC = Double.parseDouble(valorCompra);
 		double valorVendaC = Double.parseDouble(valorVenda);
 		System.out.println("vou 4");
-		produto produto = new produto(idFilial,idProduto, nome,tipo,quantidadeC,valorCompraC, valorVendaC);
+		produto produto = new produto(idFilial, nome,tipo,quantidadeC,valorCompraC, valorVendaC);
 		System.out.println(produto);
 		System.out.println("vou 5");
 		produtoDAO.inserirProduto(produto);
