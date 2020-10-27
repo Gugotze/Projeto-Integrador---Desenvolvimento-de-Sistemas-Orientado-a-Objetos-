@@ -28,6 +28,7 @@ public class vendaDAO{
  
     
     public static List<Venda> consultarVenda() {
+    	System.out.println("Entrei na CONSULTA");
     	List <Venda> listaVenda =  new ArrayList<Venda>();
     	
     	try {
@@ -36,6 +37,8 @@ public class vendaDAO{
     	String query = CONSULTAR_VENDA;
     	PreparedStatement ps = con.prepareStatement(query);
     	ResultSet rs = ps.executeQuery();
+    	
+    	
     	
     	while(rs.next()) {
     		Integer codvenda = rs.getInt("CODVENDA");
@@ -46,6 +49,8 @@ public class vendaDAO{
 			Integer quantidade = rs.getInt("QUANTIDADE");
 			double desconto = rs.getDouble("DESCONTO");
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
+			
+			System.out.println(rs);
 			
 			System.out.println(codvenda+" "+data_venda+" "+cod_cliente);
 			

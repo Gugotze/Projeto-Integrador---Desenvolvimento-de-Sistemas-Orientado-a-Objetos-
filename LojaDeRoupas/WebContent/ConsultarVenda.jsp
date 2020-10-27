@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html>
 <html>
-
+<%@include file="header.jsp" %>
 <head>
 <title>Consultar Vendas</title>
 </head>
@@ -29,16 +30,16 @@
 				<th>Desconto</th>
 				<th>Valor Total</th>
 			</tr>
-			<c:forEach var="Venda" items="${listaVenda}">
+			<c:forEach var="venda" items="${listaVendas}">
 				<tr>
-					<td>${Venda.codvenda}</td>
-					<td>${Venda.data_venda}</td>
-					<td>${Venda.cod_cliente}</td>
-					<td>${Venda.cod_produto}</td>
-					<td>${Venda.cod_filial}</td>
-					<td>${Venda.quantidade}</td>
-					<td>${Venda.desconto}</td>
-					<td>${Venda.valor_Total}</td>
+					<td>${venda.codvenda}</td>
+					<td>${venda.data_venda}</td>
+					<td>${venda.cod_cliente}</td>
+					<td>${venda.cod_produto}</td>
+					<td>${venda.cod_filial}</td>
+					<td>${venda.quantidade}</td>
+					<td>${venda.desconto}</td>
+					<td>${venda.valor_Total}</td>
 					<td><a href="/VendaAlterar?id=${Venda.codvenda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="/VendaDeletar?id=${venda.codvenda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 					</td>

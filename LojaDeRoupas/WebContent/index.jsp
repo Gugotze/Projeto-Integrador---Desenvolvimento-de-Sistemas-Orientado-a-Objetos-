@@ -11,7 +11,7 @@
 		<h1>Menu</h1>
 			<a href="ListarClientes">Listar Clientes</a><br/>
         	<a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
-			<a href="ConsultarVenda.jsp"> Consulta de Vendas</a><br/>
+			<a href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
 			<a href="RealizarVenda.jsp">Realizar Venda</a></br>
 			<a href="/LojaDeRoupas/listaProdutos">Produtos</a>
 		</body>
