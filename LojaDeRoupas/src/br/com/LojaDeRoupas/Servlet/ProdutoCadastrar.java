@@ -16,7 +16,7 @@ import br.com.LojaDeRoupas.Model.produto;
  * Servlet implementation class insereProdutos
  */
 @WebServlet("/insereProdutos")
-public class insereProdutos extends HttpServlet {
+public class ProdutoCadastrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

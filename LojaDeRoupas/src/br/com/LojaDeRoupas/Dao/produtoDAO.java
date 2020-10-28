@@ -129,6 +129,8 @@ public class produtoDAO {
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
     		String filial = rs.getString("ESTADO");
+    		
+    		System.out.println("MINHA QUANTIDADE------->"+quantidade);
 			
 		produto = new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial);
 			

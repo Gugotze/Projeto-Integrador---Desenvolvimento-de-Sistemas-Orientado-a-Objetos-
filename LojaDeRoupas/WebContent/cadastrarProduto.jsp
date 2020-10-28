@@ -222,7 +222,7 @@ window.onload = function () {
   <div class="form-row">
   	<div class="form-group col-md-6">
     <label for="quantidade">Quantidade</label>
-    <input type="number" class="form-control" id="quantidade" name="quantidade" required="required">
+    <input type="number" class="form-control" id="quantidade" name="quantidade" value="${produto._quantidade}" required="required">
     </div>
     <div class="form-group col-md-6">
     <label for="codFilial">Filial</label>
@@ -276,7 +276,7 @@ window.onload = function () {
   <div class="form-row">
   	<div class="form-group col-md-6">
     <label for="quantidade">Quantidade</label>
-    <input type="number" class="form-control" id="quantidade" name="quantidade" required="required">
+    <input type="number" class="form-control" id="quantidade" name="quantidade" value="${produto._quantidade}" required="required">
     </div>
     <div class="form-group col-md-6">
     <label for="codFilial">Filial</label>

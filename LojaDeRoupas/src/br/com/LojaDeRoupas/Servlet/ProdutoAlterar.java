@@ -16,7 +16,7 @@ import br.com.LojaDeRoupas.Model.produto;
 
 
 @WebServlet("/atualizaProdutos")
-public class atualizaProdutos extends HttpServlet {
+public class ProdutoAlterar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 

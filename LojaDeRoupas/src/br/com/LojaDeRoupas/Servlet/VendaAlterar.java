@@ -53,7 +53,7 @@ public class VendaAlterar extends HttpServlet {
             throws ServletException, IOException {
     	
     	System.out.println("Estou na alteração de venda");
-    	System.out.println(request.getParameter("id_venda"));
+    
     	
     	Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
     	

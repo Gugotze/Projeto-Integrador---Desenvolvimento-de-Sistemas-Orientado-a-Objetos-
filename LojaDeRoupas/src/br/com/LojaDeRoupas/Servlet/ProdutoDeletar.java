@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.LojaDeRoupas.Dao.produtoDAO;
 
 @WebServlet("/deletarProduto")
-public class deletarProduto extends HttpServlet {
+public class ProdutoDeletar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
