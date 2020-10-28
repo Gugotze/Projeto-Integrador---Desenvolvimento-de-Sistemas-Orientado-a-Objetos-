@@ -22,8 +22,8 @@ public class vendaDAO{
 	
 	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE CODVENDA= ? ";
     private static final String CONSULTAR_VENDA = "SELECT * FROM VENDA ";
-    private static final String GET_VENDA = "SELECT * FROM VENDA WHERE CODVENDA= ? ";
-    private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE CODVENDA = ? ";
+    private static final String GET_VENDA = "SELECT * FROM VENDA WHERE  ID_VENDA= ? ";
+    private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE ID_VENDA = ? ";
     private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ? ) ";
  
     
@@ -41,7 +41,7 @@ public class vendaDAO{
     	
     	
     	while(rs.next()) {
-    		Integer codvenda = rs.getInt("CODVENDA");
+    		Integer id_venda = rs.getInt("ID_VENDA");
     		String data_venda =  rs.getString("DATA_VENDA");
 			Integer cod_cliente = rs.getInt("COD_CLIENTE");
 			Integer cod_produto = rs.getInt("COD_PRODUTO");
@@ -52,9 +52,9 @@ public class vendaDAO{
 			
 			System.out.println(rs);
 			
-			System.out.println(codvenda+" "+data_venda+" "+cod_cliente);
+			System.out.println(id_venda+" "+data_venda+" "+cod_cliente);
 			
-		listaVenda.add(new Venda(codvenda, data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total));
+		listaVenda.add(new Venda(id_venda, data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total));
 			
     	}
     	
@@ -65,7 +65,7 @@ public class vendaDAO{
     	return listaVenda;
     }
     
-    public static Venda getVenda (int codvenda) {
+    public static Venda getVenda (int id_venda) {
     	
     	Venda venda = new Venda();
     	try {
@@ -74,7 +74,7 @@ public class vendaDAO{
     		String query = GET_VENDA;
     		PreparedStatement ps = con.prepareStatement(query);
     		
-    		ps.setInt(1, codvenda);
+    		ps.setInt(1, id_venda);
     		
     		ResultSet rs = ps.executeQuery();
     		
@@ -111,7 +111,7 @@ public class vendaDAO{
         	ps.setInt(5, venda.getQuantidade());
         	ps.setDouble(6, venda.getDesconto());
         	ps.setDouble(7, venda.getValor_Total());
-        	ps.setInt(8, venda.getCodvenda());
+        	ps.setInt(8, venda.getId_venda());
         	ps.execute();
         	
     		
@@ -139,13 +139,13 @@ public class vendaDAO{
 		}
     }
 	
-      public static void deletarVenda(int codvenda) throws ClassNotFoundException, SQLException {
+      public static void deletarVenda(int id_venda) throws ClassNotFoundException, SQLException {
         
     	try {  
     	Connection con = ConexaoDB.getConnection();
         String query = DELETAR_VENDA;
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, codvenda);
+        ps.setInt(1, id_venda);
         ps.execute();
     	}catch (SQLException e) {
 			e.printStackTrace();
