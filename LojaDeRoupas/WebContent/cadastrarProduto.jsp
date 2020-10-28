@@ -19,25 +19,7 @@ $(document).ready( function () {
 </head>
 <body>
 <div class="container">
-<!-- 	<form action= "/LojaDeRoupas/insereProdutos" method="post">
-	
-		codFilial: <input type="text" name="codFilial">
-		<br>
-		codProduto: <input type="text" name="codProduto">
-		<br>
-		nome: <input type="text" name="nome">
-		<br>
-		tipo: <input type="text" name="tipoProduto">
-		<br>
-		quantidade: <input type="text" name="quantidade">
-		<br>
-		valorCompra: <input type="text" name="valorCompra">
-		<br>
-		valorVenda: <input type="text" name="valorVenda">
-			<br>	<br>
-		<input type="submit">
-	</form> -->
-	
+	<c:if test="${empty action}">
   <form action= "/LojaDeRoupas/insereProdutos" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -71,6 +53,46 @@ $(document).ready( function () {
   </div>
    <button type="submit" class="btn btn-primary">OK</button>
 </form>
+</c:if>
+
+
+<c:if test="${not empty action}">
+	<form action= "/LojaDeRoupas/atualizaProdutos" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" required="required" value="${produto._nome}" placeholder="Ex: Boné Brasil, Camiseta New Era">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="tipoProduto">Tipo</label>
+      <input type="text" class="form-control" id="tipoProduto" name="tipoProduto" value="${produto._tipo}" required="required" placeholder="Ex: Roupas, Calçados, Acessórios">
+    </div>
+  </div>
+  <div class="form-row">
+  	<div class="form-group col-md-6">
+    <label for="quantidade">Quantidade</label>
+    <input type="number" class="form-control" id="quantidade" name="quantidade" value="${produto._quantidade}" required="required">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="codFilial">Filial</label>
+    <input type="text" class="form-control" id="codFilial" name="codFilial" required="required" value="${produto._filial}">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="valorCompra">Valor compra</label>
+      <input type="text" class="form-control" id="valorCompra" name="valorCompra" required="required" value="${produto._valorCompra}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="valorVenda">Valor venda</label>
+      <input type="text" class="form-control" id="valorVenda" name="valorVenda" required="required" value="${produto._valorVenda}">
+    </div>
+  </div>
+	<input type="hidden" id="codProduto" name="codProduto" value="${produto._codProduto}">
+   <button type="submit" class="btn btn-primary">OK</button>
+</form>
+</c:if>
+
 </div>
 	
 </body>

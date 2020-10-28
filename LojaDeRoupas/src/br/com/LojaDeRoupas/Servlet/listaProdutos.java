@@ -17,8 +17,6 @@ import br.com.LojaDeRoupas.Dao.produtoDAO;
 @WebServlet("/listaProdutos")
 public class listaProdutos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private produtoDAO produtoDao;
-	private produto produto;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

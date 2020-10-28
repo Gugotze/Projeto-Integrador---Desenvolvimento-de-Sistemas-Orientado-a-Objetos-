@@ -51,7 +51,7 @@ $(document).ready( function () {
 <div>
 	<center>
 		<h1>Produtos</h1>
-		<button class="btn btn-primary" ><a href="cadastrarProduto.jsp" style="color: white;"> Adicionar novo produto</a></button>
+		<button class="btn btn-primary" ><a href="/LojaDeRoupas/atualizaProdutos?action=create&id=0" style="color: white;"> Adicionar novo produto</a></button>
 		<br/>
 		<br/>
 		<br/>
@@ -81,8 +81,8 @@ $(document).ready( function () {
 					<td>${produto._valorCompra}</td>
 					<td>${produto._valorVenda}</td>
 					<td>${produto._filial}</td>
-					<td><a href="/editarProduto?id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><a href="/deletarProduto?id=${produto._codProduto}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="/LojaDeRoupas/deletarProduto?id=${produto._codProduto}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 				</tr>
 			</c:forEach>
 			</tbody>

@@ -23,25 +23,16 @@ public class insereProdutos extends HttpServlet {
 		System.out.println("Cadastrando novoProduto");
 		try {
 			System.out.println("vou 1");
-		String codFilial = request.getParameter("codFilial");
+		Integer codFilial = Integer.valueOf(request.getParameter("codFilial"));
 		String nome = request.getParameter("nome");
 		String tipo = request.getParameter("tipoProduto");
-		String quantidade = request.getParameter("quantidade");
-		String valorCompra = request.getParameter("valorCompra");
-		String valorVenda = request.getParameter("valorVenda");
+		Integer quantidade = Integer.valueOf(request.getParameter("quantidade"));
+		double valorCompra = Double.parseDouble(request.getParameter("valorCompra"));
+		double valorVenda = Double.parseDouble( request.getParameter("valorVenda"));
 		System.out.println("vou 2"+codFilial+" "+nome+" "+tipo+" "+quantidade+" "+valorCompra+" "+valorVenda);
-		
-		Integer idFilial = Integer.valueOf(codFilial);
-		Integer quantidadeC = Integer.valueOf(quantidade);
-		System.out.println("vou 3");
-		double valorCompraC = Double.parseDouble(valorCompra);
-		double valorVendaC = Double.parseDouble(valorVenda);
-		System.out.println("vou 4");
-		produto produto = new produto(idFilial, nome,tipo,quantidadeC,valorCompraC, valorVendaC);
+		produto produto = new produto(codFilial, nome,tipo,quantidade,valorCompra, valorVenda);
 		System.out.println(produto);
-		System.out.println("vou 5");
 		produtoDAO.inserirProduto(produto);
-		System.out.println("vou 6");
 		} catch (SQLException e) {
 			
 			throw new ServletException(e.getMessage());
@@ -52,9 +43,5 @@ public class insereProdutos extends HttpServlet {
 		response.sendRedirect("listaProdutos");
 	}
 	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
 }

@@ -18,9 +18,34 @@ public class produto {
     private double _valorCompra;
     private double _valorVenda;
     private String _filial;
+    private String _status;
     
     public produto() {	
 	}
+    
+    public produto(int codProduto, String status) {
+    	_codProduto = codProduto;
+    	_status = status;
+    }
+    
+    public produto(int codFilial, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
+    	this._codFilial = codFilial;
+    	this._nome = nome;
+    	this._tipo = tipo;
+    	this._quantidade = quantidade;
+    	this._valorCompra = valorCompra;
+    	this._valorVenda = valorVenda;
+    }
+    
+    public produto(int codFilial,int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
+    	this._codFilial = codFilial;
+    	this._codProduto = codProduto;
+    	this._nome = nome;
+    	this._tipo = tipo;
+    	this._quantidade = quantidade;
+    	this._valorCompra = valorCompra;
+    	this._valorVenda = valorVenda;
+    }
     
     public produto(int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String filial) {
     	//this._codFilial = codFilial;
@@ -33,14 +58,8 @@ public class produto {
     	this._filial = filial;
     }
     
-    public produto(int codFilial, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
-    	this._codFilial = codFilial;
-    	this._nome = nome;
-    	this._tipo = tipo;
-    	this._quantidade = quantidade;
-    	this._valorCompra = valorCompra;
-    	this._valorVenda = valorVenda;
-    }
+    
+    
     
     
 
@@ -114,9 +133,11 @@ public class produto {
 	}
 
   
+    public String get_status() {
+    	return _status;
+    }
     
-  
-    
-    
-    
+    public void set_status(String _status) {
+    	this._status = _status;
+    }   
 }

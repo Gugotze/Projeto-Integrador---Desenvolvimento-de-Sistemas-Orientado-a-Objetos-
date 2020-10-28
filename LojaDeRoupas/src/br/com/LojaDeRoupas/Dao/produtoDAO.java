@@ -74,25 +74,92 @@ public class produtoDAO {
     	System.out.println("executei");
     }
     
-    public void atualizarProduto(produto produto) throws SQLException {
+    public static void atualizarProduto(produto produto) throws SQLException {
+    	System.out.println("atualizarPrdoutoDAO");
+    	String sqlUpdate = "UPDATE PRODUTO a inner join ESTOQUE b on a.ID_PRODUTO = b.COD_PRODUTO_FK set a.COD_FILIAL = ?, a.NOME = ?, a.TIPO = ?, a.VALOR_COMPRA = ?, a.VALOR_VENDA =?, b.QUANTIDADE = ? WHERE ID_PRODUTO= ?";
     	
-    	String sqlUpdate = "update produto set COD_FILIAL = ?, NOME=?,TIPO =?,QUANTIDADE=?, VALOR_COMPRA =?,VALOR_VENDA=?";
-    	
-    	try(Connection con = ConexaoDB.getConnection();
-        		PreparedStatement ps = con.prepareStatement(sqlUpdate)) {
-			
+    	try{
+    		Connection con = ConexaoDB.getConnection();
+        	PreparedStatement ps = con.prepareStatement(sqlUpdate);
+    		System.out.println("atualizarPrdoutoDAO2");
     		ps.setInt(1, produto.get_codFilial());
+    		System.out.println("atualizarPrdoutoDAO3");
     		ps.setString(2, produto.get_nome());
+    		System.out.println("atualizarPrdoutoDAO4");
     		ps.setString(3, produto.get_tipo());
-    		ps.setInt(4, produto.get_quantidade());
-    		ps.setDouble(5, produto.get_valorCompra());
-    		ps.setDouble(6, produto.get_valorVenda());
+    		ps.setDouble(4, produto.get_valorCompra());
+    		ps.setDouble(5, produto.get_valorVenda());
+    		ps.setInt(6, produto.get_quantidade());
+    		ps.setInt(7, produto.get_codProduto());
     		
+    		System.out.println("UPDATE AQUI ---->"+ ps);
     		
+    		ps.executeUpdate();
     		
 		} catch (Exception e) {
 			String erro = e.getMessage();
+			System.out.println(erro);
 		}
+    }
+    
+    public static produto buscaProdutoPorId(Integer id) throws ServletException {
+    	System.out.println("Estou na consulta");
+		
+		produto produto = null;
+
+    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL WHERE ID_PRODUTO = ?;";
+    	
+    	try {
+    		
+    		Connection con = ConexaoDB.getConnection();
+    		PreparedStatement ps = con.prepareStatement(sqlConsulta);
+    		
+    		ps.setInt(1, id);
+    		
+    		System.out.println("QUERY DE CONSULTA---->"+ps);
+    		
+    		ResultSet rs = ps.executeQuery();
+    	
+    	while(rs.next()) {
+    		int codProduto = rs.getInt("ID_PRODUTO");
+    		String nome = rs.getString("NOME");
+    		String tipo = rs.getString("TIPO");
+    		int quantidade = rs.getInt("QUANTIDADE");
+    		double valorCompra = rs.getDouble("VALOR_COMPRA");
+    		double valorVenda = rs.getDouble("VALOR_VENDA");
+    		String filial = rs.getString("ESTADO");
+			
+		produto = new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial);
+			
+    	}
+    	
+    	}catch (SQLException e) {
+    		throw new ServletException(e.getMessage());
+		}
+    	
+    	return produto;
+    }
+    
+    public static void deleteProduto(Integer id) throws ServletException {
+    	System.out.println("Estou no delete");
+    	
+    	String SqlDelete = "DELETE FROM PRODUTO WHERE ID_PRODUTO= ?";
+    	
+    	try {
+    		Connection con = ConexaoDB.getConnection();
+    		PreparedStatement ps = con.prepareStatement(SqlDelete);
+    		ps.setInt(1, id);
+    		
+    		System.out.println("MEU DELETE --->"+ps);
+    		
+    		ps.execute();
+    		
+    	} catch(Exception e) {
+    		throw new ServletException(e.getMessage());
+    	}
+    	
+    	
+    	
     }
     
     
