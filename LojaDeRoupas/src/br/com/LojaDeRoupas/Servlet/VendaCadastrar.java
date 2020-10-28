@@ -37,9 +37,9 @@ public class VendaCadastrar extends HttpServlet {
        
         Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
  
-        Double desconto = Double.parseDouble(request.getParameter("desconto"));
+        Double desconto = Double.parseDouble(request.getParameter("desconto").replace("R$", ""));
        
-        Double valor_Total = Double.parseDouble(request.getParameter("valor_Total"));
+        Double valor_Total = Double.parseDouble(request.getParameter("valor_Total").replace("R$", ""));
         
         Venda venda = new Venda(data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
          
