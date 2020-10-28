@@ -74,7 +74,7 @@ $(document).ready( function () {
 			<tbody>
 			<c:forEach var="venda" items="${listaVendas}"> 
 				<tr>
-					<td>${venda.codvenda}</td>
+					<td>${venda.id_venda}</td>
 					<td>${venda.data_venda}</td>
 					<td>${venda.cod_cliente}</td>
 					<td>${venda.cod_produto}</td>
@@ -82,8 +82,8 @@ $(document).ready( function () {
 					<td>${venda.quantidade}</td>
 					<td>${venda.desconto}</td>
 					<td>${venda.valor_Total}</td>
-					<td><a href="/VendaAlterar?id=${Venda.codvenda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><a href="/VendaDeletar?id=${venda.codvenda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					<td><a href="/VendaAlterar?id=${Venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="/VendaDeletar?id=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 			
 				</tr>
 			

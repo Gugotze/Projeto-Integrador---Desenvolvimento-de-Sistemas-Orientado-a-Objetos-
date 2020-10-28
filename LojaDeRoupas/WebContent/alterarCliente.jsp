@@ -7,35 +7,11 @@
     <%@include file="header.jsp" %>
     <head>
             <script lang="text/javascript">
-                $(document).ready(function() {
-                    var $campo = $("#cep");
-                    $campo.mask('00000-000', {
-                        reverse: true
-                    });
-                });
-                $(document).ready(function mask(o, f) {
-                    setTimeout(function() {
-                        var v = $("#telefone");
-                        if (v != o.value) {
-                            o.value = v;
-                        }
-                    }, 1);
-                });
-
-                function telefone(v) {
-                    var r = v.replace(/\D/g, "");
-                    r = r.replace(/^0/, "");
-                    if (r.length > 10) {
-                        r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-                    } else if (r.length > 5) {
-                        r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-                    } else if (r.length > 2) {
-                        r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-                    } else {
-                        r = r.replace(/^(\d*)/, "($1");
-                    }
-                    return r;
-                }
+            	$(document).ready( function () {
+            		
+            		$('#telefone').mask('(00) 00000-0000');
+            		    
+            		} );
             </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Cliente</title>
@@ -69,11 +45,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dataNascimento">Data de Nascimento</label>
-                        <input type="text" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
+                        <input type="date" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefone">Telefone</label>
-                        <input type="text" id="telefone" name="telefone" onkeypress="mask(this, telefone);" onblur="mask(this, telefone);" placeholder="Ex.: (99)12345-6789" class="form-control" />
+                        <input type="text" id="telefone" name="telefone"  placeholder="Ex.: (99)12345-6789" class="form-control" />
                     </div>
                 </div>
                 <div class="form-row">

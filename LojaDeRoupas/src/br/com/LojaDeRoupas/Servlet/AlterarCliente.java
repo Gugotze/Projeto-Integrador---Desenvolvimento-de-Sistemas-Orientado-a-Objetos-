@@ -51,6 +51,7 @@ public class AlterarCliente extends HttpServlet {
     	String sexo = request.getParameter("sexo");
     	String dataNascimento = request.getParameter("dataNascimento");
     	String telefone = request.getParameter("telefone");
+		telefone = telefone.replaceAll("[^0-9]", "");
     	String email = request.getParameter("email");
     	String cep = request.getParameter("cep");
     	String endereco = request.getParameter("endereco");

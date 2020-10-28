@@ -25,9 +25,9 @@ public class VendaDeletar extends HttpServlet {
     @Override
       protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer codvenda = Integer.parseInt(request.getParameter("codvenda"));
+        Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
        try {
-           vendaDAO.deletarVenda(codvenda);
+           vendaDAO.deletarVenda(id_venda);
            response.getWriter().print(true);
        } catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(VendaDeletar.class.getName()).log(Level.SEVERE, null, ex);

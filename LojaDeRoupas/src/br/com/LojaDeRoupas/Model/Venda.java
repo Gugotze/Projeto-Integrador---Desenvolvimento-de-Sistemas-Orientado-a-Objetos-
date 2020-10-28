@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class Venda {
     
-    private Integer codvenda;
+    private Integer id_venda;
     private String data_venda;
     private Integer cod_cliente;
     private Integer cod_produto;
@@ -23,8 +23,8 @@ public class Venda {
         
     }
 
-    public Venda (Integer codvenda) {
-    	this.codvenda=codvenda;
+    public Venda (Integer id_venda) {
+    	this.id_venda=id_venda;
     }
 
     public Venda(String data_venda, Integer cod_cliente, Integer cod_produto, Integer cod_filial, Integer quantidade, double desconto, double valor_Total) {
@@ -40,10 +40,10 @@ public class Venda {
     
     
     
-    public Venda(Integer codvenda, String data_venda, Integer cod_cliente, Integer cod_produto, Integer cod_filial, Integer quantidade,
+    public Venda(Integer id_venda, String data_venda, Integer cod_cliente, Integer cod_produto, Integer cod_filial, Integer quantidade,
 			double desconto, double valor_Total) {
 		
-		this.codvenda = codvenda;
+		this.id_venda = id_venda;
 		this.data_venda = data_venda;
 		this.cod_cliente = cod_cliente;
 		this.cod_produto = cod_produto;
@@ -53,12 +53,12 @@ public class Venda {
 		this.valor_Total = valor_Total;
 	}
 
-	public int getCodvenda() {
-		return codvenda;
+	public int getId_venda() {
+		return id_venda;
 	}
 
-	public void setCodvenda(Integer codvenda) {
-		this.codvenda = codvenda;
+	public void setId_venda(Integer id_venda) {
+		this.id_venda = id_venda;
 	}
 
 	public String getData_venda() {
@@ -119,7 +119,7 @@ public class Venda {
 
 	@Override
     public String toString() {
-        return "venda{" + "codvenda=" + codvenda + ", data_venda=" + data_venda + ", cod_cliente=" + cod_cliente + ", cod_produto=" + cod_produto + ", cod_filial=" + cod_filial + ", quantidade=" + quantidade + ", desconto=" + desconto + ", valor_Total=" + valor_Total + '}';
+        return "venda{" + "id_venda=" + id_venda + ", data_venda=" + data_venda + ", cod_cliente=" + cod_cliente + ", cod_produto=" + cod_produto + ", cod_filial=" + cod_filial + ", quantidade=" + quantidade + ", desconto=" + desconto + ", valor_Total=" + valor_Total + '}';
     }
       
     
