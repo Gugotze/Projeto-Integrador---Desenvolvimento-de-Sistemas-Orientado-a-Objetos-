@@ -139,11 +139,12 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Relatórios</span></a>
       </li>
-      <li class="nav-item">
+    <!--   <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>
+    -->
     </ul>
 
     <div id="content-wrapper">
@@ -168,8 +169,8 @@
                 </div>
                 <div class="mr-5">26 Clientes cadastrados</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left" onclick="listaCliente()">  Ver mais
+              <a class="card-footer text-white clearfix small z-1" href="ListarClientes">
+                <span class="float-left">  Ver mais
                 </span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -185,7 +186,7 @@
                 </div>
                 <div class="mr-5">11 Produtos cadastrados</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaProdutos">
                 <span class="float-left">Ver mais</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -201,7 +202,7 @@
                 </div>
                 <div class="mr-5">123 Vendas</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaVendas">
                 <span class="float-left">Ver mais</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
