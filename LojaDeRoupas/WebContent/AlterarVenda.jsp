@@ -24,7 +24,7 @@
             <input name="desconto" class="form-control" data-type="currency" value="${venda.desconto}"  onkeypress="$(this).mask('R$ 999.990,00')" required="true"/><br/>
             <p>Total</p>
             <input type = "text"  name="valor_Total" class="form-control" data-type="currency" value="${venda.valor_Total}"    onkeypress="$(this).mask('R$ 999.990,00')" required="true"/><br/>
-           
+           	<input type="hidden" name="id_venda" value="${venda.id_venda}">
             
             <button type="submit" class="btn btn-primary">Enviar</button>
             

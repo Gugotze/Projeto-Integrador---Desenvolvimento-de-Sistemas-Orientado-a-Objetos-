@@ -52,6 +52,9 @@ public class VendaAlterar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
+    	System.out.println("Estou na alteração de venda");
+    	System.out.println(request.getParameter("id_venda"));
+    	
     	Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
     	
     	String data_venda = request.getParameter("data_venda");

@@ -87,7 +87,7 @@ public class vendaDAO{
     			double desconto = rs.getDouble("DESCONTO");
     			double valor_Total  = rs.getDouble("VALOR_TOTAL");
     			
-    			venda = new Venda(data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
+    			venda = new Venda(id_venda,data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
     			
     		}
     		
