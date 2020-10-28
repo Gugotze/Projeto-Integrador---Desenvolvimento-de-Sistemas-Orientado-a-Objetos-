@@ -20,7 +20,7 @@ import br.com.LojaDeRoupas.Model.Venda;
  */
 public class vendaDAO{
 	
-	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE CODVENDA= ? ";
+	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE ID_VENDA= ? ";
     private static final String CONSULTAR_VENDA = "SELECT * FROM VENDA ";
     private static final String GET_VENDA = "SELECT * FROM VENDA WHERE  ID_VENDA= ? ";
     private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE ID_VENDA = ? ";

@@ -84,9 +84,10 @@ $(document).ready( function () {
 					<td>${venda.desconto}</td>
 					<td>${venda.valor_Total}</td>
 					<td><a href="/LojaDeRoupas/VendaAlterar?id_venda=${venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><a href="/VendaDeletar?id=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					<td><a href="/LojaDeRoupas/VendaDeletar?id_venda=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 			
 				</tr>
+				
 			
 			</c:forEach>
 			</tbody>
