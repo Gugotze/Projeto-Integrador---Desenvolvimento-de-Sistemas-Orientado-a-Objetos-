@@ -34,8 +34,8 @@ public class VendaAlterar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           
-              Integer codvenda = Integer.parseInt(request.getParameter("codvenda"));
-              Venda venda = vendaDAO.getVenda(codvenda);
+              Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
+              Venda venda = vendaDAO.getVenda(id_venda);
               request.setAttribute("venda", venda);
               RequestDispatcher rd =
                       getServletContext().getRequestDispatcher("/ConsultarVenda.jsp");
@@ -49,7 +49,7 @@ public class VendaAlterar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	Integer codvenda = Integer.parseInt(request.getParameter("codvenda"));
+    	Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
     	
     	String data_venda = request.getParameter("data_venda");
           
@@ -65,7 +65,7 @@ public class VendaAlterar extends HttpServlet {
          
           Double valor_Total = Double.parseDouble(request.getParameter("valor_Total"));
     	
-         Venda venda = vendaDAO.getVenda(codvenda);
+         Venda venda = vendaDAO.getVenda(id_venda);
          venda.setData_venda(data_venda);
          venda.setCod_cliente(cod_cliente);
          venda.setCod_produto(cod_produto);
