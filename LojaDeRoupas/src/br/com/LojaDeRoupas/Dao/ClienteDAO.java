@@ -25,7 +25,7 @@ public class ClienteDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-            	Integer ID_CLIENTE = rs.getInt("CODCLIENTE");
+            	Integer ID_CLIENTE = rs.getInt("ID_CLIENTE");
             	String nome = rs.getString("nome");
             	String cpf = rs.getString("cpf");
             	String sexo = rs.getString("sexo");
@@ -75,7 +75,7 @@ public class ClienteDAO {
     
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConnection();
-        String query = "UPDATE lojaroupas.cliente SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
+        String query = "UPDATE LOJADEROUPAS.cliente SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
         ps.setString(2, cliente.getSexoCliente());
@@ -110,7 +110,7 @@ public class ClienteDAO {
             ps.setString(1, cpf);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-            	Integer CODCLIENTE = rs.getInt("CODCLIENTE");
+            	Integer CODCLIENTE = rs.getInt("ID_CLIENTE");
             	String nome = rs.getString("nome");
             	String sexo = rs.getString("sexo");
             	String dataNascimento = rs.getString("dataNascimento");
