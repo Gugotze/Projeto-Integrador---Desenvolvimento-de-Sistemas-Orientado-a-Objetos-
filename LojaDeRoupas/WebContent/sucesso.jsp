@@ -15,6 +15,6 @@
     </head>
     <body>
         <h1>Operação executada com sucesso!</h1><br/>
-        <a href="index.jsp">Voltar</a>
+        <button><a onclick="location.href = document.referrer;">Voltar</a></button>
     </body>
 </html>
