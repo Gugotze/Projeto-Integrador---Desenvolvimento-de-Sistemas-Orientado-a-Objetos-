@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author gusta
  */
 
+@WebServlet("/VendaAlterar")
 public class VendaAlterar extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -34,11 +36,12 @@ public class VendaAlterar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           
+    	
               Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
               Venda venda = vendaDAO.getVenda(id_venda);
               request.setAttribute("venda", venda);
               RequestDispatcher rd =
-                      getServletContext().getRequestDispatcher("/ConsultarVenda.jsp");
+                      getServletContext().getRequestDispatcher("/AlterarVenda.jsp");
               rd.forward(request, response);
          
         
@@ -61,9 +64,9 @@ public class VendaAlterar extends HttpServlet {
          
           Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
    
-          Double desconto = Double.parseDouble(request.getParameter("desconto"));
+          Double desconto = Double.parseDouble(request.getParameter("desconto").replace("R$", ""));
          
-          Double valor_Total = Double.parseDouble(request.getParameter("valor_Total"));
+          Double valor_Total = Double.parseDouble(request.getParameter("valor_Total").replace("R$", ""));
     	
          Venda venda = vendaDAO.getVenda(id_venda);
          venda.setData_venda(data_venda);
