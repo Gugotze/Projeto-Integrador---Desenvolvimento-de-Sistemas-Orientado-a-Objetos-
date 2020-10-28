@@ -20,14 +20,9 @@ public class atualizaProdutos extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("ENTREI NO GET");
-		
-		
+
 		String status = request.getParameter("action");
 		Integer id = Integer.valueOf(request.getParameter("id"));
-		
-		
 		
 		if(status.equals("create")) {
 			produto produto = null;	
@@ -47,8 +42,7 @@ public class atualizaProdutos extends HttpServlet {
 			request.setAttribute("produto", dadosProduto);
 			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");
 			
-			rd.forward(request, response);
-			
+			rd.forward(request, response);			
 		}
 		
 	}
