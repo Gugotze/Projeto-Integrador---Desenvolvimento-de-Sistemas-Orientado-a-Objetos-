@@ -23,6 +23,7 @@ public class insereProdutos extends HttpServlet {
 		System.out.println("Cadastrando novoProduto");
 		try {
 			System.out.println("vou 1");
+			System.out.println("CODFILIAL =================>"+request.getParameter("codFilial"));
 		Integer codFilial = Integer.valueOf(request.getParameter("codFilial"));
 		String nome = request.getParameter("nome");
 		String tipo = request.getParameter("tipoProduto");

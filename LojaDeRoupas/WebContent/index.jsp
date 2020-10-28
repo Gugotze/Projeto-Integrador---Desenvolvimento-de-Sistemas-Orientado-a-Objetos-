@@ -136,7 +136,7 @@
       <li class="nav-item">
         <!-- <a class="nav-link" href="charts.html"> -->
          <a class="nav-link" href="/LojaDeRoupas/listaVendas">
-           <a class= "nav-link" href="/VendaAlterar"></a>
+         <!--   <a class= "nav-link" href="/VendaAlterar"></a> -->
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Relatórios</span></a>
       </li>

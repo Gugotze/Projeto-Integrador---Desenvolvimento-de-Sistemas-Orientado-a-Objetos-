@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import br.com.LojaDeRoupas.Model.filial;
 import br.com.LojaDeRoupas.Model.produto;
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 
@@ -157,9 +158,28 @@ public class produtoDAO {
     	} catch(Exception e) {
     		throw new ServletException(e.getMessage());
     	}
+    }
+    
+    public static List<filial> listarFiliais() throws ServletException {
+    	System.out.println("BUSCAR FILIAIS");
+    	List <filial> lista = new ArrayList<filial>();
+    	String sqlConsulta = "SELECT * FROM FILIAL;";
     	
+    	try {
+    		Connection con = ConexaoDB.getConnection();
+    		PreparedStatement ps = con.prepareStatement(sqlConsulta);
+    		ResultSet rs = ps.executeQuery();
+    		
+    		while(rs.next()) {
+    			int idFilial = rs.getInt("ID_FILIAL");
+    			String estado = rs.getString("ESTADO");
+    			lista.add(new filial(idFilial, estado));
+    		}	
+    	}catch (Exception e) {
+    		throw new ServletException(e.getMessage());
+		}
     	
-    	
+    	return lista;
     }
     
     

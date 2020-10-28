@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html>
 <html>
-<%@include file="header.jsp" %>
 <head>
+<%@include file="header.jsp" %>
 <title>Consultar Vendas</title>
 <script lang="text/javascript">
             
@@ -48,6 +48,7 @@ $(document).ready( function () {
 
 </head>
 <body>
+<div class="container">
 	<center>
 		<h1>Relatório de Vendas</h1>
 		<button class="btn btn-primary" ><a href="RealizarVenda.jsp" style="color: white;"> Realizar Nova Venda</a></button>
@@ -99,10 +100,12 @@ $(document).ready( function () {
                 <th>Quantidade</th>
                 <th>Desconto</th>
                 <th>Valor total</th> 
+                <th style="Display: none;"></th>   
                 <th style="Display: none;"></th>      
             </tr>
         </tfoot>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

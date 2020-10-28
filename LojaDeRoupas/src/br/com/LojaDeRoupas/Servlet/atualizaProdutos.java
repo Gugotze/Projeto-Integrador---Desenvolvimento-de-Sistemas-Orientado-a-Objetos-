@@ -1,7 +1,7 @@
 package br.com.LojaDeRoupas.Servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.produtoDAO;
+import br.com.LojaDeRoupas.Model.filial;
 import br.com.LojaDeRoupas.Model.produto;
 
 
@@ -23,10 +24,14 @@ public class atualizaProdutos extends HttpServlet {
 
 		String status = request.getParameter("action");
 		Integer id = Integer.valueOf(request.getParameter("id"));
+		List<filial> lista = produtoDAO.listarFiliais();
 		
 		if(status.equals("create")) {
 			produto produto = null;	
+			
+			
 			request.setAttribute("action", produto);
+			request.setAttribute("filial", lista);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");
 			
@@ -40,6 +45,7 @@ public class atualizaProdutos extends HttpServlet {
 			
 			request.setAttribute("action", produto);
 			request.setAttribute("produto", dadosProduto);
+			request.setAttribute("filial", lista);
 			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");
 			
 			rd.forward(request, response);			
