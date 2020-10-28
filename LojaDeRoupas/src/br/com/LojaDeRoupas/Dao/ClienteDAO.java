@@ -21,7 +21,7 @@ public class ClienteDAO {
         List<Cliente> listaClientes = new ArrayList<Cliente>();
         try {
             Connection con = ConexaoDB.getConnection();
-            String query = "select * from cliente";
+            String query = "select * from CLIENTE";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
