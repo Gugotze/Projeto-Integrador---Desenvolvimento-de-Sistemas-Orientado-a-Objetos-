@@ -21,6 +21,9 @@ public class filial {
         this.codfilial = codfilial;
         this.estado = estado;
     }
+    public filial() {
+    	
+    }
 
     
     

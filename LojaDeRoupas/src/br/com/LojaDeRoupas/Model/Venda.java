@@ -18,8 +18,18 @@ public class Venda {
     private Integer quantidade;
     private double desconto;
     private double valor_Total;
-
-    public Venda(){
+	private String tipo;
+	private String estado;
+	private String nome;
+    
+    public Venda(Integer id_venda2, String nome, String estado, String tipo, Integer quantidade2, double valor_Total2){
+        this.id_venda = id_venda2;
+        this.valor_Total = valor_Total2;
+        this.quantidade = quantidade2;
+        this.nome = nome;
+        this.estado = estado;
+        this.tipo = tipo;
+        
         
     }
 
@@ -51,6 +61,10 @@ public class Venda {
 		this.quantidade = quantidade;
 		this.desconto = desconto;
 		this.valor_Total = valor_Total;
+	}
+
+	public Venda() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId_venda() {
@@ -121,6 +135,32 @@ public class Venda {
     public String toString() {
         return "venda{" + "id_venda=" + id_venda + ", data_venda=" + data_venda + ", cod_cliente=" + cod_cliente + ", cod_produto=" + cod_produto + ", cod_filial=" + cod_filial + ", quantidade=" + quantidade + ", desconto=" + desconto + ", valor_Total=" + valor_Total + '}';
     }
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	
       
     
 }

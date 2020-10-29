@@ -81,27 +81,21 @@ $(document).ready( function () {
 			<thead>
 			<tr>
 				<th>Cod.Venda</th>
-				<th>Data</th>
-				<th>Cod.Cliente</th>
-				<th>Cod.Produto</th>
-				<th>Cod.Filial</th>
-				<th>Quantidade</th>
-				<th>Desconto</th>
-				<th>Valor Total</th>
-				<th>Editar</th>
-				<th>Apagar</th>
+                <th>Nome</th>
+                <th>Estado</th>
+                <th>Tipo</th>
+                <th>Quantidade</th>
+                <th>Valor total</th> 
 			</tr>
 			<thead>
 			<tbody>
 			<c:forEach var="venda" items="${listaVendas}"> 
 				<tr>
 					<td>${venda.id_venda}</td>
-					<td>${venda.data_venda}</td>
-					<td>${venda.cod_cliente}</td>
-					<td>${venda.cod_produto}</td>
-					<td>${venda.cod_filial}</td>
+					<td>${venda.nome}</td>
+					<td>${venda.estado}</td>
+					<td>${venda.tipo}</td>
 					<td>${venda.quantidade}</td>
-					<td>${venda.desconto}</td>
 					<td>${venda.valor_Total}</td>
 					<td><a href="/LojaDeRoupas/VendaAlterar?id_venda=${venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="/LojaDeRoupas/VendaDeletar?id_venda=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
@@ -114,12 +108,10 @@ $(document).ready( function () {
 			<tfoot>
             <tr>
                 <th>Cod.Venda</th>
-                <th>Data</th>
-                <th>Cod.Cliente</th>
-                <th>Cod.Produto</th>
-                <th>Cod.Filial</th>
+                <th>Nome</th>
+                <th>Estado</th>
+                <th>Tipo</th>
                 <th>Quantidade</th>
-                <th>Desconto</th>
                 <th>Valor total</th> 
                 <th style="Display: none;"></th>   
                 <th style="Display: none;"></th>      

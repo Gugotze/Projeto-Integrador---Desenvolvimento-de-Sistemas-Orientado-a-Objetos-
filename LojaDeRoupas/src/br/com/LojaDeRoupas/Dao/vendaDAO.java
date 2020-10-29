@@ -14,19 +14,18 @@ import br.com.LojaDeRoupas.Model.Venda;
 
 
 
-/**
- *
- * @author gusta
- */
+
 public class vendaDAO{
 	
 	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE ID_VENDA= ? ";
-    private static final String CONSULTAR_VENDA = "SELECT * FROM VENDA ";
+    private static final String CONSULTAR_VENDA = "SELECT V.ID_VENDA, C.NOME, F.ESTADO, P.TIPO, V.QUANTIDADE, V.VALOR_TOTAL FROM VENDA V\r\n"
+    		+ "INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.COD_CLIENTE\r\n"
+    		+ "INNER JOIN FILIAL F ON F.ID_FILIAL = V.COD_FILIAL\r\n"
+    		+ "INNER JOIN PRODUTO P ON P.ID_PRODUTO = V.COD_PRODUTO; ";
     private static final String GET_VENDA = "SELECT * FROM VENDA WHERE  ID_VENDA= ? ";
     private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE ID_VENDA = ? ";
     private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ? ) ";
  
-    
     public static List<Venda> consultarVenda() {
     	System.out.println("Entrei na CONSULTA");
     	List <Venda> listaVenda =  new ArrayList<Venda>();
@@ -42,19 +41,15 @@ public class vendaDAO{
     	
     	while(rs.next()) {
     		Integer id_venda = rs.getInt("ID_VENDA");
-    		String data_venda =  rs.getString("DATA_VENDA");
-			Integer cod_cliente = rs.getInt("COD_CLIENTE");
-			Integer cod_produto = rs.getInt("COD_PRODUTO");
-			Integer cod_filial = rs.getInt("COD_FILIAL");
+    		String nome =  rs.getString("NOME");
+			String estado = rs.getString("ESTADO");
+			String tipo = rs.getString("TIPO");
 			Integer quantidade = rs.getInt("QUANTIDADE");
-			double desconto = rs.getDouble("DESCONTO");
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
 			
 			System.out.println(rs);
 			
-			System.out.println(id_venda+" "+data_venda+" "+cod_cliente);
-			
-		listaVenda.add(new Venda(id_venda, data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total));
+		listaVenda.add(new Venda(id_venda, nome, estado, tipo, quantidade, valor_Total));
 			
     	}
     	
@@ -67,7 +62,7 @@ public class vendaDAO{
     
     public static Venda getVenda (int id_venda) {
     	
-    	Venda venda = new Venda();
+    	Venda venda = new Venda(id_venda);
     	try {
     		
     		Connection con = ConexaoDB.getConnection();
@@ -87,7 +82,7 @@ public class vendaDAO{
     			double desconto = rs.getDouble("DESCONTO");
     			double valor_Total  = rs.getDouble("VALOR_TOTAL");
     			
-    			venda = new Venda(id_venda,data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
+    			 venda = new Venda(id_venda,data_venda, cod_cliente, cod_produto, cod_filial, quantidade, desconto, valor_Total);
     			
     		}
     		
