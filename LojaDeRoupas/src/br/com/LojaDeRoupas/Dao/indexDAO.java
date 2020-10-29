@@ -42,6 +42,65 @@ public class indexDAO {
 			}
 	    	return listaGrafico;
 		}
-	
+		public static int consultarTotalVenda(){
+			System.out.println("Entrei na CONSULTA VENDA");
+	    	int count=0;
+	    	try {
+	    	
+	    	Connection con = ConexaoDB.getConnection();
+	    	String query4 = "SELECT count(*) as qtd FROM VENDA;";
+	    	PreparedStatement ps4 = con.prepareStatement(query4);
+	    	ResultSet rs = ps4.executeQuery();	
+	    
+	    	rs.next();
+	    	count = rs.getInt("qtd");
+	    	
+	    	}catch (SQLException ex) {
+	    		  Logger.getLogger(ServletBD.class.getName()).
+	              log(Level.SEVERE, null, ex);
+			}
+	    	System.out.println("Entrei na CONSULTA VENDA");
+	    	return count;
+		}
+		
+		public static int consultarCliente(){
+			System.out.println("Entrei na CONSULTA CLIENTE");
+	    	int count =0;
+	    	try {
+	    	
+	    	Connection con = ConexaoDB.getConnection();
+	    	String query4 = "SELECT count(*) as qtd FROM CLIENTE;";
+	    	PreparedStatement ps4 = con.prepareStatement(query4);
+	    	ResultSet rs = ps4.executeQuery();	
+	    	
+	    	rs.next();
+	    	count = rs.getInt("qtd");
+	    	}catch (SQLException ex) {
+	    		  Logger.getLogger(ServletBD.class.getName()).
+	              log(Level.SEVERE, null, ex);
+			}
+	    	System.out.println("Entrei na CONSULTA CLIENTE");
+	    	return count;
+		}
+		
+		public static int consultarProduto(){
+			System.out.println("Entrei na CONSULTA PRODUTO");
+	    	int count=0;
+	    	try {
+	    	
+	    	Connection con = ConexaoDB.getConnection();
+	    	String query4 = "SELECT count(*) as qtd FROM PRODUTO;";
+	    	PreparedStatement ps4 = con.prepareStatement(query4);
+	    	ResultSet rs = ps4.executeQuery();	
+	    	rs.next();
+	    	count = rs.getInt("qtd");
+	    	}catch (SQLException ex) {
+	    		  Logger.getLogger(ServletBD.class.getName()).
+	              log(Level.SEVERE, null, ex);
+			}
+	    	
+	    	System.out.println("Entrei na CONSULTA PRODUTO");
+	    	return count;
+		}
 	
 }
