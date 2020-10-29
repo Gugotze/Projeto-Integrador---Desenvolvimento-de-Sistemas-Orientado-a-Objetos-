@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listaClientes
-    Created on : Sep 25, 2020, 9:16:36 PM
-    Author     : tscarton
---%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

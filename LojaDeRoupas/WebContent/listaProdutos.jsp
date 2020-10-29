@@ -44,6 +44,27 @@ $(document).ready( function () {
        
     
 } );
+
+
+function mostrarModalExclusao(_codProduto, _nome){
+    $("#nomeProduto").html(_nome);
+    $("#codProduto").val(_codProduto);
+    $('#modalExclusao').modal('show');
+}
+
+function excluirCliente() {
+    var _codProduto = $("#codProduto").val();
+    $.get( "/LojaDeRoupas/deletarProduto?id="+_codProduto, function( resposta ) {
+        $('#modalExclusao').modal('hide')
+        if (resposta === "true") {
+            console.log("Funfou!");
+        } else {
+            console.log("Ops!");
+        }
+        window.location.reload();
+    });
+}
+
 </script>
 
 </head>
@@ -82,12 +103,33 @@ $(document).ready( function () {
 					<td>${produto._valorVenda}</td>
 					<td>${produto._filial}</td>
 					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><a href="/LojaDeRoupas/deletarProduto?id=${produto._codProduto}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					<td><button type="button"  onclick="mostrarModalExclusao(${produto._codProduto}, '${produto._nome}')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 				</tr>
 			</c:forEach>
 			</tbody>
 			
 		</table>
+		<div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    Confirmar exclusão do produto  <label id="nomeProduto"></label> ?
+                    <input id="codProduto" hidden="true" />
+                 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
 	</div>
 </body>
 </html>

@@ -28,6 +28,30 @@ public class filial {
     public String toString() {
         return "filial{" + "codfilial=" + codfilial + ", estado=" + estado + '}';
     }
+
+
+
+	public int getCodfilial() {
+		return codfilial;
+	}
+
+
+
+	public void setCodfilial(int codfilial) {
+		this.codfilial = codfilial;
+	}
+
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
     
     
     
