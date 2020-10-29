@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <br/>
-                    <a href="index.jsp">Voltar</a>
+                    <a href="/LojaDeRoupas/Index">Voltar</a>
                 </div>
             </body>
 

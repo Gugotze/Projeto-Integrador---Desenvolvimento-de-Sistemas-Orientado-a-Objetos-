@@ -25,6 +25,9 @@ public class Index extends HttpServlet {
 		String listaQtd = "";
 	
 		List<br.com.LojaDeRoupas.Model.Index> lista = indexDAO.consultarVenda();
+		int totalProduto = indexDAO.consultarProduto();
+		int totalCliente = indexDAO.consultarCliente();
+		int totalVenda = indexDAO.consultarTotalVenda();
 		
 		
 		for (br.com.LojaDeRoupas.Model.Index index : lista) {
@@ -41,6 +44,9 @@ public class Index extends HttpServlet {
 		
 		request.setAttribute("data", listaDeData);
 		request.setAttribute("qtd", listaQtd);
+		request.setAttribute("totalProduto", totalProduto);
+		request.setAttribute("totalCliente", totalCliente);
+		request.setAttribute("totalVenda", totalVenda);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		

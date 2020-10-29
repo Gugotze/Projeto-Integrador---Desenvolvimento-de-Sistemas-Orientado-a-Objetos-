@@ -60,46 +60,9 @@
       <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navbar Search 
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
--->
-    <!-- Navbar -->
+   
     <ul class="navbar-nav ml-auto ml-md-0">
-      <!-- <li class="nav-item dropdown no-arrow mx-1"> 
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
-      <!-- 
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-       -->
+      
        
       <li class="nav-item dropdown no-arrow" style="margin-left: 1155px;">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -119,12 +82,13 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <!-- NAO APAGARRRR  <li class="nav-item active">
+        <a class="nav-link" href="graficos.jsp">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Gráficos</span>
         </a>
-      </li>
+      </li>-->
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
@@ -137,23 +101,15 @@
           <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Venda:</h6>
-         <!--  <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a> -->
           <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a>
         </div>
       </li>
       <li class="nav-item">
-        <!-- <a class="nav-link" href="charts.html"> -->
          <a class="nav-link" href="/LojaDeRoupas/listaVendas">
-         <!--   <a class= "nav-link" href="/VendaAlterar"></a> -->
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Relatórios</span></a>
       </li>
-    <!--   <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-    -->
+   
     </ul>
 
     <div id="content-wrapper">
@@ -176,7 +132,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-users"></i>
                 </div>
-                <div class="mr-5">26 Clientes cadastrados</div>
+                <div class="mr-5">${totalCliente} Cliente(s) cadastrado(s)</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="ListarClientes">
                 <span class="float-left">  Ver mais
@@ -193,7 +149,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-archive"></i>
                 </div>
-                <div class="mr-5">11 Produtos cadastrados</div>
+                <div class="mr-5">${totalProduto } Produto(s) cadastrado(s)</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaProdutos">
                 <span class="float-left">Ver mais</span>
@@ -209,7 +165,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">123 Vendas</div>
+                <div class="mr-5">${totalVenda } Venda(s)</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaVendas">
                 <span class="float-left">Ver mais</span>
