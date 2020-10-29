@@ -85,7 +85,9 @@ $(document).ready( function () {
                 <th>Filial Estado</th>
                 <th>Tipo Produto</th>
                 <th>Quantidade</th>
-                <th>Valor total</th> 
+                <th>Valor total</th>
+                <th>Data Venda</th>
+                 
 			</tr>
 			<thead>
 			<tbody>
@@ -97,6 +99,7 @@ $(document).ready( function () {
 					<td>${venda.tipo}</td>
 					<td>${venda.quantidade}</td>
 					<td>${venda.valor_Total}</td>
+					<td>${venda.data_venda}</td>
 					<td><a href="/LojaDeRoupas/VendaAlterar?id_venda=${venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="/LojaDeRoupas/VendaDeletar?id_venda=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 			
@@ -112,7 +115,8 @@ $(document).ready( function () {
                 <th>Filial Estado</th>
                 <th>Tipo Produto</th>
                 <th>Quantidade</th>
-                <th>Valor total</th> 
+                <th>Valor total</th>
+                <th>Data Venda</th> 
                 <th style="Display: none;"></th>   
                 <th style="Display: none;"></th>      
             </tr>

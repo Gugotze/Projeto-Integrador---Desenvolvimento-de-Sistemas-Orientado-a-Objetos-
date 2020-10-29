@@ -22,13 +22,14 @@ public class Venda {
 	private String estado;
 	private String nome;
     
-    public Venda(Integer id_venda2, String nome, String estado, String tipo, Integer quantidade2, double valor_Total2){
+    public Venda(Integer id_venda2, String nome, String estado, String tipo, Integer quantidade2, double valor_Total2,String data_venda){
         this.id_venda = id_venda2;
         this.valor_Total = valor_Total2;
         this.quantidade = quantidade2;
         this.nome = nome;
         this.estado = estado;
         this.tipo = tipo;
+        this.data_venda = data_venda;
         
         
     }

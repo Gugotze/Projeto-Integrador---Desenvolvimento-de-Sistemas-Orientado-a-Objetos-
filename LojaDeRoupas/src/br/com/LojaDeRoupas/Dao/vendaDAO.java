@@ -18,7 +18,7 @@ import br.com.LojaDeRoupas.Model.Venda;
 public class vendaDAO{
 	
 	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE ID_VENDA= ? ";
-    private static final String CONSULTAR_VENDA = "SELECT V.ID_VENDA, C.NOME, F.ESTADO, P.TIPO, V.QUANTIDADE, V.VALOR_TOTAL FROM VENDA V\r\n"
+    private static final String CONSULTAR_VENDA = "SELECT V.ID_VENDA, C.NOME, F.ESTADO, P.TIPO, V.QUANTIDADE, V.VALOR_TOTAL,V.DATA_VENDA FROM VENDA V\r\n"
     		+ "INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.COD_CLIENTE\r\n"
     		+ "INNER JOIN FILIAL F ON F.ID_FILIAL = V.COD_FILIAL\r\n"
     		+ "INNER JOIN PRODUTO P ON P.ID_PRODUTO = V.COD_PRODUTO; ";
@@ -46,10 +46,11 @@ public class vendaDAO{
 			String tipo = rs.getString("TIPO");
 			Integer quantidade = rs.getInt("QUANTIDADE");
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
+			String data_venda = rs.getString("DATA_VENDA");
 			
 			System.out.println(rs);
 			
-		listaVenda.add(new Venda(id_venda, nome, estado, tipo, quantidade, valor_Total));
+		listaVenda.add(new Venda(id_venda, nome, estado, tipo, quantidade, valor_Total,data_venda));
 			
     	}
     	
