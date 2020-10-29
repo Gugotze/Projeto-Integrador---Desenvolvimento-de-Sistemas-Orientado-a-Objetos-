@@ -117,13 +117,13 @@
       <div class="container-fluid">
 
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+       <!--  <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="#">Gráficos</a>
           </li>
-          <!-- <li class="breadcrumb-item active">Overview</li> -->
+    
         </ol>
-
+ -->
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">
@@ -202,12 +202,12 @@
           <div class="card-body">
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday <strong><label id="horaAtual"></label></strong></div>
+          <div class="card-footer small text-muted">Atualizado hoje ás <strong><label id="horaAtual"></label></strong></div>
         </div>
         
         <input id="listaData" type="hidden" value="${data}">
         <input id="listaQtd" type="hidden" value="${qtd}">
-        <a href="/LojaDeRoupas/Index">Clique aqui</a>
+     <!--    <a href="/LojaDeRoupas/Index">Clique aqui</a> -->
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">

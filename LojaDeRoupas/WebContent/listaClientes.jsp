@@ -10,7 +10,52 @@
                 <title>Lista de Clientes</title>
 
                 <script lang="text/javascript">
-
+                $(document).ready( function () {
+                	
+         
+                	
+                	
+                	var table = $('#minhaTabela').DataTable({
+                		 aoColumns : [
+                		      { "sWidth": "2%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		      { "sWidth": "5%"},
+                		    ],
+                		"language": {
+                    	    "search": "Buscar:",
+                    	    "sZeroRecords": "Nenhum item encontrado",
+                    	    "processing":     "Carregando...",
+                    	    "lengthMenu": "Mostrar _MENU_ linhas",
+                    	    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    	    "paginate": {
+                    	        "first":      "Primeira",
+                    	        "last":       "Úlrima",
+                    	        "next":       "Próxima",
+                    	        "previous":   "Anterior"
+                    	    },
+                    	  }
+                		
+                	});
+                   	
+                       
+                    
+                } );	
+                
+                
+                
 
                     function mostrarModalExclusao(cpf, nome) {
                         $("#nomeCliente").html(nome);
@@ -30,10 +75,12 @@
                             window.location.reload();
                         });
                     }
+                    
+                    
                 </script>
             </head>
 
-            <body class="container" style="height:100%; width:100%;">
+            <body>
                 <div>
                     <center>
                         <h1>Lista de Clientes</h1>
@@ -43,9 +90,14 @@
                         <br/>
                     </center>
                 </div>
-                <div class="container">
-
-                    <table  width="100%" border="1" style="font-size: 11px">
+                <div class="card mb-3">
+	<div class="card-header">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            Clientes</div>
+        <div class="card-body">
+        <div class="table-responsive">
+					
+                    <table  width="100%" style="font-size: 11px" id="minhaTabela">
                         <thead>
                             <tr>
                                 <th >Cód. cliente</th>
@@ -62,10 +114,10 @@
                                 <th>Complemento</th>
                                 <th>Cidade</th>
                                 <th>Estado</th>
+                                <th>Editar</th>
+                                <th>Excluir</th>
                             </tr>
                         </thead>
-
-
                         <tbody>
                             <c:forEach var="cliente" items="${listaClientes}">
                                 <tr>
@@ -83,14 +135,18 @@
                                     <td>${cliente.complemento}</td>
                                     <td>${cliente.cidade}</td>
                                     <td>${cliente.estado}</td>
-
-                                    <td><a href="AlterarCliente?cpf=${cliente.cpf}">Alterar</a></td>
-                                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')">Excluir</button></td>
+                                    <td><a href="AlterarCliente?cpf=${cliente.cpf}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                    <td><a href="#" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
 
                     </table>
+                    
+                     </div>
+          </div>
+          <div class="card-footer small text-muted">Atualizado hoje ás <strong><label id="horaAtual"></label></strong></div>
+		</div>
                     <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -114,7 +170,7 @@
                     </div>
                     <br/>
                     <a href="/LojaDeRoupas/Index">Voltar</a>
-                </div>
+                
             </body>
 
         </html>
