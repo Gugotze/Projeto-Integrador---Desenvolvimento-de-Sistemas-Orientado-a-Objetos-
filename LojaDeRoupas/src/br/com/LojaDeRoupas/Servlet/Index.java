@@ -15,7 +15,7 @@ import br.com.LojaDeRoupas.Dao.indexDAO;
 /**
  * Servlet implementation class VendaGrafico
  */
-@WebServlet("/Index")
+
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
