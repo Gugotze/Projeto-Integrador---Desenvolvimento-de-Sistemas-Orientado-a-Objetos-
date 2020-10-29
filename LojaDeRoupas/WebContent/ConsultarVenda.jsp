@@ -89,6 +89,7 @@
                                     <th>Valor total</th>
                                     <th>Data Venda</th>
                                     <th></th>
+                                    <th></th>
 
                                 </tr>
                                 <thead>
@@ -119,7 +120,6 @@
                                             <th>Quantidade</th>
                                             <th>Valor total</th>
                                             <th>Data Venda</th>
-                                            <th></th>
                                             <th style="Display: none;"></th>
                                             <th style="Display: none;"></th>
                                         </tr>
