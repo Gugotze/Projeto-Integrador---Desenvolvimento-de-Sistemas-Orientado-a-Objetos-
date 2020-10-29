@@ -85,7 +85,9 @@ $(document).ready( function () {
                 <th>Filial Estado</th>
                 <th>Tipo Produto</th>
                 <th>Quantidade</th>
-                <th>Valor total</th> 
+                <th>Valor total</th>
+                <th></th>
+                <th></th> 
 			</tr>
 			<thead>
 			<tbody>
