@@ -81,9 +81,9 @@ $(document).ready( function () {
 			<thead>
 			<tr>
 				<th>Cod.Venda</th>
-                <th>Nome</th>
-                <th>Estado</th>
-                <th>Tipo</th>
+                <th>Nome Cliente</th>
+                <th>Filial Estado</th>
+                <th>Tipo Produto</th>
                 <th>Quantidade</th>
                 <th>Valor total</th> 
 			</tr>
@@ -108,9 +108,9 @@ $(document).ready( function () {
 			<tfoot>
             <tr>
                 <th>Cod.Venda</th>
-                <th>Nome</th>
-                <th>Estado</th>
-                <th>Tipo</th>
+                <th>Nome Cliente</th>
+                <th>Filial Estado</th>
+                <th>Tipo Produto</th>
                 <th>Quantidade</th>
                 <th>Valor total</th> 
                 <th style="Display: none;"></th>   
