@@ -34,12 +34,14 @@ public class CadastrarCliente extends HttpServlet {
             throws ServletException, IOException {
     	String nome = request.getParameter("nome");
     	String cpf = request.getParameter("cpf");
+    	cpf = cpf.replaceAll("[^0-9]", "");
     	String sexo = request.getParameter("sexo");
     	String dataNascimento = request.getParameter("dataNascimento");
     	String telefone = request.getParameter("telefone");
     			telefone = telefone.replaceAll("[^0-9]", "");
     	String email = request.getParameter("email");
     	String cep = request.getParameter("cep");
+    	cep = cep.replaceAll("[^0-9]", "");
     	String endereco = request.getParameter("endereco");
     	String bairro = request.getParameter("bairro");
     	Integer numero = Integer.parseInt(request.getParameter("numero"));

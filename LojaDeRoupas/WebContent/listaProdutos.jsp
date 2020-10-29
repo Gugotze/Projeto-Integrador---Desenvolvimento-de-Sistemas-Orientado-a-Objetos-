@@ -77,6 +77,7 @@ function excluirCliente() {
 		<br/>
 		<br/>
 	</center>
+	</div>
 	<div class="container">
 		<table id="minhaTabela">
 		<thead>
@@ -92,6 +93,7 @@ function excluirCliente() {
 				<th>Deletar</th>
 			</tr>
 			<thead>
+			
 			<tbody>
 			<c:forEach items="${produtos}" var="produto">
 				<tr>

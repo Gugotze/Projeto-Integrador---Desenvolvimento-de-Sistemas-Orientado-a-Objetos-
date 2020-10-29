@@ -13,7 +13,8 @@
             	$(document).ready( function () {
             		
             		$('#telefone').mask('(00) 00000-0000');
-            		    
+            		$('#cep').mask('00000-000');
+            		$('#cpf').mask('000.000.000-00');
             		} );
             </script>
 
@@ -32,7 +33,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">CPF</label>
-                        <input name="cpf" class="form-control" id="nome" name="nome" required="required" placeholder=" CPF do Cliente">
+                        <input name="cpf" class="form-control" id="cpf"  required="required" placeholder=" CPF do Cliente">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="sexo">Sexo</label>
@@ -45,7 +46,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dataNascimento">Data de Nascimento</label>
-                        <input type="date" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
+                        <input type="date" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="true">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefone">Telefone</label>
