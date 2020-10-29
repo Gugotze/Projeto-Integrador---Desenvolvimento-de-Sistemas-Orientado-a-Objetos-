@@ -13,7 +13,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
         <script src="jQueryMask/dist/jquery.mask.min.js" ></script>
         
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/LojaDeRoupas"> <i class="fa fa-home" aria-hidden="true"></i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -39,8 +39,7 @@
 	   	  <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
 		  <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a></br>
 		  <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
-
-		  
+		  <a class="dropdown-item" href="index">Index_NEW</a>
         </div>
       </li>
     </ul>
@@ -48,7 +47,6 @@
 </nav>
 <br>
 <br>
-
-        
+        <nav></nav>
     </body>
 </html>
