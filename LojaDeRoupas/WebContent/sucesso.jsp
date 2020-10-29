@@ -1,8 +1,3 @@
-<%-- 
-    Document   : sucesso
-    Created on : Sep 25, 2020, 9:37:51 PM
-    Author     : tscarton
---%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

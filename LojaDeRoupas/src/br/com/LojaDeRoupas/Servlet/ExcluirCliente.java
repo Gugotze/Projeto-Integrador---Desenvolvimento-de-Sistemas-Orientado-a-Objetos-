@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.ClienteDAO;
 
-/**
- *
- * @author tscarton
- */
+
 public class ExcluirCliente extends HttpServlet {
 
     

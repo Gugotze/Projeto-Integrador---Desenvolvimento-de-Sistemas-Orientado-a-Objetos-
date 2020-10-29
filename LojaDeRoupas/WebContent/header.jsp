@@ -39,7 +39,7 @@
 	   	  <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
 		  <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a></br>
 		  <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
-		  <a class="dropdown-item" href="Index_NEW.jsp">Index_NEW</a>
+		  <a class="dropdown-item" href="index">Index_NEW</a>
         </div>
       </li>
     </ul>
