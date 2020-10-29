@@ -214,9 +214,26 @@ window.onload = function () {
       <label for="nome">Nome</label>
       <input type="text" class="form-control" id="nome" name="nome" required="required" placeholder="Ex: Boné Brasil, Camiseta New Era">
     </div>
-    <div class="form-group col-md-6">
-      <label for="tipoProduto">Tipo</label>
-      <input type="text" class="form-control" id="tipoProduto" name="tipoProduto" required="required" placeholder="Ex: Roupas, Calçados, Acessórios">
+   <div class="form-group col-md-6">
+    <label for="tipoProduto">Tipo</label>
+    <div class="select_mate" data-mate-select="active">
+	<select name="tipoProduto">
+  	<option value="Calca">Calça</option>
+  	<option value="Camiseta">Camiseta</option>
+  	<option value="Bone">Boné</option>
+  	<option value="Shorts">Shorts</option>
+	</select>
+	<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" style="margin-top: -18px; transform: rotate(360deg);">
+	<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" style="margin-top:7px; ">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+	</svg>
+	
+	</span>
+	<div class="cont_list_select_mate">
+  	<ul class="cont_select_int">  </ul> 
+	</div>
+  	</div>
     </div>
   </div>
   <div class="form-row">

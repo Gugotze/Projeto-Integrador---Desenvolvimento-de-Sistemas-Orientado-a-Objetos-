@@ -75,7 +75,7 @@ public class ClienteDAO {
     
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConnection();
-        String query = "UPDATE LOJADEROUPAS.cliente SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
+        String query = "UPDATE CLIENTE SET NOME = ?, SEXO = ?, DATANASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, CEP = ?, ENDERECO = ?, BAIRRO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, ESTADO = ? WHERE (CPF = ?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
         ps.setString(2, cliente.getSexoCliente());
@@ -95,7 +95,7 @@ public class ClienteDAO {
     
     public static void deleteCliente(String cpf) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConnection();
-        String query = "delete from cliente where cpf=?";
+        String query = "delete from CLIENTE where cpf=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cpf);
         ps.execute();
@@ -105,7 +105,7 @@ public class ClienteDAO {
         Cliente cliente = null;
         try {
             Connection con = ConexaoDB.getConnection();
-            String query = "select * from cliente where cpf=?";
+            String query = "select * from CLIENTE where cpf=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, cpf);
             ResultSet rs = ps.executeQuery();
