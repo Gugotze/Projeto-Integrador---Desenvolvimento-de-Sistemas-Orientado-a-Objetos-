@@ -22,7 +22,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>
-                        <input name="nome" class="form-control" id="nome" name="nome" required="required">
+                        <input name="nome" value="${cliente.nome}" class="form-control" id="nome" name="nome" required="required">
                     </div>
                  	<div class="form-group col-md-6">
                         <label for="codcliente">Código do cliente</label>
@@ -45,48 +45,48 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dataNascimento">Data de Nascimento</label>
-                        <input type="date" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
+                        <input type="date" value="${cliente.dataNascimento}" name="dataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefone">Telefone</label>
-                        <input type="text" id="telefone" name="telefone"  placeholder="Ex.: (99)12345-6789" class="form-control" />
+                        <input type="text" value="${cliente.telefone}" id="telefone" name="telefone"  placeholder="Ex.: (99)12345-6789" class="form-control" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Ex.: exemplo@exemplo.com" class="form-control">
+                        <input type="email" value="${cliente.email}" id="email" name="email" placeholder="Ex.: exemplo@exemplo.com" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cep">Cep</label>
-                        <input type="text" id="cep" name="cep" placeholder="Ex.: 01311-000" class="form-control" />
+                        <input type="text" value="${cliente.cep}" id="cep" name="cep" placeholder="Ex.: 01311-000" class="form-control" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="endereco">Endereço</label>
-                        <input type="text" class="form-control" id="endereco" name="endereco" required="required" placeholder="Ex: Av. Paulista">
+                        <input type="text"  value="${cliente.cep}" class="form-control" id="endereco" name="endereco" required="required" placeholder="Ex: Av. Paulista">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="bairro">Bairro</label>
-                        <input type="text" class="form-control" id="bairro" name="bairro" required="required" placeholder="Ex: Bela Vista">
+                        <input type="text" value="${cliente.bairro}"  class="form-control" id="bairro" name="bairro" required="required" placeholder="Ex: Bela Vista">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="numero">Número</label>
-                        <input type="number" class="form-control" id="numero" name="numero" placeholder="Ex: 609">
+                        <input type="number" value="${cliente.numero}"  class="form-control" id="numero" name="numero" placeholder="Ex: 609">
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="complemento">Complemento</label>
-                        <input type="text" class="form-control" id="complemento" name="complemento" required="required" placeholder="Ex: 5° andar">
+                        <input type="text"  value="${cliente.complemento}" class="form-control" id="complemento" name="complemento" required="required" placeholder="Ex: 5° andar">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="cidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" name="cidade" required="required" placeholder="Ex: São Paulo">
+                        <input type="text"  value="${cliente.cidade}" class="form-control" id="cidade" name="cidade" required="required" placeholder="Ex: São Paulo">
                     </div>
 
                     <div class="form-group col-md-6">
