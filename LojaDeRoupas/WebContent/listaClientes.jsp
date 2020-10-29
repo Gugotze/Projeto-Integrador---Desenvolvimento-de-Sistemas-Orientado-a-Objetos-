@@ -12,6 +12,20 @@
                 <script lang="text/javascript">
                 $(document).ready( function () {
                 	
+
+                	var data = new Date();
+
+                	
+                	
+                	var hora    = data.getHours();          // 0-23
+                	var min     = data.getMinutes();        // 0-59
+                	var seg     = data.getSeconds();        // 0-59
+                	var mseg    = data.getMilliseconds();   // 0-999
+                	var tz      = data.getTimezoneOffset(); // em minutos
+
+                	var str_hora = hora + ':' + min + ':' + seg;
+                	console.log(str_hora)
+                	document.getElementById('horaAtual').innerHTML = str_hora;
          
                 	
                 	
@@ -135,8 +149,9 @@
                                     <td>${cliente.complemento}</td>
                                     <td>${cliente.cidade}</td>
                                     <td>${cliente.estado}</td>
-                                    <td><a href="AlterarCliente?cpf=${cliente.cpf}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                                    <td><a href="#" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    <td><a href="AlterarCliente?cpf=${cliente.cpf}" style="font-size: 20px"><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
+                                   <!--  <td><a href="#" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
+                                   <td><a href="#" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')" style="font-size: 20px"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

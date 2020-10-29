@@ -11,8 +11,23 @@
 $(document).ready( function () {
 	 $('#minhaTabela tfoot th').each( function () {
 	        var title = $(this).text();
-	        $(this).html( '<input type="text" placeholder="Procurar por '+title+'" />' );
+	        $(this).html( '<input type="text" style="width: 110px" placeholder="'+title+'" />' );
 	    } );
+	 
+
+		var data = new Date();
+
+		
+		
+		var hora    = data.getHours();          // 0-23
+		var min     = data.getMinutes();        // 0-59
+		var seg     = data.getSeconds();        // 0-59
+		var mseg    = data.getMilliseconds();   // 0-999
+		var tz      = data.getTimezoneOffset(); // em minutos
+
+		var str_hora = hora + ':' + min + ':' + seg;
+		console.log(str_hora)
+		document.getElementById('horaAtual').innerHTML = str_hora;
 	 
 	    // DataTable
 	    var table = $('#minhaTabela').DataTable({
@@ -48,7 +63,7 @@ $(document).ready( function () {
 
 </head>
 <body>
-<div class="container">
+
 	<center>
 		<h1>Relatório de Vendas</h1>
 		<button class="btn btn-primary" ><a href="RealizarVenda.jsp" style="color: white;"> Realizar Nova Venda</a></button>
@@ -56,7 +71,12 @@ $(document).ready( function () {
 		<br>
 		<br>
 	</center>
-	<div>
+	<div class="card mb-3">
+	<div class="card-header">
+            <i class="fas fa fa-table" aria-hidden="true"></i>
+            Vendas</div>
+        <div class="card-body">
+        <div class="table-responsive">
 		<table id="minhaTabela" class="display">
 			<thead>
 			<tr>
@@ -106,7 +126,10 @@ $(document).ready( function () {
             </tr>
         </tfoot>
 		</table>
-	</div>
-	</div>
+	 </div>
+          </div>
+          <div class="card-footer small text-muted">Atualizado hoje ás <strong><label id="horaAtual"></label></strong></div>
+		</div>
+	
 </body>
 </html>
