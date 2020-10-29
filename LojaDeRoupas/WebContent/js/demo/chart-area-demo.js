@@ -2,14 +2,32 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
-var a = ['Mar 1', 'Mar 2', 'Mar 3', 'Mar 4', 'Mar 5', 'Mar 6', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2', 'Mar 2'];
+
+var a = $("#listaData").val();
+var b = $("#listaQtd").val();
+
+var c = a.split(',');
+for(i =0; i < c.length;i++){
+    console.log(c[i])
+
+}
+
+var d = b.split(',');
+
+for(i =0; i < d.length;i++){
+    d[i] = parseInt(d[i]);
+
+}
+
+
+
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: a,
+    labels: c,
     datasets: [{
       label: "Sessions",
       lineTension: 0.3,
@@ -22,7 +40,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: [10000, 30162, 5000, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451, 38451],
+      data: d,
     }],
   },
   options: {
@@ -41,7 +59,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 40000,
+          max: 300,
           maxTicksLimit: 5
         },
         gridLines: {

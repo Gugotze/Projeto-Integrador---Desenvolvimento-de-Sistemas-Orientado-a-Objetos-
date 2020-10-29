@@ -11,7 +11,23 @@
             
 <script>   
 $(document).ready( function () {
+	
+	
+	var data = new Date();
 
+	
+	
+	var hora    = data.getHours();          // 0-23
+	var min     = data.getMinutes();        // 0-59
+	var seg     = data.getSeconds();        // 0-59
+	var mseg    = data.getMilliseconds();   // 0-999
+	var tz      = data.getTimezoneOffset(); // em minutos
+
+	var str_hora = hora + ':' + min + ':' + seg;
+	console.log(str_hora)
+	document.getElementById('horaAtual').innerHTML = str_hora;
+	
+	
 	
 	var table = $('#minhaTabela').DataTable({
 		 aoColumns : [
@@ -78,7 +94,12 @@ function excluirCliente() {
 		<br/>
 	</center>
 	</div>
-	<div class="container">
+	<div class="card mb-3">
+	<div class="card-header">
+            <i class="fas fa fa-table" aria-hidden="true"></i>
+            Produtos</div>
+        <div class="card-body">
+        <div class="table-responsive">
 		<table id="minhaTabela">
 		<thead>
 			<tr>
@@ -105,12 +126,15 @@ function excluirCliente() {
 					<td>${produto._valorVenda}</td>
 					<td>${produto._filial}</td>
 					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><button type="button"  onclick="mostrarModalExclusao(${produto._codProduto}, '${produto._nome}')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+					<td><a href="#" onclick="mostrarModalExclusao(${produto._codProduto}, '${produto._nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
-			
 		</table>
+		 </div>
+          </div>
+          <div class="card-footer small text-muted">Atualizado hoje ás <strong><label id="horaAtual"></label></strong></div>
+		</div>
 		<div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -121,7 +145,7 @@ function excluirCliente() {
                   </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do produto  <label id="nomeProduto"></label> ?
+                    Confirmar exclusão do produto <strong><label id="nomeProduto"></label></strong>  ?
                     <input id="codProduto" hidden="true" />
                  
                 </div>
@@ -132,6 +156,5 @@ function excluirCliente() {
               </div>
             </div>
           </div>
-	</div>
 </body>
 </html>
