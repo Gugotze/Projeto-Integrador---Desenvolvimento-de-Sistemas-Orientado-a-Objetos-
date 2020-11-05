@@ -17,8 +17,7 @@ var d = b.split(',');
 
 for(i =0; i < d.length;i++){
 	if(d[i] > maior){
-		maior = parseInt(d[i]);
-		
+		maior = parseInt(d[i]);	
 	}
     d[i] = parseInt(d[i]);
 
