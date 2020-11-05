@@ -5,6 +5,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var a = $("#listaData").val();
 var b = $("#listaQtd").val();
+var maior = 0;
 
 var c = a.split(',');
 for(i =0; i < c.length;i++){
@@ -15,10 +16,16 @@ for(i =0; i < c.length;i++){
 var d = b.split(',');
 
 for(i =0; i < d.length;i++){
+	if(d[i] > maior){
+		maior = parseInt(d[i]);
+		
+	}
     d[i] = parseInt(d[i]);
 
 }
 
+
+maior += 5;
 
 
 
@@ -59,7 +66,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 20,
+          max: maior,
           maxTicksLimit: 5
         },
         gridLines: {
