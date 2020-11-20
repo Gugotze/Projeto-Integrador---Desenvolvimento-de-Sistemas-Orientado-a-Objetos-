@@ -15,28 +15,49 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 
-public class gerente extends funcionario {
+public class gerente extends funcionario implements IAutenticavel{
     
     
 
-    public gerente(int codgerente, String nome, String cpf, String sexo, Date datanascimento, int telefone, String email, String cep, String endereco, String bairro, int numero, String cidade, String estado, String login, String senha) {
-        super(codgerente,nome,cpf,sexo,datanascimento,telefone, email,cep,endereco,bairro,numero,cidade,estado,login,senha);
-    }
-
     
-    
-    
-    @Override
-	public boolean Logar(String user, String password) {
-    	
-    	return user.equals(login) && user.equals(senha);
-	
+    public gerente(int codfuncionario, String nome, String cpf, String sexo, String datanascimento, String telefone,
+			String email, String cep, String endereco, String bairro, int numero, String complemento,String cidade, String estado,
+			String login, String senha, String tipo) {
+		super(codfuncionario, nome, cpf, sexo, datanascimento, telefone, email, cep, endereco, bairro, numero, complemento,cidade, estado,
+				login, senha, tipo);
+		// TODO Auto-generated constructor stub
 	}
-    
-    @Override
+
+
+
+
+
+
+	@Override
     public String toString() {
         return super.toString();
     }
+
+
+
+
+	@Override
+	public void Login() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void Logout() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 
 

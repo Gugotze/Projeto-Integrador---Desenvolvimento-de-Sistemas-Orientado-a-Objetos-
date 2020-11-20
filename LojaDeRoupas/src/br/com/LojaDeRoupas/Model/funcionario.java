@@ -19,8 +19,8 @@ public abstract class funcionario {
     private String nome;
     private String cpf;
     private String sexo;
-    private Date datanascimento;
-    private int telefone;
+    private String datanascimento;
+    private String telefone;
     private String email;
     private String cep;
     private String endereco;
@@ -31,8 +31,9 @@ public abstract class funcionario {
     private String estado;
     protected String login;
     protected String senha;
+    protected String tipo;
 
-    public funcionario(int codfuncionario, String nome, String cpf, String sexo, Date datanascimento, int telefone, String email, String cep, String endereco, String bairro, int numero, String cidade, String estado, String login, String senha) {
+    public funcionario(int codfuncionario, String nome, String cpf, String sexo, String datanascimento, String telefone, String email, String cep, String endereco, String bairro, int numero, String complemento,String cidade, String estado, String login, String senha, String tipo) {
         this.codfuncionario = codfuncionario;
         this.nome = nome;
         this.cpf = cpf;
@@ -44,15 +45,13 @@ public abstract class funcionario {
         this.endereco = endereco;
         this.bairro = bairro;
         this.numero = numero;
+        this.complemento = complemento;
         this.cidade = cidade;
         this.estado = estado;
         this.login = login;
         this.senha = senha;
+        this.tipo = tipo;
     }
-
-
-    public abstract boolean Logar(String user, String password);
-    
        
     @Override
     public String toString() {
@@ -100,22 +99,22 @@ public abstract class funcionario {
 	}
 
 
-	public Date getDatanascimento() {
+	public String getDatanascimento() {
 		return datanascimento;
 	}
 
 
-	public void setDatanascimento(Date datanascimento) {
+	public void setDatanascimento(String datanascimento) {
 		this.datanascimento = datanascimento;
 	}
 
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

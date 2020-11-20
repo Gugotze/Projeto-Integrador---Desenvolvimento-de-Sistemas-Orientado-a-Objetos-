@@ -1,6 +1,10 @@
 package br.com.LojaDeRoupas.Model;
 
 import lombok.Getter;
+
+import java.util.List;
+
+import br.com.LojaDeRoupas.Dao.ClienteDAO;
 import lombok.Setter;
 
 @Getter
@@ -222,11 +226,6 @@ public String getSexo() {
 
 public void setSexo(String sexo) {
 	this.sexo = sexo;
-}
-
-
-    
-
-    
+}    
     
 }
