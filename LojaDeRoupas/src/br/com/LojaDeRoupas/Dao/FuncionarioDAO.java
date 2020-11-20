@@ -61,12 +61,29 @@ public class FuncionarioDAO {
 	 
 	 public static void addFuncionario(funcionario funcionario) throws SQLException, ClassNotFoundException {
 	        Connection con = ConexaoDB.getConnection();
-	        String query = "INSERT INTO CLIENTE (NOME, CPF, SEXO , DATANASCIMENTO , TELEFONE , EMAIL , CEP , ENDERECO , BAIRRO , NUMERO , COMPLEMENTO , CIDADE , ESTADO)"
-					+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+	        String query = "INSERT INTO FUNCIONARIO (NOME, CPF, SEXO , DATANASCIMENTO , TELEFONE , EMAIL , CEP , ENDERECO , BAIRRO , NUMERO , COMPLEMENTO , CIDADE , ESTADO, LOGIN, SENHA, TIPO)"
+					+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 	        
 
 	        PreparedStatement statement = con.prepareStatement(query);
-
+	        statement.setString(1, funcionario.getNome());
+	        statement.setString(2, funcionario.getCpf());
+	        statement.setString(3, funcionario.getSexo());
+	        statement.setString(4, funcionario.getDatanascimento());
+	        statement.setString(5, funcionario.getTelefone());
+	        statement.setString(6, funcionario.getEmail());
+	        statement.setString(7, funcionario.getCep());
+	        statement.setString(8, funcionario.getEndereco());
+	        statement.setString(9, funcionario.getBairro());
+	        statement.setInt(10, funcionario.getNumero());
+	        statement.setString(11, funcionario.getComplemento());
+	        statement.setString(12, funcionario.getCidade());
+	        statement.setString(13, funcionario.getEstado());
+	        statement.setString(14, funcionario.getLogin());
+	        statement.setString(15, funcionario.getSenha());
+	        statement.setString(16, funcionario.getTipo());
+	        System.out.println(statement);
+	        statement.execute();
 	 }
 	 
 	 public static void updateFuncionario(funcionario funcionario) throws ClassNotFoundException, SQLException {

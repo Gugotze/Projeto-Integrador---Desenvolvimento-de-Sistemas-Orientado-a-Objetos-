@@ -52,6 +52,26 @@ public abstract class funcionario {
         this.senha = senha;
         this.tipo = tipo;
     }
+    
+    public funcionario(String nome, String cpf, String sexo, String datanascimento, String telefone, String email, String cep, String endereco, String bairro, int numero, String complemento,String cidade, String estado, String login, String senha, String tipo) {
+        
+        this.nome = nome;
+        this.cpf = cpf;
+        this.sexo = sexo;
+        this.datanascimento = datanascimento;
+        this.telefone = telefone;
+        this.email = email;
+        this.cep = cep;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.login = login;
+        this.senha = senha;
+        this.tipo = tipo;
+    }
        
     @Override
     public String toString() {

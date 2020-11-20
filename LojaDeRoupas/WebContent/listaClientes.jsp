@@ -150,7 +150,6 @@
                                     <td>${cliente.cidade}</td>
                                     <td>${cliente.estado}</td>
                                     <td><a href="AlterarCliente?cpf=${cliente.cpf}" style="font-size: 20px"><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
-                                   <!--  <td><a href="#" class="btn btn-primary" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
                                    <td><a href="#" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')" style="font-size: 20px"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </c:forEach>

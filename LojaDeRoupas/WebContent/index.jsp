@@ -98,6 +98,7 @@
           <h6 class="dropdown-header">Cadastros:</h6>
           <a class="dropdown-item" href="ListarClientes">Listar Clientes</a>
           <a class="dropdown-item" href="cadastrarCliente.jsp">Cadastrar Clientes</a>
+          <a class="dropdown-item" href="cadastrarFuncionario.jsp">Cadastrar Funcionario</a>
           <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Venda:</h6>

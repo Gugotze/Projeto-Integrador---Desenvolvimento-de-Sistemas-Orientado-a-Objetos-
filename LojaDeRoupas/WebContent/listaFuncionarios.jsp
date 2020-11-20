@@ -87,8 +87,8 @@ function excluirCliente() {
 <body>
 <div>
 	<center>
-		<h1>Produtos</h1>
-		<button class="btn btn-primary" ><a href="/LojaDeRoupas/atualizaProdutos?action=create&id=0" style="color: white;"> Adicionar novo produto</a></button>
+		<h1>Funcionários</h1>
+		<button class="btn btn-primary" ><a href="/LojaDeRoupas/Funcionario?action=create&id=0" style="color: white;"> Adicionar novo funcionário</a></button>
 		<br/>
 		<br/>
 		<br/>
@@ -103,30 +103,50 @@ function excluirCliente() {
 		<table id="minhaTabela">
 		<thead>
 			<tr>
-				<th>Cod produto</th>
-				<th>Nome</th>
-				<th>Tipo</th>
-				<th>Quantidade</th>
-				<th>Valor compra</th>
-				<th>Valor venda</th>
-				<th>Cod filial</th>
-				<th>Editar</th>
-				<th>Deletar</th>
+				<th >Cód. cliente</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Sexo</th>
+                                <th>Data Nascimento</th>
+                                <th>Telefone</th>
+                                <th>E-mail</th>
+                                <th>CEP</th>
+                                <th>Endereço</th>
+                                <th>Bairro</th>
+                                <th>N°</th>
+                                <th>Complemento</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Login</th>
+                                <th>Senha</th>
+                                <th>Tipo</th>
+                                <th>Editar</th>
+                                <th>Excluir</th>
 			</tr>
 			<thead>
 			
 			<tbody>
-			<c:forEach items="${produtos}" var="produto">
+			<c:forEach items="${funcionario}" var="funcionario">
 				<tr>
-					<td>${produto._codProduto}</td>
-					<td>${produto._nome}</td>
-					<td>${produto._tipo}</td>
-					<td>${produto._quantidade}</td>
-					<td>${produto._valorCompra}</td>
-					<td>${produto._valorVenda}</td>
-					<td>${produto._filial}</td>
-					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td><a href="#" onclick="mostrarModalExclusao(${produto._codProduto}, '${produto._nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					  <td role="row" class="odd">${funcionario.codfuncionario}</td>
+                                    <td>${funcionario.nome}</td>
+                                    <td>${funcionario.cpf}</td>
+                                    <td>${funcionario.sexo}</td>
+                                    <td>${funcionario.datanascimento}</td>
+                                    <td>${funcionario.telefone}</td>
+                                    <td>${funcionario.email}</td>
+                                    <td>${funcionario.cep}</td>
+                                    <td>${funcionario.endereco}</td>
+                                    <td>${funcionario.bairro}</td>
+                                    <td>${funcionario.numero}</td>
+                                    <td>${funcionario.complemento}</td>
+                                    <td>${funcionario.cidade}</td>
+                                    <td>${funcionario.estado}</td>
+                                    <td>${funcionario.login}</td>
+                                    <td>${funcionario.senha}</td>
+                                    <td>${funcionario.tipo}</td>
+					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${funcionario.codfuncionario}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="#" onclick="mostrarModalExclusao(${funcionario.codfuncionario}, '${funcionario.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
@@ -145,7 +165,7 @@ function excluirCliente() {
                   </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do produto <strong><label id="nomeProduto"></label></strong>  ?
+                    Confirmar exclusão do funcionário <strong><label id="nomeProduto"></label></strong>  ?
                     <input id="codProduto" hidden="true" />
                  
                 </div>
