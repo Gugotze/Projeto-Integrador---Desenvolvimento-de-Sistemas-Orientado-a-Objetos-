@@ -223,15 +223,10 @@
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center my-auto footer">
       
                           <ul class="navbar-expand navbar-nav">
-                              <li class="nav-item pl-2 pr-2">
-                                  <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                              </li>
-                              <li class="nav-item pl-2 pr-2">
-                                  <a href="#" target="_blank"><i class="fab fa-free-code-camp"></i></a>
-                              </li>
+                              
       
                               <li class="nav-item pl-2 pr-2" style="border-bottom:1px solid gray;">
-                                  Feito por Caio Moreno
+                                  Feito por Brazucas Technology
                                   
                               </li>
                           </ul>

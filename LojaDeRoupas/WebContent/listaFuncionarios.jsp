@@ -13,6 +13,7 @@
 $(document).ready( function () {
 	
 	
+	
 	var data = new Date();
 
 	
@@ -81,6 +82,8 @@ function excluirCliente() {
     });
 }
 
+
+
 </script>
 
 </head>
@@ -103,7 +106,7 @@ function excluirCliente() {
 		<table id="minhaTabela">
 		<thead>
 			<tr>
-				<th >Cód. cliente</th>
+				<th >Cód. Funcionario</th>
                                 <th>Nome</th>
                                 <th>CPF</th>
                                 <th>Sexo</th>
@@ -142,8 +145,8 @@ function excluirCliente() {
                                     <td>${funcionario.complemento}</td>
                                     <td>${funcionario.cidade}</td>
                                     <td>${funcionario.estado}</td>
-                                    <td>${funcionario.login}</td>
-                                    <td>${funcionario.senha}</td>
+                                    <td>${funcionario.login}</td>                                    
+                                    <td> <input type="password" id="senha" value="${funcionario.senha}" readonly> </td>
                                     <td>${funcionario.tipo}</td>
 					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${funcionario.codfuncionario}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="#" onclick="mostrarModalExclusao(${funcionario.codfuncionario}, '${funcionario.nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>

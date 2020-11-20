@@ -31,6 +31,7 @@ public class FuncionarioServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String acao = request.getParameter("action");
+			String id = request.getParameter("id");
 			
 			if(acao.equals("listar")) {
 				 
@@ -48,6 +49,11 @@ public class FuncionarioServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("cadastrarFuncionario.jsp");
 				rd.forward(request, response);
 				
+			}
+			if(acao.equals("update")) {
+				funcionario funcionario = FuncionarioDAO.getFuncionario(id);
+				RequestDispatcher rd = request.getRequestDispatcher("cadastrarFuncionario.jsp");
+				rd.forward(request, response);
 			}
 			
 			
