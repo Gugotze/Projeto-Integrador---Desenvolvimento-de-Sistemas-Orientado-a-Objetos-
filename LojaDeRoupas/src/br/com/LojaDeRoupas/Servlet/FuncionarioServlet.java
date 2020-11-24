@@ -101,15 +101,14 @@ public class FuncionarioServlet extends HttpServlet {
     		System.out.println("meu funcionario---->"+Funcionario);
 			FuncionarioDAO.addFuncionario(Funcionario);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     	
-    	//response.sendRedirect("funcionarios");
-    	//response.sendRedirect("funcionarios");
+    	
     	response.sendRedirect("Funcionario?action=listar");
 	}
 	

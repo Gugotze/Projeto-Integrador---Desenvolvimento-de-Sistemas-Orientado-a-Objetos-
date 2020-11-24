@@ -31,14 +31,7 @@
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/servlet/AdminServlet</url-pattern>
-  </servlet-mapping>
-  
-
- 
-  
-
-  
-  
+  </servlet-mapping> 
    <servlet>
         <servlet-name>ServletBD</servlet-name>
         <servlet-class>br.com.LojaDeRoupas.Servlet.ServletBD</servlet-class>

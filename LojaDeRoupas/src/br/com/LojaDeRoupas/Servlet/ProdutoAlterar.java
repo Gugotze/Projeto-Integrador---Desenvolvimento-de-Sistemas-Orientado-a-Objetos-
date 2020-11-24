@@ -21,7 +21,7 @@ public class ProdutoAlterar extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		System.out.println("ENTREI");
 		String status = request.getParameter("action");
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		List<filial> lista = produtoDAO.listarFiliais();

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class ListarClientes extends HttpServlet {
@@ -27,6 +28,11 @@ public class ListarClientes extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+		HttpSession sessao = request.getSession();
+		
+		sessao.setAttribute("nomeUsuario", "Caio");
+		
+		
         List<Cliente> listaClientes = ClienteDAO.getClientes();
         request.setAttribute("listaClientes", listaClientes);
         
