@@ -62,7 +62,7 @@ public class FuncionarioServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("ENTREI NO POST FUNCIONARIO");
-		funcionario funcionario = null;
+		funcionario Funcionario = null;
 		String nome = request.getParameter("nome");
     	String cpf = request.getParameter("cpf");
     	cpf = cpf.replaceAll("[^0-9]", "");
@@ -86,27 +86,20 @@ public class FuncionarioServlet extends HttpServlet {
     	System.out.println(nome+" - "+cpf+" - "+sexo+" - "+dataNascimento+" - "+telefone+" - "+email+" - "+cep+" - "+endereco+" - "+bairro
     			+" - "+numero+" - "+complemento+" - "+cidade+" - "+estado+" - "+login+" - "+senha+" - "+tipo+" - ");
     	
-    	try {
-    	    MessageDigest md = MessageDigest.getInstance("MD5");
-    	    System.out.println("ENTREI NO POST FUNCIONARIO");
-    	    md.update(senha.getBytes());
-    	    senha = md.digest()+ "";
-    	  } catch (NoSuchAlgorithmException e) {
-    		 e.getMessage();
-    	  }
+    	senha = funcionario.convertToMd5(senha);
     	
     	
     	if(tipo.equals("Gerente")) {
     		tipo = "G";
-    	    funcionario = new gerente(nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,cidade,estado,login,senha,tipo);
+    		Funcionario = new gerente(nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,cidade,estado,login,senha,tipo);
     	}else {
     		tipo = "V";
-    	    funcionario = new Vendedor(nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,cidade,estado,login,senha,tipo);
+    		Funcionario = new Vendedor(nome,cpf,sexo,dataNascimento,telefone,email,cep,endereco,bairro,numero,complemento,cidade,estado,login,senha,tipo);
     	}
     	
     	try {
-    		System.out.println("meu funcionario---->"+funcionario);
-			FuncionarioDAO.addFuncionario(funcionario);
+    		System.out.println("meu funcionario---->"+Funcionario);
+			FuncionarioDAO.addFuncionario(Funcionario);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
