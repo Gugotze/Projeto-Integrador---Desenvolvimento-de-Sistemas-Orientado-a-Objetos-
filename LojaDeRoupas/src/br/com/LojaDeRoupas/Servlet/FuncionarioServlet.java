@@ -109,6 +109,7 @@ public class FuncionarioServlet extends HttpServlet {
 		}
     	
     	//response.sendRedirect("funcionarios");
+    	//response.sendRedirect("funcionarios");
     	response.sendRedirect("Funcionario?action=listar");
 	}
 	
