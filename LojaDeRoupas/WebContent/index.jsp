@@ -59,12 +59,11 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-
-   
-    <ul class="navbar-nav ml-auto ml-md-0">
-      
-       
-      <li class="nav-item dropdown no-arrow" style="margin-left: 1155px;">
+	<a class="navbar-brand mr-1" href="#" style="margin-left: 30%;">Bem vindo ${sessionScope.nome}</a>
+	 
+	   
+    <ul class="navbar-nav ml-auto ml-md-0" style="float: rigth">
+      <li class="nav-item dropdown no-arrow" >
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
@@ -98,7 +97,7 @@
           <h6 class="dropdown-header">Cadastros:</h6>
           <a class="dropdown-item" href="ListarClientes">Listar Clientes</a>
           <a class="dropdown-item" href="/LojaDeRoupas/Admin/cadastrarCliente.jsp">Cadastrar Clientes</a>
-          <a class="dropdown-item" href="cadastrarFuncionario.jsp">Cadastrar Funcionario</a>
+          <a class="dropdown-item" href="Admin/cadastrarFuncionario.jsp">Cadastrar Funcionario</a>
           <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Venda:</h6>
@@ -239,7 +238,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+        <div class="modal-body">${sessionScope.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="login.jsp">Logout</a>

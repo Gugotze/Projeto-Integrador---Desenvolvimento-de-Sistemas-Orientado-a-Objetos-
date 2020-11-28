@@ -106,7 +106,7 @@ public class FuncionarioDAO {
 	        funcionario funcionario = null;
 	        try {
 	            Connection con = ConexaoDB.getConnection();
-	            String query = "select * from CLIENTE where cpf=?";
+	            String query = "select * from FUNCIONARIO where cpf=?";
 	            PreparedStatement ps = con.prepareStatement(query);
 	            ps.setString(1, cpf);
 	            ResultSet rs = ps.executeQuery();

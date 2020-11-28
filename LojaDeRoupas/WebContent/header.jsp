@@ -14,7 +14,7 @@
         <script src="jQueryMask/dist/jquery.mask.min.js" ></script>
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/LojaDeRoupas"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+  <a class="navbar-brand" href="/LojaDeRoupas/index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

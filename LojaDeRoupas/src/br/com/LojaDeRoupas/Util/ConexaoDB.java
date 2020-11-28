@@ -50,6 +50,7 @@ public class ConexaoDB {
 				connection = DriverManager.getConnection("jdbc:mysql://10.211.55.16:3306/LOJADEROUPAS?useTimezone=true&serverTimezone=UTC&useSSL=false", user, password);
 				
 			} catch (ClassNotFoundException e) {
+				System.out.println("estou aqui");
 				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();

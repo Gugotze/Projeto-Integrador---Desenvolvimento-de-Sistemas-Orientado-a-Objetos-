@@ -19,6 +19,7 @@ import br.com.LojaDeRoupas.Model.Vendedor;
 import br.com.LojaDeRoupas.Model.funcionario;
 import br.com.LojaDeRoupas.Model.gerente;
 import br.com.LojaDeRoupas.Model.produto;
+import br.com.LojaDeRoupas.Util.Utils;
 
 /**
  * Servlet implementation class FuncionarioServlet
@@ -46,7 +47,8 @@ public class FuncionarioServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 			if(acao.equals("create")) {
-				RequestDispatcher rd = request.getRequestDispatcher("cadastrarFuncionario.jsp");
+			System.out.println("vou criar");
+				RequestDispatcher rd = request.getRequestDispatcher("Admin/cadastrarFuncionario.jsp");
 				rd.forward(request, response);
 				
 			}
@@ -86,7 +88,7 @@ public class FuncionarioServlet extends HttpServlet {
     	System.out.println(nome+" - "+cpf+" - "+sexo+" - "+dataNascimento+" - "+telefone+" - "+email+" - "+cep+" - "+endereco+" - "+bairro
     			+" - "+numero+" - "+complemento+" - "+cidade+" - "+estado+" - "+login+" - "+senha+" - "+tipo+" - ");
     	
-    	senha = funcionario.convertToMd5(senha);
+    	senha = Utils.convertToMd5(senha);
     	
     	
     	if(tipo.equals("Gerente")) {

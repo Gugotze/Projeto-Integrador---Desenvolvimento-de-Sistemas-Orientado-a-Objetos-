@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Login</title>
+  <title>Brazucas Technology - Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,33 +27,31 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form action="/LojaDeRoupas/Login" method="post">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email address</label>
+              <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuário" required="required" autofocus="autofocus">
+              <label for="usuario">Usuário</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Password</label>
+              <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required="required">
+              <label for="inputPassword">Senha</label>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me">
-                Remember Password
-              </label>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="index.jsp">Login</a>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>	
         </form>
+        <br>
+        <br>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Register an Account</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+        <c:if test="${erro}">
+          <div class="alert alert-danger" role="alert">
+  				Usuário ou/e senhas informados são inválidos!
+			</div>
+          
         </div>
+        </c:if>
       </div>
     </div>
   </div>

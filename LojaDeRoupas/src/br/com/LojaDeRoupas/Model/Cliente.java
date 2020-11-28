@@ -70,11 +70,7 @@ public Cliente(Integer ID_CLIENTE, String nome, String cpf, String sexo, String 
 
 
 
-@Override
-public String toString() {
-	// TODO Auto-generated method stub
-	return super.toString();
-}
+
 
 public String getNomeCliente() {
 	return nome;
@@ -226,6 +222,12 @@ public String getSexo() {
 
 public void setSexo(String sexo) {
 	this.sexo = sexo;
-}    
+}
+
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return super.toString();
+}
     
 }

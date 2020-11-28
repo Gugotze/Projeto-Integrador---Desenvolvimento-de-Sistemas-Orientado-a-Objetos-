@@ -18,7 +18,7 @@ import br.com.LojaDeRoupas.Dao.indexDAO;
 
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Buscar para o gráfico NO SERVLETTTTTTT");
 		
 		String listaDeData = "";
