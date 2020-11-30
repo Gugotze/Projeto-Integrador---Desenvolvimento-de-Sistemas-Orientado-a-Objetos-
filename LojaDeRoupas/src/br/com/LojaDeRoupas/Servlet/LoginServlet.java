@@ -42,9 +42,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession sessao = request.getSession();
 			
 			sessao.setAttribute("usuario",funcionario);
-			//response.sendRedirect("/LojaDeRoupas/index");
-			RequestDispatcher rd = request.getRequestDispatcher("/index");
-			rd.forward(request, response);
+			response.sendRedirect("/LojaDeRoupas/entrada?acao=ProdutoConsultar");
+			//RequestDispatcher rd = request.getRequestDispatcher("/index");
+			//rd.forward(request, response);
 			
 		}
 		

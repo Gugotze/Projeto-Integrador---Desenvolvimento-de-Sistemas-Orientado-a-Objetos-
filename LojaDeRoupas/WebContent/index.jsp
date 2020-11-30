@@ -237,10 +237,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">${sessionScope.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+        <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.jsp">Logout</a>
+          <a class="btn btn-primary" href="/LojaDeRoupas/Logout">Logout</a>
         </div>
       </div>
     </div>

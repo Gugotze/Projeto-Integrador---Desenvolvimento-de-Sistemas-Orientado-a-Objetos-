@@ -125,7 +125,7 @@ function excluirCliente() {
 					<td>${produto._valorCompra}</td>
 					<td>${produto._valorVenda}</td>
 					<td>${produto._filial}</td>
-					<td><a href="/LojaDeRoupas/atualizaProdutos?action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+					<td><a href="/LojaDeRoupas/entrada?acao=ProdutoAlterar&metodo=get&action=update&id=${produto._codProduto}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 					<td><a href="#" onclick="mostrarModalExclusao(${produto._codProduto}, '${produto._nome}')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 				</tr>
 			</c:forEach>
