@@ -5,7 +5,7 @@
         <html>
 
         <head>
-            <%@include file="../../header.jsp" %>
+            <%@include file="header.jsp" %>
                 <title>Consultar Vendas</title>
                 <script lang="text/javascript">
                     $(document).ready(function() {

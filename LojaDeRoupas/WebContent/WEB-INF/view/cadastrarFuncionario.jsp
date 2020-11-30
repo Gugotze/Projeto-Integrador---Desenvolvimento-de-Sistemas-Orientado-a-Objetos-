@@ -3,7 +3,7 @@
     
     <!DOCTYPE html>
     <html>
-    <%@include file="../../header.jsp" %>
+    <%@include file="header.jsp" %>
 
         <head>
         <meta charset="UTF-8">

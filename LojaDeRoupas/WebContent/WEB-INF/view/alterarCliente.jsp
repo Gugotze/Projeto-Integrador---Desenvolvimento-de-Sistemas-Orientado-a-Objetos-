@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../../header.jsp" %>
+    <%@include file="header.jsp" %>
     <head>
             <script lang="text/javascript">
             	$(document).ready( function () {
