@@ -9,7 +9,7 @@
     </head>
     <body class="container">
         <h1>Cadastro de Cliente</h1>
-        <form action="clienteForm" method="POST">
+        <form action="entrada?acao=ClienteAlterar&metodo=post" method="POST">
         <table border="1" cellpadding="5">
            <tr>
                 <th>Nome: </th>

@@ -14,7 +14,7 @@
         <script src="jQueryMask/dist/jquery.mask.min.js" ></script>
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/LojaDeRoupas/index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+  <a class="navbar-brand" href="entrada?acao=Index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -73,7 +73,7 @@
         <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/LojaDeRoupas/Logout">Logout</a>
+          <a class="btn btn-primary" href="/LojaDeRoupas/entrada?acao=Logout">Logout</a>
         </div>
       </div>
     </div>

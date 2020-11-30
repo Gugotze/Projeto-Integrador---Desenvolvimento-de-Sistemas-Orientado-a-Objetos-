@@ -52,7 +52,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index">Brazucas Technology</a>
+    <a class="navbar-brand mr-1" href="entrada?acao=Index">Brazucas Technology</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -93,17 +93,17 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Cadastros:</h6>
-          <a class="dropdown-item" href="ListarClientes">Listar Clientes</a>
-          <a class="dropdown-item" href="/LojaDeRoupas/Admin/cadastrarCliente.jsp">Cadastrar Clientes</a>
-          <a class="dropdown-item" href="Admin/cadastrarFuncionario.jsp">Cadastrar Funcionario</a>
-          <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">Listar Clientes</a>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=NovoClienteForm">Cadastrar Clientes</a>
+          <a class="dropdown-item" href="entrada?Acao=NovoFuncionarioForm">Cadastrar Funcionario</a>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ProdutoConsultar">Produtos</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Venda:</h6>
-          <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a>
+          <a class="dropdown-item" href="entrada?acao=NovaVendaForm">Realizar Venda</a>
         </div>
       </li>
       <li class="nav-item">
-         <a class="nav-link" href="/LojaDeRoupas/listaVendas">
+         <a class="nav-link" href="/LojaDeRoupas/entrada?acao=VendaConsultar">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Relatórios</span></a>
       </li>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="mr-5">${totalCliente} Cliente(s) cadastrado(s)</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="ListarClientes">
+              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">
                 <span class="float-left">  Ver mais
                 </span>
                 <span class="float-right">
@@ -239,7 +239,7 @@
         <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/LojaDeRoupas/Logout">Logout</a>
+          <a class="btn btn-primary" href="/LojaDeRoupas/entrada?acao=Logout">Logout</a>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form action="/LojaDeRoupas/Login" method="post">
+        <form action="/LojaDeRoupas/entrada?acao=Login&userId=p" method="post">
           <div class="form-group">
             <div class="form-label-group">
               <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuário" required="required" autofocus="autofocus">

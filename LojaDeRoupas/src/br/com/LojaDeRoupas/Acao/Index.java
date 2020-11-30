@@ -1,34 +1,22 @@
-package br.com.LojaDeRoupas.Servlet;
+package br.com.LojaDeRoupas.Acao;
 
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import br.com.LojaDeRoupas.Dao.indexDAO;
-import br.com.LojaDeRoupas.Model.Usuario;
 
+public class Index implements Acao {
 
-/**
- * Servlet implementation class VendaGrafico
- */
-
-public class Index extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Buscar para o gráfico NO SERVLETTTTTTT");
+	@Override
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
-		
+
 		System.out.println("Está logado!");
 		String listaDeData = "";
 		String listaQtd = "";
@@ -57,9 +45,14 @@ public class Index extends HttpServlet {
 		request.setAttribute("totalCliente", totalCliente);
 		request.setAttribute("totalVenda", totalVenda);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		
-		rd.forward(request, response);
+		
+		
+		
+		return "forward:index.jsp";
+		
+		
 		
 	}
+
 }

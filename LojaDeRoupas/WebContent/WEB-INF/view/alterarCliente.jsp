@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../header.jsp" %>
     <head>
             <script lang="text/javascript">
             	$(document).ready( function () {
@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>Alteração de Cadastro: ${cliente.nome}</h1>
-        <form action="AlterarCliente" method="POST">
+        <form action="entrada?acao=ClienteAlterar&metodo=post" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>

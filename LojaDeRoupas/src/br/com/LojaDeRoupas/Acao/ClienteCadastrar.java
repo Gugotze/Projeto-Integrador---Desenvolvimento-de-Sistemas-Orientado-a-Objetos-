@@ -1,41 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.com.LojaDeRoupas.Servlet;
-
-import br.com.LojaDeRoupas.Dao.ClienteDAO;
-import br.com.LojaDeRoupas.Model.Cliente;
-import br.com.LojaDeRoupas.Model.Usuario;
-import br.com.LojaDeRoupas.Util.Utils;
+package br.com.LojaDeRoupas.Acao;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CadastrarCliente extends HttpServlet {
-   
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+import br.com.LojaDeRoupas.Dao.ClienteDAO;
+import br.com.LojaDeRoupas.Model.Cliente;
+
+import br.com.LojaDeRoupas.Util.Utils;
+
+public class ClienteCadastrar implements Acao {
 
 	@Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
-    	String nome = request.getParameter("nome");
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nome = request.getParameter("nome");
     	String cpf = request.getParameter("cpf");
     	cpf = cpf.replaceAll("[^0-9]", "");
     	String sexo = request.getParameter("sexo");
@@ -56,12 +40,12 @@ public class CadastrarCliente extends HttpServlet {
 				cidade,estado);
         try {
             ClienteDAO.addCliente(cliente);
-            response.sendRedirect("sucesso.jsp");
+            
+            return "redirect:entrada?acao=ClienteConsultar";
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-            Utils.mostrarTelaErro(ex, request, response);
+        	ex.getMessage();
         }
-    }
+		return null;
+	}
 
-    
 }

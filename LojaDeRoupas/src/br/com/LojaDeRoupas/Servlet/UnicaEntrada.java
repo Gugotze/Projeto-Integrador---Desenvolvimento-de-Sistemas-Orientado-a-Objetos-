@@ -25,14 +25,18 @@ public class UnicaEntrada extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Entrada!");
 		
-		if(!Usuario.estaLogado(request, response)) {
+		String paramAcao = request.getParameter("acao");
+		boolean ehUmaAcaoProtegida = paramAcao.equals("ProdutoConsultar");
+		
+		
+		if(!Usuario.estaLogado(request, response) && ehUmaAcaoProtegida) {
 			System.out.println("Não está logado!");
 			response.sendRedirect("login.jsp");
 			return;
 			 
 		}
 		
-		String paramAcao = request.getParameter("acao");
+		
 		
 		
 		

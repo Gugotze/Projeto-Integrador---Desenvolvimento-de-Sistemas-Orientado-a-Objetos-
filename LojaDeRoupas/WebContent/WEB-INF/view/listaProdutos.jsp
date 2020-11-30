@@ -68,7 +68,7 @@ function mostrarModalExclusao(_codProduto, _nome){
     $('#modalExclusao').modal('show');
 }
 
-function excluirCliente() {
+function excluirProduto() {
     var _codProduto = $("#codProduto").val();
     $.get( "/LojaDeRoupas/entrada?acao=ProdutoDeletar&id="+_codProduto, function( resposta ) {
         $('#modalExclusao').modal('hide')
@@ -151,7 +151,7 @@ function excluirCliente() {
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                  <button type="button" class="btn btn-primary" onclick="excluirProduto()">Confirmar</button>
                 </div>
               </div>
             </div>

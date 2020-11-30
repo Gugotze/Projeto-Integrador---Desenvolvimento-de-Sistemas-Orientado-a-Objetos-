@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
         <!DOCTYPE html>
         <html >
-        <%@include file="header.jsp" %>
+        <%@include file="../../header.jsp" %>
 
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -79,7 +79,7 @@
 
                     function excluirCliente() {
                         var cpf = $("#cpfCliente").val();
-                        $.get("ExcluirCliente?cpf=" + cpf, function(resposta) {
+                        $.get("/LojaDeRoupas/entrada?acao=ClienteDeletar&cpf=" + cpf, function(resposta) {
                             $('#modalExclusao').modal('hide')
                             if (resposta === "true") {
                                 console.log("Funfou!");
@@ -99,7 +99,7 @@
                     <center>
                     <h1>Bem vindo, Bem vindo ${sessionScope.usuario.nome}</h1>
                         <h1>Lista de Clientes</h1>
-                        <button class="btn btn-primary"><a href="cadastrarCliente.jsp" style="color: white;"> Adicionar novo Cliente</a></button>
+                        <button class="btn btn-primary"><a href="/LojaDeRoupas/entrada?acao=NovoClienteForm" style="color: white;"> Adicionar novo Cliente</a></button>
                         <br/>
                         <br/>
                         <br/>
@@ -150,7 +150,7 @@
                                     <td>${cliente.complemento}</td>
                                     <td>${cliente.cidade}</td>
                                     <td>${cliente.estado}</td>
-                                    <td><a href="AlterarCliente?cpf=${cliente.cpf}" style="font-size: 20px"><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
+                                    <td><a href="/LojaDeRoupas/entrada?acao=ClienteAlterar&metodo=get&cpf=${cliente.cpf}" style="font-size: 20px"><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
                                    <td><a href="#" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')" style="font-size: 20px"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </c:forEach>
