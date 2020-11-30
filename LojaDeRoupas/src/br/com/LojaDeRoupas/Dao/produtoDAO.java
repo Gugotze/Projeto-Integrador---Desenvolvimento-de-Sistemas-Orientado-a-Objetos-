@@ -36,7 +36,7 @@ public class produtoDAO {
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
     		String filial = rs.getString("ESTADO");
-			
+			System.out.println(nome);
 		listaProdutos.add(new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial));
 			
     	}
@@ -166,21 +166,23 @@ public class produtoDAO {
     	System.out.println("BUSCAR FILIAIS");
     	List <filial> lista = new ArrayList<filial>();
     	String sqlConsulta = "SELECT * FROM FILIAL;";
-    	
+    	System.out.println("BUSCAR FILIAIS");
     	try {
     		Connection con = ConexaoDB.getConnection();
     		PreparedStatement ps = con.prepareStatement(sqlConsulta);
     		ResultSet rs = ps.executeQuery();
-    		
+    		System.out.println("BUSCAR FILIAIS");
     		while(rs.next()) {
     			int idFilial = rs.getInt("ID_FILIAL");
     			String estado = rs.getString("ESTADO");
     			lista.add(new filial(idFilial, estado));
+    			System.out.println("BUSCAR FILIAIS"+idFilial+estado);
     		}	
     	}catch (Exception e) {
+    		
     		throw new ServletException(e.getMessage());
 		}
-    	
+    	System.out.println("BUSCAR FILIAIS!");
     	return lista;
     }
     

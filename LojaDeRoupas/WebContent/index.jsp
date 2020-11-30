@@ -165,7 +165,7 @@
                 </div>
                 <div class="mr-5">${totalVenda } Venda(s)</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaVendas">
+              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/entrada?acao=VendaConsultar">
                 <span class="float-left">Ver mais</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>

@@ -16,35 +16,30 @@ import br.com.LojaDeRoupas.Model.produto;
 public class ProdutoAlterar implements Acao {
 
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String metodo = request.getParameter("metodo");
 		
 		if(metodo.equals("get")) {
-		System.out.println("GET!!!!");
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+			System.out.println("GET!!!!");
 		
-		System.out.println("ENTREI");
-		String status = request.getParameter("action");
-		Integer id = Integer.valueOf(request.getParameter("id"));
-		List<filial> lista = produtoDAO.listarFiliais();
 		
-		if(status.equals("create")) {
+		
+			String status = request.getParameter("action");
+			Integer id = Integer.valueOf(request.getParameter("id"));
+			List<filial> lista = produtoDAO.listarFiliais();
+
+			if(status.equals("create")) {
 			produto produto = null;	
-			
+				
 			
 			request.setAttribute("action", produto);
 			request.setAttribute("filial", lista);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");		
-			rd.forward(request, response);
+			return "forward:cadastrarProduto.jsp";		
 			
-		}else if(status.equals("update")) {
+			
+			}else if(status.equals("update")) {
 			System.out.println("MEU ID"+id);
 			produto produto = new produto(id,status);
 			
@@ -53,9 +48,9 @@ public class ProdutoAlterar implements Acao {
 			request.setAttribute("action", produto);
 			request.setAttribute("produto", dadosProduto);
 			request.setAttribute("filial", lista);
-			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");		
-			rd.forward(request, response);			
-		}
+			return "forward:cadastrarProduto.jsp";			
+					
+			}
 		
 		}else if(metodo.equals("post")) {
 			System.out.println("POST!!!!");
@@ -89,9 +84,11 @@ public class ProdutoAlterar implements Acao {
 				throw new ServletException(e.getMessage());
 			}
 			
-			response.sendRedirect("entrada?acao=ProdutoConsultar");
+			return "redirect:entrada?acao=ProdutoConsultar";
 			
 		}
+		
+		return null;
 	}
 
 }

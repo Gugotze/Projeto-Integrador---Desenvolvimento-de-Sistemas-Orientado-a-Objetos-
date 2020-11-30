@@ -12,14 +12,9 @@ import br.com.LojaDeRoupas.Model.Usuario;
 public class ProdutoDeletar implements Acao{
 
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+		
 		
 		System.out.println("ESTOU NO DELETAR");
 		
@@ -32,7 +27,7 @@ public class ProdutoDeletar implements Acao{
 			
 		
 		
-		response.sendRedirect("entrada?acao=ProdutoConsultar");
+		return "redirect:entrada?acao=ProdutoConsultar";
 		
 	}
 	

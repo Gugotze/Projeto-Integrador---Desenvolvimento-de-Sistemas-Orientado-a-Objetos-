@@ -1,39 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.com.LojaDeRoupas.Servlet;
-
-import br.com.LojaDeRoupas.Dao.vendaDAO;
-import br.com.LojaDeRoupas.Model.Usuario;
-import br.com.LojaDeRoupas.Model.Venda;
-import br.com.LojaDeRoupas.Util.Utils;
+package br.com.LojaDeRoupas.Acao;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/VendaCadastrar")
-public class VendaCadastrar extends HttpServlet {
+import br.com.LojaDeRoupas.Dao.vendaDAO;
+import br.com.LojaDeRoupas.Model.Venda;
+import br.com.LojaDeRoupas.Util.Utils;
 
-	private static final long serialVersionUID = 1L;
-	
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+public class VendaCadastrar implements Acao{
+
+	@Override
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
         String data_venda = request.getParameter("data_venda");
        
         Integer cod_cliente = Integer.parseInt(request.getParameter("cod_cliente"));
@@ -52,17 +37,16 @@ public class VendaCadastrar extends HttpServlet {
          
            try {
             vendaDAO.inserirVenda(venda);
-            response.sendRedirect("sucesso.jsp");
+            
+            return "redirect:entrada?acao=VendaConsultar";
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(VendaCadastrar.class.getName()).log(Level.SEVERE, null, ex);
             Utils.mostrarTelaErro(ex, request, response);
         }
            
+           return null;
            
-         }
-    
-   
-        
-    }
-    
+           
+	}
 
+}

@@ -14,14 +14,9 @@ import br.com.LojaDeRoupas.Model.produto;
 public class ProdutoCadastrar implements Acao  {
 
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+	
 		
 		System.out.println("Cadastrando novoProduto");
 		try {
@@ -44,7 +39,9 @@ public class ProdutoCadastrar implements Acao  {
 			throw new ServletException(e.getMessage());
 		}
 		
-		response.sendRedirect("entrada?acao=ProdutoConsultar");
+		
+		
+		return "redirect:entrada?acao=ProdutoConsultar";
 
 		
 	}

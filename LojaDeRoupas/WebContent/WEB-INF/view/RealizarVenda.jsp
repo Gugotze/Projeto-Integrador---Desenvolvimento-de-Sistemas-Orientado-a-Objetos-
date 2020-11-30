@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="../../header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Venda Cadastrar</title>
     </head>
     <body class="container">
         <h1>Venda</h1>
-        <form action="/LojaDeRoupas/VendaCadastrar" method="POST">
+        <form action="/LojaDeRoupas/entrada?acao=VendaCadastrar" method="POST">
             <p>Data</p>
             <input  type= "date" name="data_venda" class="form-control" required="true" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off"/><br/>
             <p>Cod.Cliente</p>

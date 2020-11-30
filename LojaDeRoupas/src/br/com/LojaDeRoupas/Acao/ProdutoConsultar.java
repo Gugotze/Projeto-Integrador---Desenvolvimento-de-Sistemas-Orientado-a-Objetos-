@@ -14,13 +14,8 @@ import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.produto;
 
 public class ProdutoConsultar implements Acao {
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		if(!Usuario.estaLogado(request, response)) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 
 		List<produto> lista = null;
 		try {
@@ -34,8 +29,7 @@ public class ProdutoConsultar implements Acao {
 
 		request.setAttribute("produtos", lista);
 
-		RequestDispatcher rd = request.getRequestDispatcher("listaProdutos.jsp");
-		rd.forward(request, response);
+		return "forward:listaProdutos.jsp";
 	
 	}
 	

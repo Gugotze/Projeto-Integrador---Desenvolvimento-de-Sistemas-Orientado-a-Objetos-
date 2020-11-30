@@ -5,7 +5,7 @@
         <html>
 
         <head>
-            <%@include file="header.jsp" %>
+            <%@include file="../../header.jsp" %>
                 <title>Consultar Vendas</title>
                 <script lang="text/javascript">
                     $(document).ready(function() {
@@ -67,7 +67,7 @@
 
             <center>
                 <h1>Relatório de Vendas</h1>
-                <button class="btn btn-primary"><a href="RealizarVenda.jsp" style="color: white;"> Realizar Nova Venda</a></button>
+                <button class="btn btn-primary"><a href="entrada?acao=NovaVendaForm" style="color: white;"> Realizar Nova Venda</a></button>
                 <br>
                 <br>
                 <br>
@@ -103,8 +103,8 @@
                                                 <td>${venda.quantidade}</td>
                                                 <td>${venda.valor_Total}</td>
                                                 <td>${venda.data_venda}</td>
-                                                <td><a href="/LojaDeRoupas/VendaAlterar?id_venda=${venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                                                <td><a href="/LojaDeRoupas/VendaDeletar?id_venda=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                                <td><a href="/LojaDeRoupas/entrada?acao=VendaAlterar&metodo=get&id_venda=${venda.id_venda}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                                <td><a href="/LojaDeRoupas/entrada?acao=VendaDeletar&id_venda=${venda.id_venda}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
                                             </tr>
 

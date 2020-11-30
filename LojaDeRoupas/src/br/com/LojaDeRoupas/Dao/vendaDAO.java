@@ -48,7 +48,7 @@ public class vendaDAO{
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
 			String data_venda = rs.getString("DATA_VENDA");
 			
-			System.out.println(rs);
+			
 			
 		listaVenda.add(new Venda(id_venda, nome, estado, tipo, quantidade, valor_Total,data_venda));
 			
@@ -137,14 +137,20 @@ public class vendaDAO{
 	
       public static void deletarVenda(int id_venda) throws ClassNotFoundException, SQLException {
         
+    	  
+    	  
+    	  
     	try {  
     	Connection con = ConexaoDB.getConnection();
         String query = DELETAR_VENDA;
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, id_venda);
+        
+        System.out.println(ps);
+        
         ps.execute();
     	}catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
     }
     
