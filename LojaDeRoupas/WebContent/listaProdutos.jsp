@@ -70,7 +70,7 @@ function mostrarModalExclusao(_codProduto, _nome){
 
 function excluirCliente() {
     var _codProduto = $("#codProduto").val();
-    $.get( "/LojaDeRoupas/deletarProduto?id="+_codProduto, function( resposta ) {
+    $.get( "/LojaDeRoupas/entrada?acao=ProdutoDeletar&id="+_codProduto, function( resposta ) {
         $('#modalExclusao').modal('hide')
         if (resposta === "true") {
             console.log("Funfou!");
@@ -88,7 +88,7 @@ function excluirCliente() {
 <div>
 	<center>
 		<h1>Produtos</h1>
-		<button class="btn btn-primary" ><a href="/LojaDeRoupas/atualizaProdutos?action=create&id=0" style="color: white;"> Adicionar novo produto</a></button>
+		<button class="btn btn-primary" ><a href="/LojaDeRoupas/entrada?acao=ProdutoAlterar&metodo=get&action=create&id=0" style="color: white;"> Adicionar novo produto</a></button>
 		<br/>
 		<br/>
 		<br/>

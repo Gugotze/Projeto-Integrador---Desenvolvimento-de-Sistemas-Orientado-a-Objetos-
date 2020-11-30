@@ -41,8 +41,7 @@ public class ProdutoAlterar implements Acao {
 			request.setAttribute("action", produto);
 			request.setAttribute("filial", lista);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");
-			
+			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");		
 			rd.forward(request, response);
 			
 		}else if(status.equals("update")) {
@@ -54,8 +53,7 @@ public class ProdutoAlterar implements Acao {
 			request.setAttribute("action", produto);
 			request.setAttribute("produto", dadosProduto);
 			request.setAttribute("filial", lista);
-			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");
-			
+			RequestDispatcher rd = request.getRequestDispatcher("cadastrarProduto.jsp");		
 			rd.forward(request, response);			
 		}
 		
@@ -91,7 +89,7 @@ public class ProdutoAlterar implements Acao {
 				throw new ServletException(e.getMessage());
 			}
 			
-			response.sendRedirect("listaProdutos");
+			response.sendRedirect("entrada?acao=ProdutoConsultar");
 			
 		}
 	}

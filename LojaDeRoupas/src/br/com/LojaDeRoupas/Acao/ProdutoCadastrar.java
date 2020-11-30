@@ -1,11 +1,9 @@
-package br.com.LojaDeRoupas.Servlet;
+package br.com.LojaDeRoupas.Acao;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,14 +11,11 @@ import br.com.LojaDeRoupas.Dao.produtoDAO;
 import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.produto;
 
-/**
- * Servlet implementation class insereProdutos
- */
-@WebServlet("/insereProdutos")
-public class ProdutoCadastrar extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ProdutoCadastrar implements Acao  {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if(!Usuario.estaLogado(request, response)) {
 			System.out.println("Não está logado!");
 			response.sendRedirect("login.jsp");
@@ -49,8 +44,10 @@ public class ProdutoCadastrar extends HttpServlet {
 			throw new ServletException(e.getMessage());
 		}
 		
-		response.sendRedirect("listaProdutos");
+		response.sendRedirect("entrada?acao=ProdutoConsultar");
+
+		
 	}
 	
-
+		
 }

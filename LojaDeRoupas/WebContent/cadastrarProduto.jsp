@@ -208,7 +208,7 @@ window.onload = function () {
 <body>
 <div class="container">
 	<c:if test="${empty action}">
-  <form action= "/LojaDeRoupas/insereProdutos" method="post">
+  <form action= "/LojaDeRoupas/entrada?acao=ProdutoCadastrar" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nome">Nome</label>
@@ -277,7 +277,7 @@ window.onload = function () {
 
 
 <c:if test="${not empty action}">
-	<form action= "/LojaDeRoupas/atualizaProdutos" method="post">
+	<form action= "/LojaDeRoupas/entrada?acao=ProdutoAlterar&metodo=post" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nome">Nome</label>

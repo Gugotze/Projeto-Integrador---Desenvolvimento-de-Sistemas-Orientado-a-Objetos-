@@ -1,20 +1,18 @@
-package br.com.LojaDeRoupas.Servlet;
+package br.com.LojaDeRoupas.Acao;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.produtoDAO;
 import br.com.LojaDeRoupas.Model.Usuario;
 
-@WebServlet("/deletarProduto")
-public class ProdutoDeletar extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ProdutoDeletar implements Acao{
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(!Usuario.estaLogado(request, response)) {
 			System.out.println("Não está logado!");
@@ -22,6 +20,8 @@ public class ProdutoDeletar extends HttpServlet {
 			return;
 			 
 		}
+		
+		System.out.println("ESTOU NO DELETAR");
 		
 			
 			Integer codProduto = Integer.valueOf(request.getParameter("id"));
@@ -32,9 +32,9 @@ public class ProdutoDeletar extends HttpServlet {
 			
 		
 		
-		response.sendRedirect("listaProdutos");
-		
+		response.sendRedirect("entrada?acao=ProdutoConsultar");
 		
 	}
-
+	
+	
 }

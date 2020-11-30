@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Acao.ProdutoAlterar;
 import br.com.LojaDeRoupas.Acao.ProdutoConsultar;
+import br.com.LojaDeRoupas.Acao.ProdutoDeletar;
+import br.com.LojaDeRoupas.Acao.ProdutoCadastrar;
 
 
 @WebServlet("/entrada")
@@ -20,6 +22,8 @@ public class UnicaEntrada extends HttpServlet {
 		System.out.println("Entrada!");
 		String paramAcao = request.getParameter("acao");
 		
+		
+		
 		if(paramAcao.equals("ProdutoConsultar")) {
 			ProdutoConsultar acao = new ProdutoConsultar();
 			acao.executa(request, response);
@@ -30,7 +34,13 @@ public class UnicaEntrada extends HttpServlet {
 			acao.executa(request, response);
 		}
 		else if(paramAcao.equals("ProdutoCadastrar")) {
-			
+			ProdutoCadastrar acao = new ProdutoCadastrar();
+			acao.executa(request, response);
+		}
+		else if(paramAcao.equals("ProdutoDeletar")) {
+			System.out.println("AQUIIIIII");
+			ProdutoDeletar acao = new ProdutoDeletar();
+			acao.executa(request, response);
 		}
 		
 		

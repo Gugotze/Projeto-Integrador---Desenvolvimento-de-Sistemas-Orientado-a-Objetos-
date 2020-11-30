@@ -1,4 +1,3 @@
-    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
@@ -150,7 +149,7 @@
                 </div>
                 <div class="mr-5">${totalProduto } Produto(s) cadastrado(s)</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/listaProdutos">
+              <a class="card-footer text-white clearfix small z-1" href="/LojaDeRoupas/entrada?acao=ProdutoConsultar">
                 <span class="float-left">Ver mais</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
