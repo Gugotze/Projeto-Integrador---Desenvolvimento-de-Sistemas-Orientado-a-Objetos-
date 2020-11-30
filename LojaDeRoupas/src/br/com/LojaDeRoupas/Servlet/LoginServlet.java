@@ -41,8 +41,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Tem o user");
 			HttpSession sessao = request.getSession();
 			
-			sessao.setAttribute("nome", funcionario.getNome());
-			sessao.setAttribute("nomeUsuario", funcionario.getLogin());
+			sessao.setAttribute("usuario",funcionario);
 			//response.sendRedirect("/LojaDeRoupas/index");
 			RequestDispatcher rd = request.getRequestDispatcher("/index");
 			rd.forward(request, response);

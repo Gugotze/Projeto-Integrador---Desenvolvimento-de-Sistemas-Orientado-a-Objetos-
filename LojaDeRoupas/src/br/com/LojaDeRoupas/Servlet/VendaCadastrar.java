@@ -6,6 +6,7 @@
 package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.vendaDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.Venda;
 import br.com.LojaDeRoupas.Util.Utils;
 
@@ -27,6 +28,12 @@ public class VendaCadastrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
         String data_venda = request.getParameter("data_venda");
        
         Integer cod_cliente = Integer.parseInt(request.getParameter("cod_cliente"));

@@ -7,6 +7,7 @@ package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.ClienteDAO;
 import br.com.LojaDeRoupas.Model.Cliente;
+import br.com.LojaDeRoupas.Model.Usuario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,6 +36,13 @@ public class ServletBD extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
+    	
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

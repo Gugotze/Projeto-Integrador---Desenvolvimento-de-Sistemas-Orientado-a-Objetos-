@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
@@ -59,7 +58,7 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-	<a class="navbar-brand mr-1" href="#" style="margin-left: 30%;">Bem vindo ${sessionScope.nome}</a>
+	<a class="navbar-brand mr-1" href="#" style="margin-left: 30%;">Bem vindo ${sessionScope.usuario.nome}</a>
 	 
 	   
     <ul class="navbar-nav ml-auto ml-md-0" style="float: rigth">
@@ -68,7 +67,7 @@
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">ConfiguraÃ§Ãµes</a>
+          <a class="dropdown-item" href="#">Configurações</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
@@ -84,7 +83,7 @@
     <!-- NAO APAGARRRR  <li class="nav-item active">
         <a class="nav-link" href="graficos.jsp">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>GrÃ¡ficos</span>
+          <span>Gráficos</span>
         </a>
       </li>-->
       
@@ -107,7 +106,7 @@
       <li class="nav-item">
          <a class="nav-link" href="/LojaDeRoupas/listaVendas">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>RelatÃ³rios</span></a>
+          <span>Relatórios</span></a>
       </li>
    
     </ul>
@@ -119,7 +118,7 @@
         <!-- Breadcrumbs-->
        <!--  <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">GrÃ¡ficos</a>
+            <a href="#">Gráficos</a>
           </li>
     
         </ol>
@@ -202,7 +201,7 @@
           <div class="card-body">
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
           </div>
-          <div class="card-footer small text-muted">Atualizado hoje Ã¡s <strong><label id="horaAtual"></label></strong></div>
+          <div class="card-footer small text-muted">Atualizado hoje ás <strong><label id="horaAtual"></label></strong></div>
         </div>
         
         <input id="listaData" type="hidden" value="${data}">
@@ -212,7 +211,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright Â© Brazucas Technology 2020</span>
+            <span>Copyright © Brazucas Technology 2020</span>
           </div>
         </div>
       </footer>
@@ -235,10 +234,10 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">Ã—</span>
+            <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">${sessionScope.nome}, selecione "Logout" abaixo se vocÃª estiver pronto para encerrar sua sessÃ£o atual.</div>
+        <div class="modal-body">${sessionScope.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="login.jsp">Logout</a>

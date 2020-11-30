@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.FuncionarioDAO;
 import br.com.LojaDeRoupas.Dao.produtoDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.Vendedor;
 import br.com.LojaDeRoupas.Model.funcionario;
 import br.com.LojaDeRoupas.Model.gerente;
@@ -31,6 +32,12 @@ public class FuncionarioServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
 			String acao = request.getParameter("action");
 			String id = request.getParameter("id");
 			

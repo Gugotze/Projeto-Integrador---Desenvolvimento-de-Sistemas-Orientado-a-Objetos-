@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.com.LojaDeRoupas.Dao.indexDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 
 
 /**
@@ -21,6 +22,14 @@ public class Index extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Buscar para o gráfico NO SERVLETTTTTTT");
 		
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
+		
+		System.out.println("Está logado!");
 		String listaDeData = "";
 		String listaQtd = "";
 	

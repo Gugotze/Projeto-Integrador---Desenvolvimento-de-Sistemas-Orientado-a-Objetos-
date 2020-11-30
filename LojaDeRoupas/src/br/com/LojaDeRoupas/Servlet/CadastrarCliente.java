@@ -7,6 +7,7 @@ package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.ClienteDAO;
 import br.com.LojaDeRoupas.Model.Cliente;
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Util.Utils;
 
 import java.io.IOException;
@@ -28,6 +29,12 @@ public class CadastrarCliente extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
     	String nome = request.getParameter("nome");
     	String cpf = request.getParameter("cpf");
     	cpf = cpf.replaceAll("[^0-9]", "");

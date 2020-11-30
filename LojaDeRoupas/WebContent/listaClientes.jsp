@@ -97,7 +97,7 @@
             <body>
                 <div>
                     <center>
-                    <h1>Bem vindo, ${sessionScope.nomeUsuario}</h1>
+                    <h1>Bem vindo, Bem vindo ${sessionScope.usuario.nome}</h1>
                         <h1>Lista de Clientes</h1>
                         <button class="btn btn-primary"><a href="cadastrarCliente.jsp" style="color: white;"> Adicionar novo Cliente</a></button>
                         <br/>

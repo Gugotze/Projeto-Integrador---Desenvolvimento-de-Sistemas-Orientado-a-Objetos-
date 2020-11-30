@@ -7,6 +7,7 @@ package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.ClienteDAO;
 import br.com.LojaDeRoupas.Model.Cliente;
+import br.com.LojaDeRoupas.Model.Usuario;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,10 +28,14 @@ public class ListarClientes extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
         
-		HttpSession sessao = request.getSession();
 		
-		sessao.setAttribute("nomeUsuario", "Caio");
 		
 		
         List<Cliente> listaClientes = ClienteDAO.getClientes();

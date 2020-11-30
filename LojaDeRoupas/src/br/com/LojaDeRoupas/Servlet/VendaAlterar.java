@@ -7,7 +7,7 @@ package br.com.LojaDeRoupas.Servlet;
 
 
 import br.com.LojaDeRoupas.Dao.vendaDAO;
-
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.Venda;
 import br.com.LojaDeRoupas.Util.Utils;
 
@@ -35,6 +35,13 @@ public class VendaAlterar extends HttpServlet {
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
           
     	
               Integer id_venda = Integer.parseInt(request.getParameter("id_venda"));
@@ -51,6 +58,12 @@ public class VendaAlterar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
     	
     	System.out.println("Estou na alteração de venda");
     

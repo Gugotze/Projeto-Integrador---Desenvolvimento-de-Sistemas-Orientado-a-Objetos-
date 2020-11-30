@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.produtoDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 
 @WebServlet("/deletarProduto")
 public class ProdutoDeletar extends HttpServlet {
@@ -15,7 +16,13 @@ public class ProdutoDeletar extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
+		
 			
 			Integer codProduto = Integer.valueOf(request.getParameter("id"));
 			

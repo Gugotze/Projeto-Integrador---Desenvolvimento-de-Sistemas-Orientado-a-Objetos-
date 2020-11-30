@@ -6,6 +6,7 @@
 package br.com.LojaDeRoupas.Servlet;
 
 import br.com.LojaDeRoupas.Dao.vendaDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.Venda;
 
 
@@ -26,6 +27,12 @@ public class VendaConsultar extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
         	
 		System.out.println("VOU CONSULTAR");
        

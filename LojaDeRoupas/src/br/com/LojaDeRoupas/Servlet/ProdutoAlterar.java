@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.produtoDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 import br.com.LojaDeRoupas.Model.filial;
 import br.com.LojaDeRoupas.Model.produto;
 
@@ -21,6 +22,13 @@ public class ProdutoAlterar extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(!Usuario.estaLogado(request, response)) {
+			System.out.println("Não está logado!");
+			response.sendRedirect("login.jsp");
+			return;
+			 
+		}
+		
 		System.out.println("ENTREI");
 		String status = request.getParameter("action");
 		Integer id = Integer.valueOf(request.getParameter("id"));

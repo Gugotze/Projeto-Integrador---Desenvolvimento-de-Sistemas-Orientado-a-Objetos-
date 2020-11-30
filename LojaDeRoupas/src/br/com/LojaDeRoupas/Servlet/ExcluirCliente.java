@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.LojaDeRoupas.Dao.ClienteDAO;
+import br.com.LojaDeRoupas.Model.Usuario;
 
 
 public class ExcluirCliente extends HttpServlet {
@@ -29,6 +30,12 @@ public class ExcluirCliente extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+	if(!Usuario.estaLogado(request, response)) {
+		System.out.println("Não está logado!");
+		response.sendRedirect("login.jsp");
+		return;
+		 
+	}
         String cpf = request.getParameter("cpf");
        try {
            ClienteDAO.deleteCliente(cpf);
