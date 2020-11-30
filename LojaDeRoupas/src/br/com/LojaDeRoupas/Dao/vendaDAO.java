@@ -1,6 +1,6 @@
 package br.com.LojaDeRoupas.Dao;
 
-import br.com.LojaDeRoupas.Servlet.ServletBD;
+
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,8 +55,7 @@ public class vendaDAO{
     	}
     	
     	}catch (SQLException ex) {
-    		  Logger.getLogger(ServletBD.class.getName()).
-              log(Level.SEVERE, null, ex);
+    		  ex.getMessage();
 		}
     	return listaVenda;
     }

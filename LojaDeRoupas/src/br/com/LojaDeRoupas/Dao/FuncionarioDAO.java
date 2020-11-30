@@ -13,7 +13,6 @@ import br.com.LojaDeRoupas.Model.Cliente;
 import br.com.LojaDeRoupas.Model.Vendedor;
 import br.com.LojaDeRoupas.Model.funcionario;
 import br.com.LojaDeRoupas.Model.gerente;
-import br.com.LojaDeRoupas.Servlet.ServletBD;
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 
 public class FuncionarioDAO {
@@ -53,8 +52,7 @@ public class FuncionarioDAO {
 	            	}
 	            }
 	        } catch (SQLException ex) {
-	            Logger.getLogger(ServletBD.class.getName()).
-	                    log(Level.SEVERE, null, ex);
+	            ex.getMessage();
 	        }
 	        return listaClientes;
 	 }
@@ -137,8 +135,7 @@ public class FuncionarioDAO {
 	            	}
 	            }
 	        } catch (SQLException ex) {
-	            Logger.getLogger(ServletBD.class.getName()).
-	                    log(Level.SEVERE, null, ex);
+	            ex.getMessage();
 	        }
 	        return funcionario;
 	    }

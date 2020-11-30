@@ -2,7 +2,7 @@
 package br.com.LojaDeRoupas.Dao;
 
 import br.com.LojaDeRoupas.Model.Cliente;
-import br.com.LojaDeRoupas.Servlet.ServletBD;
+
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 
 import java.sql.Connection;
@@ -44,8 +44,7 @@ public class ClienteDAO {
         				cidade,estado));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServletBD.class.getName()).
-                    log(Level.SEVERE, null, ex);
+        	ex.getMessage();
         }
         return listaClientes;
     }
@@ -128,8 +127,7 @@ public class ClienteDAO {
         				cidade,estado);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServletBD.class.getName()).
-                    log(Level.SEVERE, null, ex);
+        	ex.getMessage();
         }
         return cliente;
     }

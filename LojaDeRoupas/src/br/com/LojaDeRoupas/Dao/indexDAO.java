@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.com.LojaDeRoupas.Model.Index;
-import br.com.LojaDeRoupas.Servlet.ServletBD;
 import br.com.LojaDeRoupas.Util.ConexaoDB;
 
 public class indexDAO {
@@ -37,8 +36,7 @@ public class indexDAO {
 	    	}
 	    	
 	    	}catch (SQLException ex) {
-	    		  Logger.getLogger(ServletBD.class.getName()).
-	              log(Level.SEVERE, null, ex);
+	    		  ex.getMessage();
 			}
 	    	return listaGrafico;
 		}
@@ -56,8 +54,7 @@ public class indexDAO {
 	    	count = rs.getInt("qtd");
 	    	
 	    	}catch (SQLException ex) {
-	    		  Logger.getLogger(ServletBD.class.getName()).
-	              log(Level.SEVERE, null, ex);
+	    		ex.getMessage();
 			}
 	    	System.out.println("Entrei na CONSULTA VENDA");
 	    	return count;
@@ -76,8 +73,7 @@ public class indexDAO {
 	    	rs.next();
 	    	count = rs.getInt("qtd");
 	    	}catch (SQLException ex) {
-	    		  Logger.getLogger(ServletBD.class.getName()).
-	              log(Level.SEVERE, null, ex);
+	    		ex.getMessage();
 			}
 	    	System.out.println("Entrei na CONSULTA CLIENTE");
 	    	return count;
@@ -95,8 +91,7 @@ public class indexDAO {
 	    	rs.next();
 	    	count = rs.getInt("qtd");
 	    	}catch (SQLException ex) {
-	    		  Logger.getLogger(ServletBD.class.getName()).
-	              log(Level.SEVERE, null, ex);
+	    		ex.getMessage();
 			}
 	    	
 	    	System.out.println("Entrei na CONSULTA PRODUTO");
