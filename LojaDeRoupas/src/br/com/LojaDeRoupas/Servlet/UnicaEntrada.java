@@ -26,7 +26,7 @@ public class UnicaEntrada extends HttpServlet {
 		System.out.println("Entrada!");
 		
 		String paramAcao = request.getParameter("acao");
-		boolean ehUmaAcaoProtegida = paramAcao.equals("ProdutoConsultar");
+		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
 		
 		
 		if(!Usuario.estaLogado(request, response) && ehUmaAcaoProtegida) {
@@ -35,12 +35,7 @@ public class UnicaEntrada extends HttpServlet {
 			return;
 			 
 		}
-		
-		
-		
-		
-		
-		
+	
 		String nomeDaClasse = "br.com.LojaDeRoupas.Acao." + paramAcao;
 		System.out.println(nomeDaClasse);
 		

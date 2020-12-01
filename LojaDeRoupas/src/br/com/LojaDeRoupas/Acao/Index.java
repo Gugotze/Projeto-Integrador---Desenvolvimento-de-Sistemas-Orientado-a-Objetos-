@@ -17,7 +17,7 @@ public class Index implements Acao {
 			throws ServletException, IOException {
 		
 
-		System.out.println("Está logado!");
+		
 		String listaDeData = "";
 		String listaQtd = "";
 	

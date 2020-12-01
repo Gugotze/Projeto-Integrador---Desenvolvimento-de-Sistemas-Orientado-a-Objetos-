@@ -15,6 +15,7 @@
   <link rel="shortcut icon" href="<c:url value="/Imagens/bandeiraBrasil.png"/>"/>	
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
@@ -61,15 +62,16 @@
 	 
 	   
     <ul class="navbar-nav ml-auto ml-md-0" style="float: rigth">
-      <li class="nav-item dropdown no-arrow" >
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
+       <li class="nav-item dropdown no-arrow" >
+        <a class="nav-link" href="#" id="userDropdown" role="button">
+          <i class="fa fa-sign-out" data-toggle="modal" data-target="#logoutModal" aria-hidden="true"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+       <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Configurações</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
+         -->
       </li>
     </ul>
 
