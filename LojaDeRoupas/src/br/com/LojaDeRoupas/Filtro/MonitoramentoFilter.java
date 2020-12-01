@@ -5,13 +5,21 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.cj.jdbc.ha.ReplicationMySQLConnection;
+
+import br.com.LojaDeRoupas.Model.Usuario;
 
 
-@WebFilter(urlPatterns = "/index")
+//@WebFilter(urlPatterns = "/entrada")
 public class MonitoramentoFilter implements Filter {
 
 	@Override
@@ -21,19 +29,47 @@ public class MonitoramentoFilter implements Filter {
 	}
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("Tempo de execução: ");
-		
+		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		long antes = System.currentTimeMillis();
+		String usuarioLogado = null;
 		
-		//executa a acao
+		HttpServletRequest request = (HttpServletRequest) servletRequest;
+		HttpServletResponse response = (HttpServletResponse) servletResponse;
+		
+		
+		String paramAcao = request.getParameter("acao");
+		
+		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
+		
+		
+		if(!Usuario.estaLogado(request, response) && ehUmaAcaoProtegida) {
+			System.out.println("Não está logado!");
+			
+			response.sendRedirect("login.jsp");
+			return;	 
+		}	
+		if(paramAcao.equals("Logout")) {
+			System.out.println("Vou deslogar");
+			response.sendRedirect("login.jsp");
+			return;
+		}
+		
 		chain.doFilter(request, response);
+		
+		
+		
+	
+	
 		
 		
 		long depois = System.currentTimeMillis();
 		
 		System.out.println("Tempo de execução: "+ (depois - antes));
+		
+		
+		
 		
 	}
 

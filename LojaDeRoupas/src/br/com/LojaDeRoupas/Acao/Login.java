@@ -34,11 +34,18 @@ public class Login implements Acao{
 			
 			return "forward:entrada?acao=Login";
 		}else {
-			System.out.println("Tem o user");
-			HttpSession sessao = request.getSession();
 			
+			System.out.println("Tem o user");
+			HttpSession sessao = request.getSession();			
 			sessao.setAttribute("usuario",funcionario);
-			return "redirect:entrada?acao=Index";
+			
+			if(funcionario.getTipo().equals("V")) {
+				return "redirect:entrada?acao=ProdutosVenda";
+			}else {
+				return "redirect:entrada?acao=Index";
+			}
+			
+			
 		}
 		
 		

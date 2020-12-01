@@ -8,12 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.LojaDeRoupas.Acao.Acao;
 import br.com.LojaDeRoupas.Acao.ProdutoAlterar;
 import br.com.LojaDeRoupas.Acao.ProdutoConsultar;
 import br.com.LojaDeRoupas.Acao.ProdutoDeletar;
 import br.com.LojaDeRoupas.Model.Usuario;
+import br.com.LojaDeRoupas.Model.funcionario;
 import br.com.LojaDeRoupas.Acao.ProdutoCadastrar;
 
 
@@ -26,16 +28,13 @@ public class UnicaEntrada extends HttpServlet {
 		System.out.println("Entrada!");
 		
 		String paramAcao = request.getParameter("acao");
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
 		
-		
-		if(!Usuario.estaLogado(request, response) && ehUmaAcaoProtegida) {
-			System.out.println("Não está logado!");
-			response.sendRedirect("login.jsp");
-			return;
-			 
-		}
+	HttpSession sessao = request.getSession();
 	
+	
+	funcionario funcionario =(funcionario) sessao.getAttribute("usuario");
+	
+	System.out.println("Meu funcionario é"+funcionario);
 		String nomeDaClasse = "br.com.LojaDeRoupas.Acao." + paramAcao;
 		System.out.println(nomeDaClasse);
 		
@@ -50,15 +49,26 @@ public class UnicaEntrada extends HttpServlet {
 		
 		String[] tipoEEndereco =  nome.split(":");
 		
-		if(tipoEEndereco[0].equals("forward")) {
+	
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+tipoEEndereco[1]);
-		rd.forward(request, response);
 		
-		} else {
+			if(tipoEEndereco[0].equals("forward")) {
+				
+				
+				
+				if(!(funcionario.getTipo().equals("V") && tipoEEndereco[1].equals("listaProdutos.jsp"))) {
+				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+tipoEEndereco[1]);
+				rd.forward(request, response);
+				}else { 
+					response.sendRedirect("Blocked.jsp");
+				}
+		
+			} else {
+				 response.sendRedirect(tipoEEndereco[1]);
+				
+			}
+		
 			
-			response.sendRedirect(tipoEEndereco[1]);
-		}
 		
 	}
 

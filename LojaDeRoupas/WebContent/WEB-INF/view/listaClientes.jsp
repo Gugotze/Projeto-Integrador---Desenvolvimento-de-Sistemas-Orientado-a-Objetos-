@@ -97,7 +97,7 @@
             <body>
                 <div>
                     <center>
-                    <h1>Bem vindo, Bem vindo ${sessionScope.usuario.nome}</h1>
+                   <!--   <h1>Bem vindo, Bem vindo ${sessionScope.usuario.nome}</h1>-->
                         <h1>Lista de Clientes</h1>
                         <button class="btn btn-primary"><a href="/LojaDeRoupas/entrada?acao=NovoClienteForm" style="color: white;"> Adicionar novo Cliente</a></button>
                         <br/>

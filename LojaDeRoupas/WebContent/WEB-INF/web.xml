@@ -80,6 +80,24 @@
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <filter>
+    <filter-name>MF</filter-name>
+    <filter-class>br.com.LojaDeRoupas.Filtro.MonitoramentoFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
+
+    <filter>
+    <filter-name>AF</filter-name>
+    <filter-class>br.com.LojaDeRoupas.Filtro.AutorizacaoFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
     <session-config>
         <session-timeout>
             30

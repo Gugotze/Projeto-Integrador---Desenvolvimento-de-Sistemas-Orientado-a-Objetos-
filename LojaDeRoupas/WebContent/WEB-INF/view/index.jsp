@@ -27,6 +27,7 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script lang="text/javascript">
   $(document).ready( function () {
+	  console.log("AQUIIIIIII");
 	  var data = new Date();
 
 		
@@ -40,9 +41,11 @@
 		var str_hora = hora + ':' + min + ':' + seg;
 		console.log('teste');
 		console.log(str_hora)
-		document.getElementById('horaAtual').innerHTML = str_hora; 
-	           
-  });        
+		document.getElementById('horaAtual').innerHTML = str_hora;
+		
+		
+	
+     
 
 	
   </script>
