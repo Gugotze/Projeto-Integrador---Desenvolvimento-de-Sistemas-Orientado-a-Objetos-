@@ -63,6 +63,8 @@
     </button>
 	<a class="navbar-brand mr-1" href="#" style="margin-left: 30%;">Bem vindo ${sessionScope.usuario.nome}</a>
 	 
+	 
+	 
 	   
     <ul class="navbar-nav ml-auto ml-md-0" style="float: rigth">
        <li class="nav-item dropdown no-arrow" >

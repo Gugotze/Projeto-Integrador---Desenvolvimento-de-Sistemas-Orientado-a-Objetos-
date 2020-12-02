@@ -25,19 +25,20 @@
             
             <div class="" id="navbarResponsive">
               <ul class="navbar-expand navbar-nav ml-auto floatRight">
-                <li class="nav-item pl-2 pr-2">
-                  <a class="nav-link js-scroll-trigger" href="#header">
-                    <i class="fas fa-home hidden-md-up" style="font-size:1.5em"></i>
-                    <span class="hidden-sm-down">Inicio</span>
-                  </a>
-                </li>
+     		 <li>        
+     		  <div class="dropdown">
+  				<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:1.5em">
+    			Cadastros
+  				</a>
+  				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    			<a class="dropdown-item"  href="/LojaDeRoupas/entrada?acao=NovoClienteForm">Cadastrar cliente</a>
+    			<a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">Consultar Clientes</a>
+    			<!--  <a class="dropdown-item" href="#">Something else here</a>-->
+  				</div>
+				</div>
+				</li>
                 
-                <li class="nav-item pl-2 pr-2">
-                  <a class="nav-link js-scroll-trigger" href="#Product"> 
-                    <i class="fas fa-list-alt hidden-md-up" style="font-size:1.5em"></i> 
-                      <span class="hidden-sm-down">Produtos</span>
-                  </a>
-                </li>
+               
                 
                 <li class="nav-item pl-2 pr-2">
                   <a class="nav-link js-scroll-trigger" href="#Tutorial">

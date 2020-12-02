@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,21 +15,15 @@
         <script src="jQueryMask/dist/jquery.mask.min.js" ></script>
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <c:if test = "${sessionScope.usuario.tipo == 'G'}">     
   <a class="navbar-brand" href="entrada?acao=Index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+  </c:if>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Camisetas <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Calçados</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Acessórios</a>
-      </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Cadastros
@@ -36,14 +31,20 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="ListarClientes">Listar Clientes</a><br/>
           <a class="dropdown-item" href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
-	   	  <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
+          <c:if test = "${sessionScope.usuario.tipo == 'G'}">
+          <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
+      	  </c:if>
+      	  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
 		  <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a></br>
+		  </c:if>
+		  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
 		  <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
+		  </c:if>
 		  
         </div>
       </li>
       
-      <li class="nav-item dropdown no-arrow" >
+      <li class="nav-item dropdown no-arrow" style="margin-left: 1235px;">
         <a class="nav-link" href="#" id="userDropdown" role="button">
           <i class="fa fa-sign-out" data-toggle="modal" data-target="#logoutModal" aria-hidden="true"></i>
         </a>

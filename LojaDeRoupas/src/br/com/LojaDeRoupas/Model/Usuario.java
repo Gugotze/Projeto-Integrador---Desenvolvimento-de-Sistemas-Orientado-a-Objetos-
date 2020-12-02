@@ -59,7 +59,7 @@ public class Usuario {
 		
 		if(funcionario.getTipo().equals("V")) {
 			
-			if(tipo.equals("Login") || tipo.equals("LoginForm") || tipo.equals("ProdutosVenda.jsp")){
+			if(tipo.equals("Login") || tipo.equals("LoginForm") || tipo.equals("ProdutosVenda.jsp") || tipo.equals("cadastrarCliente.jsp") || tipo.equals("listaClientes.jsp")){
 				return true;
 			}
 			
