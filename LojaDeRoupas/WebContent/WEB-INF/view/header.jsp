@@ -29,16 +29,16 @@
           Cadastros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="ListarClientes">Listar Clientes</a><br/>
-          <a class="dropdown-item" href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">Listar Clientes</a><br/>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=NovoClienteForm">Cadastrar Clientes</a><br/>
           <c:if test = "${sessionScope.usuario.tipo == 'G'}">
-          <a class="dropdown-item" href="/LojaDeRoupas/listaVendas"> Consulta de Vendas</a><br/>
+          <a class="dropdown-item" href="entrada?Acao=NovoFuncionarioForm"> Consulta de Vendas</a><br/>
       	  </c:if>
       	  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
-		  <a class="dropdown-item" href="RealizarVenda.jsp">Realizar Venda</a></br>
+		  <a class="dropdown-item" href="entrada?acao=NovaVendaForm">Realizar Venda</a></br>
 		  </c:if>
 		  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
-		  <a class="dropdown-item" href="/LojaDeRoupas/listaProdutos">Produtos</a>
+		  <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ProdutoConsultar">Produtos</a>
 		  </c:if>
 		  
         </div>

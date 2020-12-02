@@ -61,6 +61,8 @@ $(document).click(function () {
 
 $(".add-to-cart").on("click", function () {
     var cart = $(".shopping-cart");
+    
+    
 
     var imgtodrag = $(this)
         .closest(".item")
@@ -116,9 +118,10 @@ $(".add-to-cart").on("click", function () {
         );
     }
 
-    //add items to basket
+    //add items
     $("#cart-items").slideUp();
     $(this).each(function () {
+    
         var name = $(this)
             .parents(".item")
             .find(".product-name")
@@ -131,7 +134,8 @@ $(".add-to-cart").on("click", function () {
                 .text() +
             "</span>";
 
-        var remove = "<span class='remove'> <i class='fas fa-times-circle'></i> </span>";
+        var remove = "<span class='remove' id='remover'> <i class='fas fa-times-circle'></i> </span>";
+        
         $("#list-item").append(
             "<li>" +
             name +
@@ -161,10 +165,23 @@ $(".add-to-cart").on("click", function () {
     $("#total-price").text("$" + totalPrice);
 
     //remove item from basket
+    
     $(".remove").on("click", function (e) {
+    	var id = $("#idProduto").val();
+    	console.log(id);
+    	console.log('aqui')
+    	console.log($(this));
+    
+    	$.get("/LojaDeRoupas/Carrinho?id="+id+"&action=remover", function resposta( resposta ){
+				console.log('adicionei')
+				//$('.toast').toast('show');
+			});
         $(this)
             .parent()
             .remove();
+            
+            
+            
         // Re -Calculate total of the exisitng items
         var totalPrice = 0;
         $(".eachPrice").each(function () {

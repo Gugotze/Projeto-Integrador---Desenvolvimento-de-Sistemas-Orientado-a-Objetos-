@@ -129,6 +129,7 @@
     
         </ol>
  -->
+ <a href="/LojaDeRoupas/entrada?acao=Finalizacao">clique</a>
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">

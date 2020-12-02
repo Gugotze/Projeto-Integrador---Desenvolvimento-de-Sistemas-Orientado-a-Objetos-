@@ -125,6 +125,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+             <c:if test = "${erro}">
+            <div class="alert alert-danger" role="alert">
+  				Erro para cadastrar cliente!${mensagem }
+			</div>
+			</c:if>
         </div>
 
     </html>

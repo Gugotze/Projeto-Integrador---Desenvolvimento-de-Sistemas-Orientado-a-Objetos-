@@ -16,20 +16,24 @@ import br.com.LojaDeRoupas.Model.produto;
 public class ProdutoConsultar implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
-
+		
+		
+		
+		
 		List<produto> lista = null;
 		try {
 			lista = produtoDAO.consultarProduto();
 		} catch (SQLException e) {
 			throw new ServletException(e.getMessage());
 		}
-
-
-
-
+		
 		request.setAttribute("produtos", lista);
-
+		
 		return "forward:listaProdutos.jsp";
+		
+		
+		
+		
 	
 	}
 	

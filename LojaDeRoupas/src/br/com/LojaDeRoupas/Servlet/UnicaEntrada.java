@@ -57,8 +57,11 @@ public class UnicaEntrada extends HttpServlet {
 				
 				
 				if(Usuario.podeAcessar(request, response, funcionario, tipoEEndereco[1])) {
+					
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+tipoEEndereco[1]);
+				
 				rd.forward(request, response);
+				
 				}else { 
 					response.sendRedirect("Blocked.jsp");
 				}

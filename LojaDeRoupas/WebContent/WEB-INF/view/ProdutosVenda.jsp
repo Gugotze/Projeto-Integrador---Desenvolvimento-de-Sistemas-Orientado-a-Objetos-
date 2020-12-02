@@ -16,7 +16,31 @@
     <script src="css/bootstrap_4_3/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Produtos</title>
+    
+    <script>
+		function adicionar(id){
+			$.get("/LojaDeRoupas/Carrinho?id="+id+"&action=adicionar", function resposta( resposta ){
+				alert('Produto adicionado com sucesso!');
+				
+			});
+		}
+		
+		function remover(id){
+			$.get("/LojaDeRoupas/Carrinho?id="+id+"&action=remover", function resposta( resposta ){
+				alert('Produto deletado com sucesso!');
+				
+			});
+		}
+		
+		
+
+	</script>
+    
+    
 </head>
+
+
+
 <body>
     <header id="header" class="d-flex align-items-center scroll-Active">
         <nav class="navbar-expand-lg navbar-dark fixed-top floatRight" style="background-color:#f8f9fa!important" id="nav-bar">
@@ -46,13 +70,13 @@
                       <span class="hidden-sm-down"></span>
                   </a>
                 </li>
-            
+            <!-- 
                 
                 <li class="nav-item pl-2 pr-2" style="border-bottom:1px solid #622569;">
                   <div class="cart text-center">
                     <i class="fa fa-shopping-basket fa-2x shopping-cart"></i>
                     <i class="fa fa-caret-down"></i>
-                    <!--br-->
+
                     <span id="items-basket">0</span>
                   </div>
                   <div id="cart-items" class="card text-center col-lg-3 col-md-3 col-sm-6 col-xs-6 offset-sm-1" style="background-color:#f8f9fa!important">
@@ -72,7 +96,7 @@
                     </div>
                   </div>
                 </li>
-                
+                 -->
                 <li class="nav-item dropdown no-arrow" >
         <a class="nav-link" href="#" id="userDropdown" role="button">
           <i class="fa fa-sign-out" data-toggle="modal" data-target="#logoutModal" aria-hidden="true"></i>
@@ -102,136 +126,56 @@
                              Lista de produtos
                           </h2>
                       </div>
-                                  </div>
+                         
+                    
                   <div class="row justify-content-center align-items-start">
+					<c:forEach items="${produtos}" var="produto">
                       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
                           <div class="item">
                               <img class="img-thumbnail" src="https://gaston.vteximg.com.br/arquivos/ids/275370-1000-1000/2001099525_Ampliada.jpg?v=637086393512900000" alt="" />
       
                               
                                   <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Nike</h4>
+                                      <h4 class="product-name marginTop ">${produto._nome}</h4>
                                   </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
+                                   <div class="row">
+    								<div class="col-sm">
+      								R$
+    								</div>
+    								<div class="col-sm product-price">
+      								${produto._valorVenda}
+    								</div>
+                                   </div>
                               <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
+                                      <button class="btn" type="button" onclick="adicionar(${produto._codProduto})">Adicionar ao carrinho</button>
+                                      <button class="btn btn-danger" type="button" style="margin-top: 10px" onclick="remover(${produto._codProduto})">Remover do carrinho</button>
+                                      <!-- <input type="hidden" id="idProduto" value="${produto._codProduto}"> -->
                                 </div>
                           </div>
                       </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_600,f_auto,q_auto/d210aea304c048e596cea80b00d5793b_9366/Camiseta_Trefoil_Preto_CW0709_21_model.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Adidas preta</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_600,f_auto,q_auto/2d197c27eaed4401a930ac5900f455a0_9366/Camisa_Human_Race_FC_Bayern_Vermelho_GJ9088_21_model.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Bayer de Munique</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/9856a403d5574b199e66ab4901830fa2_9366/jaqueta-corta-vento-essentials.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Blusa de frio adidas</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/2ba2ec210c1d41488533ab370045d21a_9366/camiseta-globe.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Adidas branca</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/cbb60a90a0aa40dfbbc9abf1011abdd5_9366/camisa-pre-jogo-real-madrid.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Real Madrid Feminina</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/d581c6245a19414a9c6eab34015c3e20_9366/camisa-internacional-2.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa Internacional</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 mt-3">
-                          <div class="item">
-                              <img class="img-thumbnail" src="https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/605dfc266b0b40f0a4bcabf0016a1e7b_9366/blusa-moletom-capuz-pride-flag-fill-genero-neutro-unisex.jpg" alt="" />
-                               <div class="text-center">
-                                      <h4 class="product-name marginTop">Camisa</h4>
-                                  </div>
-                                  <div class="text-center marginTop">
-                                     Valor $15.00
-                                  </div>
-                              
-                              <div class="text-center marginTop">
-                                      <button class="btn add-to-cart" type="button">Adicionar ao carrinho</button>
-                                </div>
-                          </div>
-                      </div>
-      
+                      </c:forEach>
                   </div>
               </div>
           </section>
           </div>
-      
+      <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/LojaDeRoupas/entrada?acao=Logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
           
           <footer>
               <div class="container">
@@ -250,26 +194,6 @@
                   </div>
               </div>
           </footer>
-
-<!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/LojaDeRoupas/entrada?acao=Logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-          <script src="js/main.js"></script>
+      <script src="js/main.js"></script>
 </body>
 </html>

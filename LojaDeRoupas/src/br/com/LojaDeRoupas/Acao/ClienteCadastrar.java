@@ -43,9 +43,17 @@ public class ClienteCadastrar implements Acao {
             
             return "redirect:entrada?acao=ClienteConsultar";
         } catch (SQLException | ClassNotFoundException ex) {
-        	ex.getMessage();
+        	System.out.println("ERROOOOOOOOOOOOOOO");
+        	String erro = "";
+        	if(ex.getMessage().contains("Duplicate")) {
+        		erro = "Cliente já é cadastrado!";
+        	}
+        	request.setAttribute("erro", true);
+        	request.setAttribute("mensagem", erro);
+        	return "forward:cadastrarCliente.jsp";
+        	//return "redirect:entrada?acao=ClienteConsultar";
         }
-		return null;
+		//return null;
 	}
 
 }
