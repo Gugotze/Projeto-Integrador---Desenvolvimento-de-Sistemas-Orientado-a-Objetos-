@@ -56,7 +56,7 @@ public class UnicaEntrada extends HttpServlet {
 				
 				
 				
-				if(!(funcionario.getTipo().equals("V") && tipoEEndereco[1].equals("listaProdutos.jsp"))) {
+				if(Usuario.podeAcessar(request, response, funcionario, tipoEEndereco[1])) {
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+tipoEEndereco[1]);
 				rd.forward(request, response);
 				}else { 

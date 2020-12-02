@@ -31,9 +31,9 @@ public class MonitoramentoFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		
 		long antes = System.currentTimeMillis();
-		String usuarioLogado = null;
+
 		
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -47,7 +47,7 @@ public class MonitoramentoFilter implements Filter {
 		if(!Usuario.estaLogado(request, response) && ehUmaAcaoProtegida) {
 			System.out.println("Não está logado!");
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("Blocked.jsp");
 			return;	 
 		}	
 		if(paramAcao.equals("Logout")) {

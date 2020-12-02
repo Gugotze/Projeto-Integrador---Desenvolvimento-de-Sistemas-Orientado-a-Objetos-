@@ -31,9 +31,7 @@ public class Usuario {
 	public static boolean estaLogado(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession sessao = request.getSession();
 		
-		funcionario funcionario = (funcionario) sessao.getAttribute("usuario");
-		
-		
+//		funcionario funcionario = (funcionario) sessao.getAttribute("usuario");
 		
 		
 		
@@ -46,22 +44,22 @@ public class Usuario {
 		
 	}
 	
-	public static boolean podeAcessar(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession sessao = request.getSession();
+	public static boolean podeAcessar(HttpServletRequest request, HttpServletResponse response, funcionario funcionario,String tipo) {
+		//HttpSession sessao = request.getSession();
 		
-		funcionario funcionario = (funcionario) sessao.getAttribute("usuario");
+		//funcionario funcionario = (funcionario) sessao.getAttribute("usuario");
 		String paramAcao = request.getParameter("acao");
 		
 		System.out.println("AQUI"+funcionario.getTipo());
-		System.out.println("AQUI"+paramAcao);
-		System.out.println(!paramAcao.equals("Login"));
-		System.out.println(!paramAcao.equals("LoginForm"));
-		System.out.println(!paramAcao.equals("ProdutosVenda"));
+		System.out.println("AQUI"+tipo);
+		System.out.println(!tipo.equals("Login"));
+		System.out.println(!tipo.equals("LoginForm"));
+		System.out.println(!tipo.equals("ProdutosVenda"));
 		
 		
 		if(funcionario.getTipo().equals("V")) {
 			
-			if(paramAcao.equals("Login") || paramAcao.equals("LoginForm") || paramAcao.equals("ProdutosVenda")){
+			if(tipo.equals("Login") || tipo.equals("LoginForm") || tipo.equals("ProdutosVenda.jsp")){
 				return true;
 			}
 			
