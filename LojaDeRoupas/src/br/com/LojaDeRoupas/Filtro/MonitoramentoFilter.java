@@ -50,11 +50,7 @@ public class MonitoramentoFilter implements Filter {
 			response.sendRedirect("Blocked.jsp");
 			return;	 
 		}	
-		if(paramAcao.equals("Logout")) {
-			System.out.println("Vou deslogar");
-			response.sendRedirect("login.jsp");
-			return;
-		}
+	  
 		
 		chain.doFilter(request, response);
 		

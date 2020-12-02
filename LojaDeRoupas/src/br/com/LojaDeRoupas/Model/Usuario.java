@@ -48,7 +48,7 @@ public class Usuario {
 		//HttpSession sessao = request.getSession();
 		
 		//funcionario funcionario = (funcionario) sessao.getAttribute("usuario");
-		String paramAcao = request.getParameter("acao");
+		//String paramAcao = request.getParameter("acao");
 		
 		System.out.println("AQUI"+funcionario.getTipo());
 		System.out.println("AQUI"+tipo);

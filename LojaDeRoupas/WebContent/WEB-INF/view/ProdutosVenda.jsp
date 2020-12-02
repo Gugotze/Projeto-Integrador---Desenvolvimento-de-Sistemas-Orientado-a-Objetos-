@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="js/jQuery.min.js"></script>
     <script src="js/jqueryui.min.js"></script>
     <script src="css/bootstrap_4_3/js/bootstrap.bundle.min.js"></script>
@@ -44,6 +45,7 @@
                       <span class="hidden-sm-down"></span>
                   </a>
                 </li>
+            
                 
                 <li class="nav-item pl-2 pr-2" style="border-bottom:1px solid #622569;">
                   <div class="cart text-center">
@@ -69,6 +71,19 @@
                     </div>
                   </div>
                 </li>
+                
+                <li class="nav-item dropdown no-arrow" >
+        <a class="nav-link" href="#" id="userDropdown" role="button">
+          <i class="fa fa-sign-out" data-toggle="modal" data-target="#logoutModal" aria-hidden="true"></i>
+        </a>
+       <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Configurações</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+         -->
+      </li>
+                
               </ul>
             </div>
           </div>
@@ -234,6 +249,25 @@
                   </div>
               </div>
           </footer>
+
+<!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">${sessionScope.usuario.nome}, selecione "Logout" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/LojaDeRoupas/entrada?acao=Logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
           <script src="js/main.js"></script>
 </body>
