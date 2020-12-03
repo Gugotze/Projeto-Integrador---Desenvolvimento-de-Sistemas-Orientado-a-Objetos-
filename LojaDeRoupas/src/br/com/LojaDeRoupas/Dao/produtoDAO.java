@@ -27,6 +27,8 @@ public class produtoDAO {
     		Connection con = ConexaoDB.getConnection();
     		PreparedStatement ps = con.prepareStatement(sqlConsulta);
     		ResultSet rs = ps.executeQuery();
+    		
+    		System.out.println(ps);
     	
     	while(rs.next()) {
     		int codProduto = rs.getInt("ID_PRODUTO");
