@@ -20,7 +20,7 @@ public class produtoDAO {
     	
     	System.out.println("Estou na consulta");
     	
-    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL;";
+    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO,PATH FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL;";
     	
     	try {
     		
@@ -38,8 +38,9 @@ public class produtoDAO {
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
     		String filial = rs.getString("ESTADO");
+    		String path = rs.getString("PATH");
 			System.out.println(nome);
-		listaProdutos.add(new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial));
+		listaProdutos.add(new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial,path));
 			
     	}
     	
@@ -51,7 +52,7 @@ public class produtoDAO {
     
     public static void inserirProduto(produto produto) throws SQLException, ServletException{
     	System.out.println("inserirProduto");
-    	String sqlInsert = "insert into PRODUTO(ID_PRODUTO,COD_FILIAL,NOME,TIPO,VALOR_COMPRA,VALOR_VENDA) values(DEFAULT,?,?,?,?,?)";
+    	String sqlInsert = "insert into PRODUTO(ID_PRODUTO,COD_FILIAL,NOME,TIPO,VALOR_COMPRA,VALOR_VENDA,PATH) values(DEFAULT,?,?,?,?,?,?)";
     	String sqlInsertEstoque = "insert into ESTOQUE(ID_ESTOQUE,COD_PRODUTO_FK,QUANTIDADE) values(DEFAULT,LAST_INSERT_ID(),?)";
     	
     	try {
@@ -63,6 +64,7 @@ public class produtoDAO {
     		insertProduto.setString(3, produto.get_tipo());
     		insertProduto.setDouble(4, produto.get_valorCompra());
     		insertProduto.setDouble(5, produto.get_valorVenda());
+    		insertProduto.setString(6, produto.get_path());
     		System.out.println("INSERT DO PRODUTO---->"+insertProduto);
     		/*        Insert do estoque                        */
     		insertEstoque.setInt(1, produto.get_quantidade());
@@ -79,7 +81,7 @@ public class produtoDAO {
     
     public static void atualizarProduto(produto produto) throws SQLException {
     	System.out.println("atualizarPrdoutoDAO");
-    	String sqlUpdate = "UPDATE PRODUTO a inner join ESTOQUE b on a.ID_PRODUTO = b.COD_PRODUTO_FK set a.COD_FILIAL = ?, a.NOME = ?, a.TIPO = ?, a.VALOR_COMPRA = ?, a.VALOR_VENDA =?, b.QUANTIDADE = ? WHERE ID_PRODUTO= ?";
+    	String sqlUpdate = "UPDATE PRODUTO a inner join ESTOQUE b on a.ID_PRODUTO = b.COD_PRODUTO_FK set a.COD_FILIAL = ?, a.NOME = ?, a.TIPO = ?, a.VALOR_COMPRA = ?, a.VALOR_VENDA =?, a.PATH =?, b.QUANTIDADE = ? WHERE ID_PRODUTO= ?";
     	
     	try{
     		Connection con = ConexaoDB.getConnection();
@@ -92,8 +94,9 @@ public class produtoDAO {
     		ps.setString(3, produto.get_tipo());
     		ps.setDouble(4, produto.get_valorCompra());
     		ps.setDouble(5, produto.get_valorVenda());
-    		ps.setInt(6, produto.get_quantidade());
-    		ps.setInt(7, produto.get_codProduto());
+    		ps.setString(6, produto.get_path());
+    		ps.setInt(7, produto.get_quantidade());
+    		ps.setInt(8, produto.get_codProduto());
     		
     		System.out.println("UPDATE AQUI ---->"+ ps);
     		

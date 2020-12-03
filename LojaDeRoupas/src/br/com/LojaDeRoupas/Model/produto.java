@@ -19,6 +19,7 @@ public class produto {
     private double _valorVenda;
     private String _filial;
     private String _status;
+    private String _path;
     
     public produto() {	
 	}
@@ -28,16 +29,17 @@ public class produto {
     	_status = status;
     }
     
-    public produto(int codFilial, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
+    public produto(int codFilial, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String path) {
     	this._codFilial = codFilial;
     	this._nome = nome;
     	this._tipo = tipo;
     	this._quantidade = quantidade;
     	this._valorCompra = valorCompra;
     	this._valorVenda = valorVenda;
+    	this._path = path;
     }
     
-    public produto(int codFilial,int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda) {
+    public produto(int codFilial,int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String path) {
     	this._codFilial = codFilial;
     	this._codProduto = codProduto;
     	this._nome = nome;
@@ -45,9 +47,10 @@ public class produto {
     	this._quantidade = quantidade;
     	this._valorCompra = valorCompra;
     	this._valorVenda = valorVenda;
+    	this._path = path;
     }
     
-    public produto(int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String filial) {
+    public produto(int codProduto, String nome, String tipo, int quantidade, double valorCompra, double valorVenda,String filial,String path) {
     	//this._codFilial = codFilial;
     	this._codProduto = codProduto;
     	this._nome = nome;
@@ -56,7 +59,10 @@ public class produto {
     	this._valorCompra = valorCompra;
     	this._valorVenda = valorVenda;
     	this._filial = filial;
+    	this._path = path;
     }
+    
+
     
     
     
@@ -139,5 +145,15 @@ public class produto {
     
     public void set_status(String _status) {
     	this._status = _status;
-    }   
+    }
+
+	public String get_path() {
+		return _path;
+	}
+
+	public void set_path(String _path) {
+		this._path = _path;
+	} 
+    
+    
 }
