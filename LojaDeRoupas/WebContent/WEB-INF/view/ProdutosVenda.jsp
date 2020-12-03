@@ -49,7 +49,12 @@
             
             <div class="" id="navbarResponsive">
               <ul class="navbar-expand navbar-nav ml-auto floatRight">
-     		 <li style="margin-right: 50px">        
+              <c:if test = "${sessionScope.usuario.tipo == 'G'}">     
+              <li style="margin-right: 900px">
+              <a class="navbar-brand" href="entrada?acao=Index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+              </li>
+              </c:if>
+     		 <li style="margin-right: 50px; margin-top: 10px">        
      		  <div class="dropdown">
   				<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:1.5em">
     			Cadastros
@@ -61,8 +66,8 @@
   				</div>
 				</div>
 				</li>
-               <li> 
-               <button type="button" class="btn btn-success"><a href="/LojaDeRoupas/entrada?acao=Finalizacao" style="color: white">Finalizar venda</a></button>
+               <li style="margin-top: 10px"> 
+               <button type="button" class="btn btn-success"><a href="/LojaDeRoupas/entrada?acao=Finalizacao" style="color: white;  margin-top: 10px">Finalizar venda</a></button>
                 </li>
                 <li class="nav-item pl-2 pr-2">
                   <a class="nav-link js-scroll-trigger" href="#Tutorial">

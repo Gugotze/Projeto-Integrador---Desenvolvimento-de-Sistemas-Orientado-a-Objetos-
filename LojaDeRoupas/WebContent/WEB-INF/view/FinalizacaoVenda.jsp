@@ -62,7 +62,7 @@ function buscaCliente(){
 		var split = resposta.split(';');
 		document.getElementById('nome').innerHTML = split[0];
 		document.getElementById('id').value = split[1];
-		alert('Resposta'+resposta);
+		
 		
 	});
 	
@@ -72,7 +72,7 @@ function calculaDesconto(){
 	var valorDesconto = document.getElementById('percentDesconto').value;
 	var total =  document.getElementById('valor_Total').value;
 	
-	alert(document.getElementById('percentDesconto').value);
+	
 	
 	if(valorDesconto == 3){
 		descontar = total * 0.03; 
@@ -181,7 +181,7 @@ function calcularTroco(){
 <form action="/LojaDeRoupas/entrada?acao=VendaCadastrar" method="post">
     <div class="form-group">
       <label for="cpf">CPF Cliente</label>
-      <input type="text" class="form-control" id="cpf" placeholder="Email">
+      <input type="text" class="form-control" id="cpf" placeholder="CPF">
       <a onclick="buscaCliente()"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
     <div class="form-group">
@@ -217,7 +217,7 @@ function calcularTroco(){
     </div>
     <div class="form-group col-md-6">
       <label for="desconto">Desconto</label>
-      <input type="text"  class="form-control" name="desconto" id="desconto" placeholder="desconto">
+      <input type="text"  class="form-control" name="desconto" id="desconto" placeholder="desconto" value="0">
     </div>
   </div>
   

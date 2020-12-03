@@ -67,7 +67,7 @@
 
             <center>
                 <h1>Relatório de Vendas</h1>
-                <button class="btn btn-primary"><a href="entrada?acao=NovaVendaForm" style="color: white;"> Realizar Nova Venda</a></button>
+                <button class="btn btn-primary"><a href="/LojaDeRoupas/entrada?acao=ProdutosVenda" style="color: white;"> Realizar Nova Venda</a></button>
                 <br>
                 <br>
                 <br>
