@@ -69,6 +69,46 @@ public class vendaDAO{
     	return listaVenda;
     }
     
+    
+    public static List<Venda> consultarVenda(String dataIni,String dataFim) {
+    	System.out.println("Entrei na CONSULTA");
+    	List <Venda> listaVenda =  new ArrayList<Venda>();
+    	
+    	try {
+    	
+    	Connection con = ConexaoDB.getConnection();
+    	String query =  "Select ID_VENDA,C.NOME, F.ESTADO,a.QUANTIDADE, VALOR_TOTAL,DATA_VENDA from VENDA a inner join VENDA_HAS_PRODUTO b on a.ID_VENDA = b.COD_VENDA INNER JOIN FILIAL F ON F.ID_FILIAL = a.COD_FILIAL INNER JOIN PRODUTO P ON P.ID_PRODUTO = b.COD_PRODUTO INNER JOIN CLIENTE C ON C.ID_CLIENTE = a.COD_CLIENTE where 1 = 1 and DATA_VENDA between ? and ? group by ID_VENDA order by DATA_VENDA desc;";
+    	PreparedStatement ps = con.prepareStatement(query);
+    	ps.setString(1, dataIni);
+    	ps.setString(2, dataFim);
+    	System.out.println(ps);
+    	ResultSet rs = ps.executeQuery();
+    	
+    	
+    	
+    	while(rs.next()) {
+    		Integer id_venda = rs.getInt("ID_VENDA");
+    		String nome =  rs.getString("NOME");
+			String estado = rs.getString("ESTADO");
+			Integer quantidade = rs.getInt("QUANTIDADE");
+			double valor_Total  = rs.getDouble("VALOR_TOTAL");
+			String data_venda = rs.getString("DATA_VENDA");
+			
+			
+			
+		listaVenda.add(new Venda(id_venda, nome, estado,quantidade, valor_Total,data_venda));
+			
+    	}
+    	
+    	}catch (SQLException ex) {
+    		  System.out.println(ex.getMessage());
+		}
+    	return listaVenda;
+    }
+    
+    
+    
+    
     public static Venda getVenda (int id_venda) {
     	
     	Venda venda = new Venda(id_venda);

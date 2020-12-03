@@ -72,10 +72,18 @@
                 <br>
                 <br>
             </center>
-            <div style="float: rigtht">
-            <input type="date">
-            <input type="date"> 
-            </div>
+            
+            <form action="/LojaDeRoupas/entrada?acao=VendaConsultar&consulta=S" method="post">
+            
+            <label >Data início</label>
+            <input type="date" name="dataIni">
+            <label >Data Fim</label>
+            <input type="date" name="dataFim"> 
+
+            <button class="btn btn-primary" type="submit">Buscar</button>
+            </form>
+            <br>
+            
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa fa-table" aria-hidden="true"></i> Vendas

@@ -17,12 +17,26 @@ public class VendaConsultar implements Acao{
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println("VOU CONSULTAR");
-	       
+		String consulta = "";
+		
+		consulta = request.getParameter("consulta");
+		
+		System.out.println("TIPO CONSULTA"+consulta);
+	    if(consulta == null) {
         List<Venda> listaVenda = vendaDAO.consultarVenda();
         request.setAttribute("listaVendas", listaVenda);
-		
+	    }else {
+	    	System.out.println();
+	    	String dataIni = request.getParameter("dataIni");
+	    	String dataFim = request.getParameter("dataFim");
+	    	
+	    	List<Venda> listaVenda = vendaDAO.consultarVenda(dataIni,dataFim);
+	        request.setAttribute("listaVendas", listaVenda);
+	    	
+	    }
 		return "forward:ConsultarVenda.jsp";
+		
+		
 	}
 
 }
