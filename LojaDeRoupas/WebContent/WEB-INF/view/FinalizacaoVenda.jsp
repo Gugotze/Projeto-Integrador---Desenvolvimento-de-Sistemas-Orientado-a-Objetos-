@@ -130,7 +130,7 @@
         </div>
         <div class="field-container">
             <label for="securitycode">Security Code</label>
-            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+            <input id="securitycode" type="text" pattern="[0-9]*" maxlength="3" inputmode="numeric">
         </div>
     </div>
 </body>
