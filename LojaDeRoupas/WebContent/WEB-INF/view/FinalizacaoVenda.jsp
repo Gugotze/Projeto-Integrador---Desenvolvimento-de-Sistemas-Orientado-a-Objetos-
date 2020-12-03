@@ -1,18 +1,237 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="Jquery/jquery-3.5.1.min.js" ></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 <link href="css/cartao.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
 <script src="js/cartao.js"></script>
-<title>Insert title here</title>
+<title>Brazucas Technology</title>
+
+
 </head>
+
+<script>
+var verifica = false;
+
+var verificaMoney = false;
+
+$(document).ready(function() {
+	
+   $("#creditCard").hide();
+   $("#adicionarMoney").hide();
+   
+   
+  
+});
+
+
+function adicionarCreditCard(){
+	
+	   if(verifica){
+     		$("#creditCard").hide(500);
+     verifica = false;
+	   }else {
+		   $("#adicionarMoney").hide();
+       		$("#creditCard").show(500);
+       		verifica = true;
+	   }
+   }
+   
+function adicionarMoney(){
+	  if(verificaMoney){
+		     $("#adicionarMoney").hide(500);
+		     verificaMoney = false;
+			   }else {
+				   $("#creditCard").hide();
+		       $("#adicionarMoney").show(500);
+		       verificaMoney = true;
+			   }
+}
+
+function buscaCliente(){
+	var cpf = document.getElementById('cpf').value;
+	$.get("/LojaDeRoupas/ClienteBusca?cpf="+cpf, function resposta( resposta ){
+		
+		var split = resposta.split(';');
+		document.getElementById('nome').innerHTML = split[0];
+		document.getElementById('id').value = split[1];
+		alert('Resposta'+resposta);
+		
+	});
+	
+}
+
+function calculaDesconto(){
+	var valorDesconto = document.getElementById('percentDesconto').value;
+	var total =  document.getElementById('valor_Total').value;
+	
+	alert(document.getElementById('percentDesconto').value);
+	
+	if(valorDesconto == 3){
+		descontar = total * 0.03; 
+		total = total - descontar;
+		total = parseFloat(total.toFixed(2));
+		document.getElementById('desconto').value = descontar;
+		document.getElementById('total').value = total;
+		return;
+	}
+	if(valorDesconto == 5){
+		descontar = total * 0.05; 
+		total = total - descontar;
+		total = parseFloat(total.toFixed(2));
+		document.getElementById('desconto').value = descontar;
+		document.getElementById('total').value = total;
+		return;
+	}
+	if(valorDesconto == 10){
+		descontar = total * 0.10; 
+		total = total - descontar;
+		total = parseFloat(total.toFixed(2));
+		document.getElementById('desconto').value = descontar;
+		document.getElementById('total').value = total;
+		return;
+	}
+	if(valorDesconto == 15){
+		descontar = total * 0.15; 
+		total = total - descontar;
+		total = parseFloat(total.toFixed(2));
+		document.getElementById('desconto').value = descontar;
+		document.getElementById('total').value = total;
+		return;
+	}
+	
+}
+
+function calcularTroco(){
+	console.log('entrei')
+	var total =  document.getElementById('valor_Total').value;
+	var recebido =document.getElementById('totalRecebido').value;
+	var troco = recebido - total;
+	troco = parseFloat(troco.toFixed(2));
+	document.getElementById('troco').value = troco;
+}
+
+   
+   
+</script>
 <body>
-	 <div class="payment-title">
-        <h1>Payment Information</h1>
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <c:if test = "${sessionScope.usuario.tipo == 'G'}">     
+  <a class="navbar-brand" href="entrada?acao=Index"> <i class="fa fa-home" aria-hidden="true"></i> </a>
+  </c:if>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cadastros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">Listar Clientes</a><br/>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=NovoClienteForm">Cadastrar Clientes</a><br/>
+          <c:if test = "${sessionScope.usuario.tipo == 'G'}">
+          <a class="dropdown-item" href="entrada?Acao=NovoFuncionarioForm"> Consulta de Vendas</a><br/>
+      	  </c:if>
+      	  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
+		  <a class="dropdown-item" href="entrada?acao=NovaVendaForm">Realizar Venda</a></br>
+		  </c:if>
+		  <c:if test = "${sessionScope.usuario.tipo == 'G'}">
+		  <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ProdutoConsultar">Produtos</a>
+		  </c:if>
+		  
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown no-arrow" style="margin-left: 1235px;">
+        <a class="nav-link" href="#" id="userDropdown" role="button">
+          <i class="fa fa-sign-out" data-toggle="modal" data-target="#logoutModal" aria-hidden="true"></i>
+        </a>
+       <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Configurações</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+         -->
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+        <nav></nav>
+
+<div class="container">
+
+<h1>FINALIZAR VENDA CLIENTE</h1>
+<h2>Nome:</h2><h2 id="nome"></h2>
+
+
+
+<form action="/LojaDeRoupas/entrada?acao=VendaCadastrar" method="post">
+    <div class="form-group">
+      <label for="cpf">CPF Cliente</label>
+      <input type="text" class="form-control" id="cpf" placeholder="Email">
+      <a onclick="buscaCliente()"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
+    <div class="form-group">
+      <label for="data_venda">Data</label>
+      <input type="date" class="form-control" id="data_venda" name="data_venda" placeholder="Email">
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="codFilial">Filial</label>
+      <select class="form-control" name="codFilial" style="margin-top: 4px;">
+	<c:forEach items="${filial}" var="filial">
+          <option value="${filial.codfilial}">${filial.estado}</option>
+    </c:forEach>
+  	</select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="percentDesconto">Desconto</label>
+      <select class="form-control" name="percentDesconto" id="percentDesconto" name="percentDesconto" style="margin-top: 4px;" onchange="calculaDesconto()">
+          <option value="0">0%</option>
+          <option value="3">3%</option>
+          <option value="5">5%</option>
+          <option value="10">10%</option>
+          <option value="15">15%</option>
+       </select>
+    </div>
+  </div>
+
+  
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="valor_Total">Total</label>
+    <input type="text" class="form-control" id="valor_Total" name="valor_Total" placeholder="Total" value="${total}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="desconto">Desconto</label>
+      <input type="text"  class="form-control" name="desconto" id="desconto" placeholder="desconto">
+    </div>
+  </div>
+  
+  <label for="forma">Forma de pagamento</label>
+  <div class="form-group">
+   <a onclick="adicionarMoney()"> <i class="fa fa-money fa-6" aria-hidden="true"></i></a>
+   <a onclick="adicionarCreditCard()"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
+  </div>
+  
+  
+  
+  <div class="form-group">
+  <section id="creditCard">
+	 
     <div class="container preload">
         <div class="creditcard">
             <div class="front">
@@ -132,6 +351,36 @@
             <label for="securitycode">Security Code</label>
             <input id="securitycode" type="text" pattern="[0-9]*" maxlength="3" inputmode="numeric">
         </div>
+    </div>
+    </section>
+  </div>
+  
+  
+  
+  
+  <div class="form-row" id="adicionarMoney">
+    <div class="form-group col-md-6">
+      <label for="totalRecebido">Total recebido</label>
+      <input type="text" onchange="calcularTroco()" class="form-control" name="totalRecebido" id="totalRecebido" placeholder="Total recebido">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="troco">Troco</label>
+      <input type="text"  class="form-control" name="troco" id="troco" placeholder="troco">
+    </div>
+  </div>
+  
+  <input type="text" id="id" name="cod_cliente">
+  
+  
+  
+  <button type="submit" class="btn btn-primary">Finalizar venda</button>
+</form>
+
+
+
+
+
+    
     </div>
 </body>
 </html>

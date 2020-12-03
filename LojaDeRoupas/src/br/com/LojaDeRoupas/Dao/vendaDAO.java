@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.servlet.http.HttpSession;
+
+import br.com.LojaDeRoupas.Model.Carrinho;
 import br.com.LojaDeRoupas.Model.Venda;
 
 
@@ -18,10 +22,15 @@ import br.com.LojaDeRoupas.Model.Venda;
 public class vendaDAO{
 	
 	private static final String DELETAR_VENDA = "DELETE FROM VENDA WHERE ID_VENDA= ? ";
-    private static final String CONSULTAR_VENDA = "SELECT V.ID_VENDA, C.NOME, F.ESTADO, P.TIPO, V.QUANTIDADE, V.VALOR_TOTAL,V.DATA_VENDA FROM VENDA V\r\n"
-    		+ "INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.COD_CLIENTE\r\n"
-    		+ "INNER JOIN FILIAL F ON F.ID_FILIAL = V.COD_FILIAL\r\n"
-    		+ "INNER JOIN PRODUTO P ON P.ID_PRODUTO = V.COD_PRODUTO; ";
+    private static final String CONSULTAR_VENDA = "\n"
+    		+ "Select ID_VENDA,C.NOME, F.ESTADO,a.QUANTIDADE, VALOR_TOTAL,DATA_VENDA from VENDA a \n"
+    		+ "inner join VENDA_HAS_PRODUTO b on a.ID_VENDA = b.COD_VENDA\n"
+    		+ "INNER JOIN FILIAL F ON F.ID_FILIAL = a.COD_FILIAL\n"
+    		+ "INNER JOIN PRODUTO P ON P.ID_PRODUTO = b.COD_PRODUTO\n"
+    		+ "INNER JOIN CLIENTE C ON C.ID_CLIENTE = a.COD_CLIENTE\n"
+    		+ "where 1 = 1\n"
+    		+ "group by ID_VENDA\n"
+    		+ "order by DATA_VENDA desc;";
     private static final String GET_VENDA = "SELECT * FROM VENDA WHERE  ID_VENDA= ? ";
     private static final String UPDATE_VENDA = "UPDATE VENDA SET DATA_VENDA = ?, COD_CLIENTE = ?, COD_PRODUTO = ?, COD_FILIAL = ?, QUANTIDADE = ?, DESCONTO = ?, VALOR_TOTAL = ? WHERE ID_VENDA = ? ";
     private static final String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_PRODUTO, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ?, ? ) ";
@@ -35,6 +44,7 @@ public class vendaDAO{
     	Connection con = ConexaoDB.getConnection();
     	String query = CONSULTAR_VENDA;
     	PreparedStatement ps = con.prepareStatement(query);
+    	System.out.println(ps);
     	ResultSet rs = ps.executeQuery();
     	
     	
@@ -43,14 +53,13 @@ public class vendaDAO{
     		Integer id_venda = rs.getInt("ID_VENDA");
     		String nome =  rs.getString("NOME");
 			String estado = rs.getString("ESTADO");
-			String tipo = rs.getString("TIPO");
 			Integer quantidade = rs.getInt("QUANTIDADE");
 			double valor_Total  = rs.getDouble("VALOR_TOTAL");
 			String data_venda = rs.getString("DATA_VENDA");
 			
 			
 			
-		listaVenda.add(new Venda(id_venda, nome, estado, tipo, quantidade, valor_Total,data_venda));
+		listaVenda.add(new Venda(id_venda, nome, estado,quantidade, valor_Total,data_venda));
 			
     	}
     	
@@ -114,7 +123,14 @@ public class vendaDAO{
     	
     }
     
-    public static void inserirVenda (Venda venda) throws SQLException, ClassNotFoundException{
+    public static void inserirVenda (Venda venda, List<Carrinho> listaVenda) throws SQLException, ClassNotFoundException{
+    	System.out.println("INSERIR VENDA");
+    	 String INSERIR_VENDA = "INSERT INTO VENDA (DATA_VENDA, COD_CLIENTE, COD_FILIAL, QUANTIDADE, DESCONTO, VALOR_TOTAL) VALUES (?, ?, ?, ?, ?, ? ) ";
+    	 int id = 0;
+    	 String BuscaId = "select LAST_INSERT_ID() as id";
+    	 String sqlInsertProdutos = "INSERT INTO VENDA_HAS_PRODUTO(COD_VENDA,COD_PRODUTO,VALOR,QUANTIDADE) VALUES(?,?,?,?); ";
+    	 System.out.println("INSERIR VENDA");
+    	
     	
     	try {
     	Connection con = ConexaoDB.getConnection();
@@ -122,20 +138,75 @@ public class vendaDAO{
     	PreparedStatement ps = con.prepareStatement(query);
     	ps.setString(1, venda.getData_venda());
     	ps.setInt(2, venda.getCod_cliente());
-    	ps.setInt(3, venda.getCod_produto());
-    	ps.setInt(4, venda.getCod_filial());
-    	ps.setInt(5, venda.getQuantidade());
-    	ps.setDouble(6, venda.getDesconto());
-    	ps.setDouble(7, venda.getValor_Total());
+    	ps.setInt(3, venda.getCod_filial());
+    	ps.setInt(4, venda.getQuantidade());
+    	ps.setDouble(5, venda.getDesconto());
+    	ps.setDouble(6, venda.getValor_Total());
     	System.out.println("INSERT VENDA----->" + ps);
+    	
     	ps.execute();
+    	
+    
+    	
     	}catch (SQLException e) {
 			System.out.print(e.getMessage());
 		}
+    	
+    	System.out.println("INSERIR VENDA");
+    	//inserir a venda agora vou buscar o id da venda para inserir os produtos 	
+    	try {
+        	Connection con = ConexaoDB.getConnection();
+        	PreparedStatement ps = con.prepareStatement(BuscaId);
+		
+        	ResultSet rs = ps.executeQuery();
+		
+        	if(rs.next()) {
+        		
+        		id = rs.getInt("id");
+        		
+        		
+        		
+        	}
+		}catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+    	
+    	
+    	System.out.println("INSERIR VENDA");
+    	//vou inserir os produtos
+    	
+    	try {
+        	Connection con = ConexaoDB.getConnection();
+        	PreparedStatement ps = con.prepareStatement(sqlInsertProdutos);
+        	for(Carrinho c : listaVenda) {
+        		System.out.println("INSERIR VENDA");
+        		ps.setInt(1, id);
+        		ps.setInt(2, c.get_id());
+        		ps.setDouble(3, c.get_preco());
+        		ps.setInt(4, c.get_qtd());
+        		System.out.println("INSERT VENDA_HAS_PRODUTO----->" + ps);
+        		ps.execute();
+        	}
+        }catch (SQLException e) {
+    			System.out.print(e.getMessage());
+    	}
+    	
+    	
+		
+		
+    	
+    	
+    	
     }
 	
+    
+    
+    
+    
+    
+    
       public static void deletarVenda(int id_venda) throws ClassNotFoundException, SQLException {
-        
+    
     	  
     	  
     	  

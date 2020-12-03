@@ -72,6 +72,10 @@
                 <br>
                 <br>
             </center>
+            <div style="float: rigtht">
+            <input type="date">
+            <input type="date"> 
+            </div>
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa fa-table" aria-hidden="true"></i> Vendas
@@ -84,7 +88,7 @@
                                     <th>Cod.Venda</th>
                                     <th>Nome Cliente</th>
                                     <th>Filial Estado</th>
-                                    <th>Tipo Produto</th>
+                                    
                                     <th>Quantidade</th>
                                     <th>Valor total</th>
                                     <th>Data Venda</th>
@@ -99,7 +103,6 @@
                                                 <td>${venda.id_venda}</td>
                                                 <td>${venda.nome}</td>
                                                 <td>${venda.estado}</td>
-                                                <td>${venda.tipo}</td>
                                                 <td>${venda.quantidade}</td>
                                                 <td>${venda.valor_Total}</td>
                                                 <td>${venda.data_venda}</td>
@@ -116,7 +119,7 @@
                                             <th>Cod.Venda</th>
                                             <th>Nome Cliente</th>
                                             <th>Filial Estado</th>
-                                            <th>Tipo Produto</th>
+                                            
                                             <th>Quantidade</th>
                                             <th>Valor total</th>
                                             <th>Data Venda</th>

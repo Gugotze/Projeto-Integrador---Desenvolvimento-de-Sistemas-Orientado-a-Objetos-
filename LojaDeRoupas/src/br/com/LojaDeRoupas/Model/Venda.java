@@ -33,6 +33,17 @@ public class Venda {
         
         
     }
+    
+    public Venda(String data_venda, int cod_cliente, int cod_filial, int qtd, double desconto,double total){
+       this.data_venda = data_venda;
+       this.cod_cliente = cod_cliente;
+       this.cod_filial = cod_filial;
+       this.quantidade = qtd;
+       this.desconto = desconto;
+       this.valor_Total = total;
+        
+        
+    }
 
     public Venda (Integer id_venda) {
     	this.id_venda=id_venda;
@@ -66,6 +77,16 @@ public class Venda {
 
 	public Venda() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Venda(Integer id_venda2, String nome2, String estado2, Integer quantidade2, double valor_Total2,
+			String data_venda2) {
+		this.id_venda = id_venda2;
+		this.nome = nome2;
+		this.estado = estado2;
+		this.quantidade = quantidade2;
+		this.valor_Total = valor_Total2;
+		this.data_venda = data_venda2;
 	}
 
 	public int getId_venda() {
