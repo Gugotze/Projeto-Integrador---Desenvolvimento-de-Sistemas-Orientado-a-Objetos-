@@ -102,7 +102,7 @@
           <h6 class="dropdown-header">Cadastros:</h6>
           <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ClienteConsultar">Listar Clientes</a>
           <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=NovoClienteForm">Cadastrar Clientes</a>
-          <a class="dropdown-item" href="entrada?Acao=NovoFuncionarioForm">Cadastrar Funcionario</a>
+          <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=FuncionarioConsultar">Funcionarios</a>
           <a class="dropdown-item" href="/LojaDeRoupas/entrada?acao=ProdutoConsultar">Produtos</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Venda:</h6>

@@ -25,7 +25,7 @@ import br.com.LojaDeRoupas.Util.Utils;
 /**
  * Servlet implementation class FuncionarioServlet
  */
-@WebServlet("/Funcionario")
+//@WebServlet("/Funcionario")
 public class FuncionarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
