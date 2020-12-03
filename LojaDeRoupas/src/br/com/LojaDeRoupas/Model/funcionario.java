@@ -241,6 +241,14 @@ public abstract class funcionario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
     
     
     
