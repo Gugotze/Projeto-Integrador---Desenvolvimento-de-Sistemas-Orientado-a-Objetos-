@@ -176,7 +176,7 @@ function calcularTroco(){
 <form action="/LojaDeRoupas/entrada?acao=VendaCadastrar" method="post">
     <div class="form-group">
       <label for="cpf">CPF Cliente</label>
-      <input type="text" class="form-control" id="cpf" placeholder="CPF">
+      <input type="text" class="form-control" id="cpf" placeholder="CPF" required="required">
       <a onclick="buscaCliente()"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
     <div class="form-group">
@@ -364,7 +364,7 @@ function calcularTroco(){
     </div>
   </div>
   
-  <input type="hidden" id="id" name="cod_cliente">
+  <input type="text" id="id" name="cod_cliente">
   
   
   

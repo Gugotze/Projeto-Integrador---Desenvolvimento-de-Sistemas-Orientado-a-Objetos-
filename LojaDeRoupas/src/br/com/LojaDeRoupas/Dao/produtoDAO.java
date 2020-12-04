@@ -40,6 +40,7 @@ public class produtoDAO {
     		String filial = rs.getString("ESTADO");
     		String path = rs.getString("PATH");
 			System.out.println(nome);
+			System.out.println(codProduto);
 		listaProdutos.add(new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial,path));
 			
     	}
@@ -113,7 +114,7 @@ public class produtoDAO {
 		
 		produto produto = null;
 
-    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL WHERE ID_PRODUTO = ?;";
+    	String sqlConsulta = "SELECT ID_PRODUTO,NOME, TIPO,QUANTIDADE, VALOR_COMPRA,VALOR_VENDA,ESTADO,PATH FROM PRODUTO a INNER JOIN  ESTOQUE b  ON ID_PRODUTO = b.COD_PRODUTO_FK INNER JOIN FILIAL c ON c.ID_FILIAL = a.COD_FILIAL WHERE ID_PRODUTO = ?;";
     	
     	try {
     		
@@ -134,10 +135,14 @@ public class produtoDAO {
     		double valorCompra = rs.getDouble("VALOR_COMPRA");
     		double valorVenda = rs.getDouble("VALOR_VENDA");
     		String filial = rs.getString("ESTADO");
+    		String path = rs.getString("PATH");
+			System.out.println(nome);
+			System.out.println(codProduto);
+			produto =	new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial,path);
     		
     		System.out.println("MINHA QUANTIDADE------->"+quantidade);
 			
-		produto = new produto(codProduto,nome,tipo,quantidade,valorCompra,valorVenda,filial);
+		 
 			
     	}
     	

@@ -19,6 +19,8 @@
     
     <script>
 		function adicionar(id){
+			alert(id);
+			alert("/LojaDeRoupas/Carrinho?id="+id+"&action=adicionar")
 			$.get("/LojaDeRoupas/Carrinho?id="+id+"&action=adicionar", function resposta( resposta ){
 				alert('Produto adicionado com sucesso!');
 				
